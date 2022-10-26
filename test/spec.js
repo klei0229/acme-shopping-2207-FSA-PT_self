@@ -1,10 +1,33 @@
 const { expect } = require('chai');
 const { syncAndSeed, User } = require('../server/db');
 const jwt = require('jsonwebtoken');
+const app = require('supertest')(require('../server/app'));
 describe('The Login Process', ()=> {
   let seed;
   beforeEach(async()=> {
     seed = await syncAndSeed();
+  });
+  describe('api routes', ()=> {
+    describe('POST /api/auth', ()=> {
+      describe('valid credentials', ()=> {
+        it('returns a token', async()=> {
+          const response = await app.post('/api/auth')
+            .send({ username: 'lucy', password: '123'});
+          expect(response.status).to.equal(200);
+        });
+      });
+    });
+    describe('GET /api/auth', ()=> {
+      describe('valid token', ()=> {
+        it('returns the user', async()=> {
+          const token = jwt.sign({ id: seed.users.larry.id }, process.env.JWT);
+          const response = await app.get('/api/auth')
+            .set('authorization', token);
+          expect(response.status).to.equal(200);
+          expect(response.body.username).to.equal('larry');
+        });
+      });
+    });
   });
   describe('password storage', ()=> {
     it('password is hashed', ()=> {

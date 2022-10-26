@@ -1,5 +1,11 @@
 const Sequelize = require('sequelize');
-const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/acme_shopping_db');
+const config = {
+};
+
+if(process.env.QUIET){
+  config.logging = false;
+}
+const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/acme_shopping_db', config);
 const { STRING, UUID, UUIDV4 } = Sequelize;
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
