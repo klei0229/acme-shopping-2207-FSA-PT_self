@@ -28,6 +28,45 @@ const User = conn.define('user', {
   }
 });
 
+User.prototype.getCart = async function(){
+  let cart = await conn.models.order.findOne({
+    where: {
+      userId: this.id,
+      isCart: true
+    }
+  });
+  if(!cart){
+    cart = await conn.models.order.create({
+      userId: this.id
+    });
+  }
+  cart = await conn.models.order.findByPk(
+    cart.id,
+    {
+      include: [
+        conn.models.lineItem
+      ]
+    }
+  );
+  return cart;
+}
+
+User.prototype.addToCart = async function({ product, quantity}){
+  const cart = await this.getCart();
+  let lineItem = cart.lineItems.find( lineItem => {
+    return lineItem.productId === product.id; 
+  });
+  if(lineItem){
+    lineItem.quantity += quantity;
+    await lineItem.save();
+  }
+  else {
+    await conn.models.lineItem.create({ orderId: cart.id, productId: product.id, quantity });
+  }
+  return this.getCart();
+};
+
+
 User.addHook('beforeSave', async(user)=> {
   if(user.changed('password')){
     user.password = await bcrypt.hash(user.password, 5);
