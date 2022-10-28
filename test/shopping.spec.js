@@ -43,6 +43,47 @@ describe('The Shopping Process', ()=> {
         expect(cart.lineItems[0].quantity).to.equal(5);
       });
     });
-
+  });
+  describe('creating an order', ()=> {
+    it('returns an order', async()=> {
+      const foo = seed.products.foo; 
+      const larry = seed.users.larry;
+      const cart = await larry.addToCart({ product: foo, quantity: 2 });
+      const order = await larry.createOrder();
+      expect(order.isCart).to.equal(false);
+    });
+  });
+  describe('decrementing a quantity in a cart', ()=> {
+    describe('new quantity is still greater than zero', ()=> {
+      it('lineItem gets updated', async()=> {
+        const foo = seed.products.foo; 
+        const bar = seed.products.bar; 
+        const larry = seed.users.larry;
+        await larry.addToCart({ product: foo, quantity: 2 });
+        let cart = await larry.addToCart({ product: bar, quantity: 3 });
+        expect(cart.lineItems.length).to.equal(2);
+        cart = await larry.removeFromCart({ product: bar, quantityToRemove: 2 });
+        const lineItem = cart.lineItems.find(lineItem => {
+          return lineItem.product.name === 'bar';
+        });
+        expect(lineItem).to.be.ok;
+        expect(lineItem.quantity).to.equal(1);
+      });
+    });
+    describe('new quantity is zero', ()=> {
+      it('lineItem gets updated', async()=> {
+        const foo = seed.products.foo; 
+        const bar = seed.products.bar; 
+        const larry = seed.users.larry;
+        await larry.addToCart({ product: foo, quantity: 2 });
+        let cart = await larry.addToCart({ product: bar, quantity: 3 });
+        expect(cart.lineItems.length).to.equal(2);
+        cart = await larry.removeFromCart({ product: bar, quantityToRemove: 3 });
+        const lineItem = cart.lineItems.find(lineItem => {
+          return lineItem.product.name === 'bar';
+        });
+        expect(lineItem).to.not.be.ok;
+      });
+    });
   });
 });
