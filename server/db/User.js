@@ -117,6 +117,10 @@ User.findByToken = async function(token){
   }
 }
 
+User.prototype.generateToken = function(){
+  return jwt.sign({ id: this.id }, JWT);
+};
+
 User.authenticate = async function({ username, password }){
   const user = await this.findOne({
     where: {
