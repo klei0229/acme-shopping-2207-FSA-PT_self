@@ -28,6 +28,14 @@ const User = conn.define('user', {
   }
 });
 
+User.prototype.createOrder = async function(){
+  const cart = await this.getCart();
+  cart.isCart = false;
+  await cart.save();
+  return cart;
+
+}
+
 User.prototype.getCart = async function(){
   let cart = await conn.models.order.findOne({
     where: {
@@ -44,7 +52,12 @@ User.prototype.getCart = async function(){
     cart.id,
     {
       include: [
-        conn.models.lineItem
+        {
+          model: conn.models.lineItem,
+          include: [
+            conn.models.product
+          ]
+        }
       ]
     }
   );
@@ -62,6 +75,21 @@ User.prototype.addToCart = async function({ product, quantity}){
   }
   else {
     await conn.models.lineItem.create({ orderId: cart.id, productId: product.id, quantity });
+  }
+  return this.getCart();
+};
+
+User.prototype.removeFromCart = async function({ product, quantityToRemove}){
+  const cart = await this.getCart();
+  const lineItem = cart.lineItems.find( lineItem => {
+    return lineItem.productId === product.id; 
+  });
+  lineItem.quantity = lineItem.quantity - quantityToRemove;
+  if(lineItem.quantity > 0){
+    await lineItem.save();
+  }
+  else {
+    await lineItem.destroy();
   }
   return this.getCart();
 };
