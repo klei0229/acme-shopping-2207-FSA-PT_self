@@ -23,6 +23,11 @@ const conn = new Sequelize(
 
 module.exports = conn;
 
+//Fernando's comment
+// Ethan's comment
+
+
+
 
 //beejay test try 2
 
