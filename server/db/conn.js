@@ -12,3 +12,5 @@ const conn = new Sequelize(
 module.exports = conn;
 
 // Ethan's comment
+
+//Kevin's comment 
