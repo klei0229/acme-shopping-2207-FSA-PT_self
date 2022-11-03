@@ -12,7 +12,7 @@ const Home = ()=> {
         Welcome { auth.username }!!
         <button onClick={()=> dispatch(logout())}>Logout</button>
         {
-          !!auth.avatar && <img src={`data:image/png;base64,${auth.avatar}`} />
+          !!auth.avatar && <img src={auth.avatar} />
         }
       </div>
     </div>
