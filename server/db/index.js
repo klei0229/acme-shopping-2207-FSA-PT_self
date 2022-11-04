@@ -1,6 +1,8 @@
 const conn = require('./conn');
 const User = require('./User');
-const Product = require('./Product');
+// const Product = require('./Product');
+//test
+const Bundle = require('./Bundle');
 const Order = require('./Order');
 const LineItem  = require('./LineItem');
 const fs = require('fs');
@@ -9,7 +11,7 @@ const path = require('path');
 Order.belongsTo(User);
 LineItem.belongsTo(Order);
 Order.hasMany(LineItem);
-LineItem.belongsTo(Product);
+LineItem.belongsTo(Bundle);
 
 const getImage = (path)=> {
   return new Promise((resolve, reject)=> {
@@ -31,32 +33,31 @@ const syncAndSeed = async()=> {
     User.create({ username: 'moe', password: '123', avatar }),
     User.create({ username: 'lucy', password: '123' }),
     User.create({ username: 'larry', password: '123' }),
-    Product.create({ name: 'foo' }),
-    Product.create({ name: 'bar' }),
-    Product.create({ name: 'bazz' }),
+    Bundle.create({ name: 'foo' }),
+    Bundle.create({ name: 'bar' }),
+    Bundle.create({ name: 'bazz' }),
     User.create({ username: 'ethyl', password: '123' }),
   ]);
 
   const cart = await ethyl.getCart();
-  await ethyl.addToCart({ product: bazz, quantity: 3});
-  await ethyl.addToCart({ product: foo, quantity: 2});
+  await ethyl.addToCart({ bundle: bazz, quantity: 3 });
+  await ethyl.addToCart({ bundle: foo, quantity: 2 });
   return {
     users: {
       moe,
       lucy,
-      larry
+      larry,
     },
-    products: {
+    bundle: {
       foo,
       bar,
-      bazz
-    }
+      bazz,
+    },
   };
 };
-
 
 module.exports = {
   syncAndSeed,
   User,
-  Product
+  Bundle,
 };
