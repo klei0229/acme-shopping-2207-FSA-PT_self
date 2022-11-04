@@ -1,5 +1,5 @@
 const conn = require('./conn');
-const { STRING, UUID, UUIDV4 } = conn.Sequelize;
+const { STRING, UUID, UUIDV4, TEXT } = conn.Sequelize;
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const JWT = process.env.JWT;
@@ -46,6 +46,17 @@ const User = conn.define('user', {
       notEmpty: true,
     },
   },
+  avatar: {
+    type: TEXT,
+    get: function(){
+      const prefix = 'data:image/png;base64,';
+      const data = this.getDataValue('avatar');
+      if(data.startsWith(prefix)){
+        return data;
+      }
+      return `${prefix}${data}`;
+    }
+  }
 });
 
 User.prototype.createOrder = async function () {
