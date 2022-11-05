@@ -14,23 +14,23 @@ const Order = conn.define('order', {
   },
   userId: {
     type: UUID,
-    allowNull: false,
+    // allowNull: false,
   },
   addressId: {
     type: UUID,
-    allowNull: false,
+    // allowNull: false,
   },
   total: {
     type: DECIMAL,
-    allowNull: false,
+    // allowNull: false,
   },
   tax: {
     type: DECIMAL,
-    allowNull: false,
+    // allowNull: false,
   },
   discount: {
     type: DECIMAL,
-    allowNull: false,
+    // allowNull: false,
   },
 });
 
