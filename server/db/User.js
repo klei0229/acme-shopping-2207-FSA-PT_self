@@ -27,36 +27,39 @@ const User = conn.define('user', {
   },
   firstName: {
     type: STRING,
-    allowNull: false,
+    // allowNull: false,
     validate: {
       notEmpty: true,
     },
   },
   lastName: {
     type: STRING,
-    allowNull: false,
+    // allowNull: false,
     validate: {
       notEmpty: true,
     },
   },
   email: {
     type: STRING,
-    allowNull: false,
+    // allowNull: false,
     validate: {
       notEmpty: true,
     },
   },
   avatar: {
     type: TEXT,
-    get: function(){
+    get: function () {
       const prefix = 'data:image/png;base64,';
       const data = this.getDataValue('avatar');
-      if(data.startsWith(prefix)){
+      if (!data) {
+        return data;
+      }
+      if (data.startsWith(prefix)) {
         return data;
       }
       return `${prefix}${data}`;
-    }
-  }
+    },
+  },
 });
 
 User.prototype.createOrder = async function () {
@@ -82,17 +85,17 @@ User.prototype.getCart = async function () {
     include: [
       {
         model: conn.models.lineItem,
-        include: [conn.models.product],
+        include: [conn.models.bundle],
       },
     ],
   });
   return cart;
 };
 
-User.prototype.addToCart = async function ({ product, quantity }) {
+User.prototype.addToCart = async function ({ bundle, quantity }) {
   const cart = await this.getCart();
   let lineItem = cart.lineItems.find((lineItem) => {
-    return lineItem.productId === product.id;
+    return lineItem.bundleId === bundle.id;
   });
   if (lineItem) {
     lineItem.quantity += quantity;
@@ -100,17 +103,17 @@ User.prototype.addToCart = async function ({ product, quantity }) {
   } else {
     await conn.models.lineItem.create({
       orderId: cart.id,
-      productId: product.id,
+      bundleId: bundle.id,
       quantity,
     });
   }
   return this.getCart();
 };
 
-User.prototype.removeFromCart = async function ({ product, quantityToRemove }) {
+User.prototype.removeFromCart = async function ({ bundle, quantityToRemove }) {
   const cart = await this.getCart();
   const lineItem = cart.lineItems.find((lineItem) => {
-    return lineItem.productId === product.id;
+    return lineItem.bundleId === bundle.id;
   });
   lineItem.quantity = lineItem.quantity - quantityToRemove;
   if (lineItem.quantity > 0) {

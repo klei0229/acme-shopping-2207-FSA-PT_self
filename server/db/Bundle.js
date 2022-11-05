@@ -16,21 +16,21 @@ const Bundle = conn.define('bundle', {
   },
   description: {
     type: STRING,
-    allowNull: false,
+    //allowNull: false,
     validate: {
       notEmpty: true,
     },
   },
   price: {
     type: DECIMAL,
-    allowNull: false,
+    //allowNull: false,
     validate: {
       notEmpty: true,
     },
   },
   imageUrl: {
     type: STRING,
-    allowNull: false,
+    //allowNull: false,
     validate: {
       notEmpty: true,
     },
