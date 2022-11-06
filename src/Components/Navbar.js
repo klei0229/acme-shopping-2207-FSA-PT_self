@@ -20,25 +20,35 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 
+
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Cart from './Cart';
+import { logout } from '../store';
+
+
 // const pages = ['Home', 'Bundles', 'Snacks'];
-const settings = [ 'Account', 'Cart', 'Dashboard', 'Logout'];
+// const settings = [ 'Account', 'Cart', 'Dashboard', 'Logout'];
 
-
+const settings = [
+    {name:'Account', url:"/profile"},
+    {name:'Cart', url:"/cart"},
+    {name:'Checkout', url:"/checkout"},
+    {name:'Dashboard', url:"/dashboard"}
+]
 
 const pages = [
     {name:'Home', url:"/"},
     {name:'Bundles', url:"/bundles"},
-    {name:'Snacks', url:"/cart"},
+    {name:'Snacks', url:"/snacks"},
 ];
-
-
-
-
-
 
 const companyName = "Company";
 
 function ResponsiveAppBar() {
+
+  const dispatch = useDispatch();
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -158,12 +168,23 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+
+            {/* On Smaller Window */}
               {pages.map((page) => (
                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page.name}</Typography>
+                  <Link to={page.url}
+                        style={{textDecoration:"none"}}
+                  >
+                        <Typography textAlign="center">{page.name}</Typography>
+                  </Link>
+                
                 </MenuItem>
               ))}
+              
             </Menu>
+
+
+            
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
@@ -188,14 +209,20 @@ function ResponsiveAppBar() {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-              href={page.url}
-              key={page.name}
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: 'white', display: 'block' }}
+              
+              <Link to={page.url}
+                    underline="hover"
+                    style={{textDecoration:"none"}}
+                    
               >
-                {page.name}
-              </Button>
+                <Button
+                key={page.name}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                    {page.name}
+                </Button>
+              </Link>
             ))}
           </Box>
           
@@ -236,10 +263,22 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem key={setting} >
+                  
+                  <Link to={setting.url}
+                        style={{textDecoration: "none"}}                
+                  >
+                    <Typography 
+                    textAlign="center"
+                    >
+                    {setting.name}</Typography>
+                </Link>
                 </MenuItem>
               ))}
+              
+              <MenuItem onClick={()=> {console.log('logout');dispatch(logout())}}>
+                <Typography>Logout</Typography>
+                </MenuItem>
             </Menu>
           </Box>
         </Toolbar>

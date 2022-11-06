@@ -16,6 +16,9 @@ import {
 
 const Bundle = () => {
 	const { bundle } = useSelector((state) => state);
+	//still waiting on get route
+	
+	console.log(bundle);
 	return (
 		<div>
 			<main>

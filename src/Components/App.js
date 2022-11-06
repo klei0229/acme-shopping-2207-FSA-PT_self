@@ -4,6 +4,8 @@ import Login from './Login';
 import Cart from './Cart';
 import Profile from './Profile';
 import Checkout from './Checkout';
+import Bundle from './Bundle';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
@@ -37,6 +39,8 @@ const App = () => {
             <Route path="/cart" element={<Cart />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/bundles" element={<Bundle />} />
+        
           </Routes>
         </div>
       )}
