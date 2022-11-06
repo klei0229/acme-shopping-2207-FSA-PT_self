@@ -12,24 +12,6 @@ import {
   ButtonGroup,
 } from '@mui/material';
 
-const bundles = [
-  {
-    name: 'South Korean Bundle',
-    desc: 'Blurb here...',
-    price: '$9.99',
-  },
-  {
-    name: 'Italian Bundle',
-    desc: 'Blurb here...',
-    price: '$3.45',
-  },
-  {
-    name: 'Christmas Bundle',
-    desc: 'Blurb here...',
-    price: '$3.45',
-  },
-];
-
 const Cart = () => {
   const { cart } = useSelector((state) => state);
   // const displayCounter = true;
