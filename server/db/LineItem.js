@@ -20,7 +20,7 @@ const LineItem = conn.define('lineItem', {
   frequency: {
     type: ENUM('Monthly', 'Annually'),
     defaultValue: 'Monthly',
-    // allowNull: false,
+    allowNull: false,
   },
   bundleId: {
     type: UUID,
