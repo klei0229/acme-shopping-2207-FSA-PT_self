@@ -5,10 +5,6 @@ import Cart from './Cart';
 import Profile from './Profile';
 import Checkout from './Checkout';
 import Bundle from './Bundle';
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchBundles } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
