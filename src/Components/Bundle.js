@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
 	Typography,
 	Button,
@@ -18,9 +19,13 @@ const Bundle = () => {
 	const { bundles } = useSelector((state) => state);
 	return (
 		<div>
-			<ul>
+			<ul key={'allbundles'}>
 				{bundles.map((bundle) => {
-					return <li key={bundle.id}>{bundle.name}</li>;
+					return (
+						<li key={bundle.id}>
+							<Link to={`/bundles/${bundle.id}`}>{bundle.name}</Link>
+						</li>
+					);
 				})}
 			</ul>
 			{/* <main>
