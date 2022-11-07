@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const cart = (state = { lineItems: [] }, action)=> {
   if(action.type === 'SET_CART'){
     return action.cart;
