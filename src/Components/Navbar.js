@@ -76,7 +76,7 @@ function ResponsiveAppBar() {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
     marginLeft: 0,
-    //updated marginRight to 10 
+    //updated marginRight to 10
     marginRight: 10,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -84,7 +84,7 @@ function ResponsiveAppBar() {
       width: 'auto',
     },
   }));
-  
+
   const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
     height: '100%',
@@ -94,7 +94,7 @@ function ResponsiveAppBar() {
     alignItems: 'center',
     justifyContent: 'center',
   }));
-  
+
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
     '& .MuiInputBase-input': {
@@ -115,7 +115,6 @@ function ResponsiveAppBar() {
 
   //Search Bar Code End
 
-
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -126,7 +125,7 @@ function ResponsiveAppBar() {
             noWrap
             component="a"
             href="/"
-            sx={{ 
+            sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
@@ -206,7 +205,6 @@ function ResponsiveAppBar() {
             {companyName}
           </Typography>
 
-
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               
@@ -225,25 +223,23 @@ function ResponsiveAppBar() {
               </Link>
             ))}
           </Box>
-          
+
           {/* Search Bar Component */}
-            <Search>
-                <SearchIconWrapper>
-                    <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                    placeholder="Search…"
-                    inputProps={{ 'aria-label': 'search' }}
-                />
-            </Search>      
-     
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search>
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" /> */}
-                <Avatar
-                    src="/broken-image.jpg"
-                ></Avatar>
+                {/* <Avatar src="/broken-image.jpg"></Avatar> */}
               </IconButton>
             </Tooltip>
             <Menu
@@ -285,7 +281,7 @@ function ResponsiveAppBar() {
       </Container>
     </AppBar>
   );
-};
+}
 
 export default ResponsiveAppBar;
 // export default Navbar;
