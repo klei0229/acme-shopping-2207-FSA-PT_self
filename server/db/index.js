@@ -8,11 +8,13 @@ const LineItem = require('./LineItem');
 const fs = require('fs');
 const path = require('path');
 
+//associations
 Order.belongsTo(User);
-LineItem.belongsTo(Order);
 Order.hasMany(LineItem);
+LineItem.belongsTo(Order);
 LineItem.belongsTo(Bundle);
 Product.belongsTo(Bundle);
+Bundle.hasMany(Product);
 
 const getImage = (path) => {
   return new Promise((resolve, reject) => {
@@ -327,4 +329,5 @@ module.exports = {
   syncAndSeed,
   User,
   Bundle,
+  Product
 };
