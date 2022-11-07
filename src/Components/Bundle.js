@@ -15,10 +15,15 @@ import {
 } from '@mui/material';
 
 const Bundle = () => {
-	const { bundle } = useSelector((state) => state);
+	const { bundles } = useSelector((state) => state);
 	return (
 		<div>
-			<main>
+			<ul>
+				{bundles.map((bundle) => {
+					return <li key={bundle.id}>{bundle.name}</li>;
+				})}
+			</ul>
+			{/* <main>
 				<div>
 					<Container maxWidth='sm'>
 						<Typography
@@ -64,12 +69,12 @@ const Bundle = () => {
 				</div>
 				<Container maxWidth='md'>
 					<Grid container spacing={4}>
-						{bundle.map((bundle) => {
+						{bundles.map((bundle) => {
 							return (
 								<Grid item key={bundle.id} xs='12' sm='6' md='4'>
 									<Card>
 										<CardMedia
-											image='https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.japancandybox.com%2F&psig=AOvVaw2RA6o-w6PduEX-RrtJXMNc&ust=1667744398526000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCIjpy5Wel_sCFQAAAAAdAAAAABAG'
+											image=''
 											title='Snacks'
 										/>
 										<CardContent>
@@ -99,7 +104,7 @@ const Bundle = () => {
 			</main>
 			<footer>
 				<Typography>Footer</Typography>
-			</footer>
+			</footer> */}
 		</div>
 	);
 };
