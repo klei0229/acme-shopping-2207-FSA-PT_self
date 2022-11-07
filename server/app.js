@@ -13,5 +13,8 @@ app.get('/', (req, res) =>
 app.use('/api/auth', require('./api/auth'));
 app.use('/api/orders', require('./api/orders'));
 app.use('/api/users', require('./api/users'));
+app.use('/api/bundles', require('./api/bundles'));
+app.use('/api/products', require('./api/products'));
+
 
 module.exports = app;
