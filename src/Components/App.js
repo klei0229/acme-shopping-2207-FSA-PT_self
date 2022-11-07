@@ -4,8 +4,9 @@ import Login from './Login';
 import Cart from './Cart';
 import Profile from './Profile';
 import Checkout from './Checkout';
+import Bundle from './Bundle';
 import { useSelector, useDispatch } from 'react-redux';
-import { loginWithToken, fetchCart } from '../store';
+import { loginWithToken, fetchCart, fetchBundles } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(loginWithToken());
+		dispatch(fetchBundles());
 	}, []);
 
 	useEffect(() => {
@@ -31,12 +33,14 @@ const App = () => {
 						<Link to='/cart'>Cart</Link>
 						<Link to='/profile'>Profile</Link>
 						<Link to='/checkout'>Checkout</Link>
+						<Link to='/bundles'>Bundles</Link>
 					</nav>
 					<Routes>
 						<Route path='/' element={<h3>Home</h3>} />
 						<Route path='/cart' element={<Cart />} />
 						<Route path='/profile' element={<Profile />} />
 						<Route path='/checkout' element={<Checkout />} />
+						<Route path='/bundles' element={<Bundle />} />
 					</Routes>
 				</div>
 			)}
