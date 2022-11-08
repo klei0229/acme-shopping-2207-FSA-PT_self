@@ -7,6 +7,7 @@ const BundleDetail = () => {
 	const { bundles } = useSelector((state) => state);
 	const bundle = bundles.find((bundle) => bundle.id === id);
 	const products = bundle.products;
+
 	return (
 		<div>
 			<div>
@@ -16,11 +17,14 @@ const BundleDetail = () => {
 				</h4>
 			</div>
 			<div>
-				<ul>
-					{products.map((product) => {
-						return <li key={product.id}>{product.name}</li>;
-					})}
-				</ul>
+				{products.map((product) => {
+					return (
+						<ul key={product.id}>
+							<li>{product.name}</li>
+							<img src={product.imageURL} />
+						</ul>
+					);
+				})}
 			</div>
 		</div>
 	);

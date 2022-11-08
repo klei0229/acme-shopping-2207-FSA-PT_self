@@ -19,7 +19,7 @@ const Bundle = () => {
 	const { bundles } = useSelector((state) => state);
 	return (
 		<div>
-			<ul key={'allbundles'}>
+			<ul>
 				{bundles.map((bundle) => {
 					return (
 						<li key={bundle.id}>
