@@ -12,7 +12,6 @@ import {
   ButtonGroup,
   Select,
   FormControl,
-  FormHelperText,
   MenuItem,
 } from '@mui/material';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
@@ -33,10 +32,6 @@ const Cart = () => {
       [ev.target.name]: ev.target.value,
     });
   };
-
-  useEffect(() => {
-    console.log('cart changed!');
-  }, [cart]);
 
   return (
     <Container>
@@ -112,6 +107,7 @@ const Cart = () => {
                           <MenuItem value={'Monthly'}>Monthly</MenuItem>
                           <MenuItem value={'Annually'}>Annually</MenuItem>
                         </Select>
+                        {/* <FormHelperText>Frequency</FormHelperText> */}
                       </FormControl>
                     </Grid>
 
