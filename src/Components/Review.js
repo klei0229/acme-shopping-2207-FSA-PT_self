@@ -31,7 +31,7 @@ export default function Review() {
       </Typography>
       <List disablePadding>
         {bundles.map((bundle) => (
-          <ListItem key={bundle.name} sx={{ py: 1, px: 0 }}>
+          <ListItem key={bundle.id} sx={{ py: 1, px: 0 }}>
             <ListItemText primary={bundle.name} secondary={bundle.desc} />
             <Typography variant="body2">{bundle.price}</Typography>
           </ListItem>
