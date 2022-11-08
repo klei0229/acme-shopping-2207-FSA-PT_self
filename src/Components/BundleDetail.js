@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 
 const BundleDetail = () => {
 	const { id } = useParams();
 	const { bundles } = useSelector((state) => state);
-	const bundle = bundles.find((bundle) => bundle.id === id);
-	const products = bundle.products;
+	// const bundle = bundles.find((bundle) => bundle.id === id) || {};
+	// const products = bundle.products || null;
+	const [bundle, setBundle] = useState({});
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		const bundle = bundles.find((bundle) => bundle.id === id);
+		if (bundle.length) {
+			setBundle(bundle);
+			setProducts(bundle.products);
+		}
+	}, [bundles]);
 
 	return (
 		<div>
