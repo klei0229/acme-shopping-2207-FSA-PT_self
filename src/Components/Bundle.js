@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
@@ -37,6 +37,12 @@ const theme = createTheme();
 
 const Bundle = () => {
 	const { bundles } = useSelector((state) => state);
+	const [_bundles, setBundles] = useState([]);
+	useEffect(() => {
+		if (bundles.length) {
+			setBundles(bundles);
+		}
+	}, [bundles]);
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
@@ -84,7 +90,7 @@ const Bundle = () => {
 				<Container sx={{ py: 8 }} maxWidth='md'>
 					{/* End hero unit */}
 					<Grid container spacing={4}>
-						{bundles.map((bundle) => (
+						{_bundles.map((bundle) => (
 							<Grid item key={bundle.id} xs={12} sm={6} md={4}>
 								<Card
 									sx={{
