@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { addQtyCart, removeQtyCart } from '../store';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import {
   Container,
   Typography,
@@ -14,34 +16,10 @@ import {
   FormControl,
   MenuItem,
 } from '@mui/material';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
-import { addQtyCart, removeQtyCart } from '../store';
 
 const Cart = () => {
   const { cart } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const [total, setTotal] = useState(0);
-  // const [subtotal, setSubtotal] = useState(0);
-
-  // const [inputs, setInputs] = useState({
-  //   size: '',
-  //   frequency: '',
-  // });
-  // const onChange = (ev) => {
-  //   setInputs({
-  //     ...inputs,
-  //     [ev.target.name]: ev.target.value,
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   setSubtotal(
-  //     cart.lineItems.reduce((accum, lineItem) => {
-  //       return accum + lineItem.quantity * lineItem.bundle.price;
-  //     }, 0)
-  //   );
-  //   setTotal(subtotal * 2);
-  // }, [cart]);
 
   const calcSubtotal = (lineItems) => {
     return parseFloat(
@@ -61,14 +39,16 @@ const Cart = () => {
     ).toFixed(2);
   };
 
-  const subtotal = calcSubtotal(cart.lineItems) || 0;
+  const subtotal = calcSubtotal(cart.lineItems) * 1;
+  const taxes = parseFloat(subtotal * 0.08).toFixed(2);
+  const total = parseFloat(subtotal + taxes * 1).toFixed(2);
 
   return (
     <Container>
       <CssBaseline />
       {cart.lineItems.length > 0 ? (
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={8}>
+          <Grid item xs={12} sm={9}>
             <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
               Cart
             </Typography>
@@ -84,7 +64,6 @@ const Cart = () => {
                     direction="row"
                   >
                     {/* Name */}
-
                     <Grid item xs={12} sm={3}>
                       <ListItemText
                         primary={lineItem.bundle.name}
@@ -93,7 +72,6 @@ const Cart = () => {
                     </Grid>
 
                     {/* Size */}
-
                     <Grid item xs={12} sm={2} align="center">
                       <FormControl sx={{ minWidth: 70 }} size={'small'}>
                         <Select
@@ -116,8 +94,7 @@ const Cart = () => {
                       </FormControl>
                     </Grid>
 
-                    {/* Frequency*/}
-
+                    {/* Frequency */}
                     <Grid item xs={12} sm={2} align="center">
                       <FormControl sx={{ minWidth: 70 }} size={'small'}>
                         <Select
@@ -137,12 +114,10 @@ const Cart = () => {
                           <MenuItem value={'Monthly'}>Monthly</MenuItem>
                           <MenuItem value={'Annually'}>Annually</MenuItem>
                         </Select>
-                        {/* <FormHelperText>Frequency</FormHelperText> */}
                       </FormControl>
                     </Grid>
 
                     {/* Quantity */}
-
                     <Grid item xs={12} sm={3} align="center">
                       <ButtonGroup
                         size="small"
@@ -176,17 +151,11 @@ const Cart = () => {
                     </Grid>
 
                     {/* Price */}
-
                     <Grid item xs={12} sm={1} align="center">
-                      <ListItemText
-                        primary={
-                          '$ ' + lineItem.bundle.price * lineItem.quantity
-                        }
-                      />
+                      <ListItemText primary={calcSubtotal([lineItem])} />
                     </Grid>
 
                     {/* Delete LineItem */}
-
                     <Grid item xs={12} sm={1} align="center">
                       <DeleteOutlinedIcon
                         onClick={(ev) =>
@@ -206,24 +175,64 @@ const Cart = () => {
               ))}
             </List>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={3}>
             <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
               Order Summary
             </Typography>
             <hr />
-            <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
-              Subtotal {subtotal}
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
-              Shipping - Free
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
-              Taxes
-            </Typography>
+            <Grid container>
+              <Grid container>
+                <Grid item item xs={12} sm={6}>
+                  <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
+                    Subtotal
+                  </Typography>
+                </Grid>
+                <Grid item item xs={12} sm={6} align="right">
+                  <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
+                    {subtotal}
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Grid container>
+                <Grid item item xs={12} sm={6}>
+                  <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
+                    Shipping
+                  </Typography>
+                </Grid>
+                <Grid item item xs={12} sm={6} align="right">
+                  <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
+                    Free
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid container>
+              <Grid item xs={12} sm={6}>
+                <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
+                  Taxes
+                </Typography>
+              </Grid>
+              <Grid item item xs={12} sm={6} align="right">
+                <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
+                  {taxes}
+                </Typography>
+              </Grid>
+            </Grid>
+
             <hr />
-            <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
-              Total {total}
-            </Typography>
+            <Grid container>
+              <Grid item item xs={12} sm={6}>
+                <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
+                  Total
+                </Typography>
+              </Grid>
+              <Grid item item xs={12} sm={6} align="right">
+                <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
+                  {total}
+                </Typography>
+              </Grid>
+            </Grid>
+
             <br />
             <Button variant="contained" fullWidth>
               CONTINUE TO CHECKOUT
