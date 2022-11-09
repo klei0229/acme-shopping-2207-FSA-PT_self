@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addQtyCart, removeQtyCart } from '../store';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
@@ -47,7 +47,7 @@ const Cart = () => {
     <Container>
       <CssBaseline />
       {cart.lineItems.length > 0 ? (
-        <Grid container spacing={2}>
+        <Grid container spacing={5}>
           <Grid item xs={12} sm={9}>
             <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
               Cart
@@ -59,12 +59,21 @@ const Cart = () => {
                   <Grid
                     container
                     alignItems="left"
-                    justifyContent="left"
+                    justifyContent="center"
                     spacing={0}
                     direction="row"
                   >
+                    {/* Image */}
+                    <Grid item xs={12} sm={2} align="center">
+                      <img
+                        src={lineItem.bundle.imageUrl}
+                        width={75}
+                        height={75}
+                      />
+                    </Grid>
+
                     {/* Name */}
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={12} sm={2} justifyContent="center">
                       <ListItemText
                         primary={lineItem.bundle.name}
                         secondary={lineItem.size + ' / ' + lineItem.frequency}
@@ -118,7 +127,7 @@ const Cart = () => {
                     </Grid>
 
                     {/* Quantity */}
-                    <Grid item xs={12} sm={3} align="center">
+                    <Grid item xs={12} sm={2} align="center">
                       <ButtonGroup
                         size="small"
                         aria-label="small outlined button group"
@@ -180,6 +189,7 @@ const Cart = () => {
               Order Summary
             </Typography>
             <hr />
+
             <Grid container>
               <Grid container>
                 <Grid item item xs={12} sm={6}>
@@ -240,8 +250,8 @@ const Cart = () => {
           </Grid>
         </Grid>
       ) : (
-        <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
-          'Your cart is empty. Grab some bundles! '
+        <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+          YOUR CART IS EMPTY
         </Typography>
       )}
     </Container>

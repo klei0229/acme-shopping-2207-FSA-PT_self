@@ -120,7 +120,7 @@ const syncAndSeed = async () => {
   const cart = await ethyl.getCart();
   await ethyl.addToCart({
     bundle: korean,
-    quantity: 3,
+    quantity: 1,
     size: 'Small',
     frequency: 'Monthly',
   });
@@ -129,6 +129,12 @@ const syncAndSeed = async () => {
     quantity: 2,
     size: 'Large',
     frequency: 'Annually',
+  });
+  await ethyl.addToCart({
+    bundle: vegan,
+    quantity: 1,
+    size: 'Small',
+    frequency: 'Monthly',
   });
   const cart2 = await moe.getCart();
   await moe.addToCart({
