@@ -137,29 +137,6 @@ const syncAndSeed = async () => {
 		}),
 	]);
 
-	await Promise.all([
-		Address.create({
-			street: '123 Fake Street',
-			apartment: '4E',
-			city: 'New York',
-			state: 'NY',
-			zipcode: '10001',
-			userId: moe.id,
-			isShipping: false,
-			isBilling: true,
-		}),
-		Address.create({
-			street: '890 West Fake Street',
-			apartment: '3E',
-			city: 'Hudson',
-			state: 'NY',
-			zipcode: '11111',
-			userId: moe.id,
-			isShipping: true,
-			isBilling: false,
-		}),
-	]);
-
 	const cart = await ethyl.getCart();
 	await ethyl.addToCart({
 		bundle: korean,
@@ -856,6 +833,19 @@ const syncAndSeed = async () => {
 			bundleId: vegan.id,
 		}),
 	]);
+
+	await Promise.all([
+		Address.create({
+			street1: '123 Fake Street',
+			street2: '4E',
+			city: 'New York',
+			state: 'NY',
+			zipcode: '10001',
+			userId: moe.id,
+			country: 'United States',
+		}),
+	]);
+
 	return {
 		users: {
 			moe,
@@ -884,4 +874,5 @@ module.exports = {
 	User,
 	Bundle,
 	Product,
+	Address,
 };

@@ -7,14 +7,14 @@ const Address = conn.define('address', {
 		primaryKey: true,
 		defaultValue: UUIDV4,
 	},
-	street: {
+	street1: {
 		type: STRING,
 		allowNull: false,
 		validate: {
 			notEmpty: true,
 		},
 	},
-	apartment: {
+	street2: {
 		type: STRING,
 		allowNull: false,
 		validate: {
@@ -42,15 +42,20 @@ const Address = conn.define('address', {
 			notEmpty: true,
 		},
 	},
+	country: {
+		type: STRING,
+		allowNull: false,
+		validate: {
+			notEmpty: true,
+		},
+	},
 	isShipping: {
 		type: BOOLEAN,
-		defaultValue: true,
 		allowNull: false,
-	},
-	isBilling: {
-		type: BOOLEAN,
 		defaultValue: true,
-		allowNull: false,
+		validate: {
+			notEmpty: true,
+		},
 	},
 });
 

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import { updateAuth } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
-import TextField from '@mui/material/TextField';
+import { Grid, Typography, TextField } from '@mui/material';
+import AddressForm from './AddressForm';
 
 const Profile = () => {
 	const { auth } = useSelector((state) => state);
@@ -15,6 +16,7 @@ const Profile = () => {
 		email: auth.email,
 		avatar: auth.avatar,
 	});
+	console.log(auth);
 
 	const onChange = (ev) => {
 		setUser({ ...user, [ev.target.name]: ev.target.value });
@@ -52,40 +54,68 @@ const Profile = () => {
 	};
 	return (
 		<div>
-			<h2>Profile</h2>
-			<form onSubmit={save}>
-				<TextField
-					name='username'
-					label='Username'
-					variant='outlined'
-					value={user.username}
-					onChange={onChange}
-				/>
-				<TextField
-					name='firstName'
-					label='First Name'
-					variant='outlined'
-					value={user.firstName}
-					onChange={onChange}
-				/>
-				<TextField
-					name='lastName'
-					label='Last Name'
-					variant='outlined'
-					value={user.lastName}
-					onChange={onChange}
-				/>
-				<TextField
-					name='email'
-					label='Email'
-					variant='outlined'
-					value={user.email}
-					onChange={onChange}
-				/>
-				<input type='file' ref={(x) => setEl(x)} />
-				<button>Update Profile</button>
-			</form>
-			<img src={data} />
+			<Fragment>
+				<Typography variant='h6' gutterBottom>
+					Profile
+				</Typography>
+				<form onSubmit={save}>
+					<Grid container spacing={3}>
+						<Grid item xs={12} sm={6}>
+							<TextField
+								required
+								name='username'
+								label='Username'
+								variant='standard'
+								fullWidth
+								value={user.username}
+								onChange={onChange}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextField
+								required
+								name='firstName'
+								label='First Name'
+								variant='standard'
+								fullWidth
+								value={user.firstName}
+								onChange={onChange}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextField
+								required
+								name='lastName'
+								label='Last Name'
+								variant='standard'
+								fullWidth
+								value={user.lastName}
+								onChange={onChange}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextField
+								required
+								name='email'
+								label='Email'
+								variant='standard'
+								fullWidth
+								value={user.email}
+								onChange={onChange}
+							/>
+						</Grid>
+						<Grid item xs={12}>
+							<input type='file' ref={(x) => setEl(x)} />
+						</Grid>
+					</Grid>
+					<br />
+					<div>
+						<AddressForm />
+					</div>
+					<button>Update Profile</button>
+				</form>
+				<img src={data} />
+			</Fragment>
 		</div>
 	);
 };
