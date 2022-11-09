@@ -6,6 +6,9 @@ import Profile from './Profile';
 import Checkout from './Checkout';
 import Bundle from './Bundle';
 import BundleDetail from './BundleDetail';
+import BundleFeatured from './BundleFeatured';
+import BundleNew from './BundleNew';
+import BundleBest from './BundleBest';
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchBundles } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
@@ -42,6 +45,9 @@ const App = () => {
 						<Route path='/checkout' element={<Checkout />} />
 						<Route path='/bundles' element={<Bundle />} />
 						<Route path='/bundles/:id' element={<BundleDetail />} />
+						<Route path='/bundles/featured' element={<BundleFeatured />} />
+						<Route path='/bundles/new' element={<BundleNew />} />
+						<Route path='/bundles/best' element={<BundleBest />} />
 					</Routes>
 				</div>
 			)}
