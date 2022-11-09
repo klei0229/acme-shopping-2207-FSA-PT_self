@@ -2,7 +2,6 @@ import React, { useEffect, useState, Fragment } from 'react';
 import { updateAuth } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Typography, TextField } from '@mui/material';
-import AddressForm from './AddressForm';
 
 const Profile = () => {
 	const { auth } = useSelector((state) => state);
@@ -16,7 +15,6 @@ const Profile = () => {
 		email: auth.email,
 		avatar: auth.avatar,
 	});
-	console.log(auth);
 
 	const onChange = (ev) => {
 		setUser({ ...user, [ev.target.name]: ev.target.value });
@@ -109,9 +107,7 @@ const Profile = () => {
 						</Grid>
 					</Grid>
 					<br />
-					<div>
-						<AddressForm />
-					</div>
+					<div></div>
 					<button>Update Profile</button>
 				</form>
 				<img src={data} />
