@@ -20,18 +20,48 @@ import { addQtyCart, removeQtyCart } from '../store';
 const Cart = () => {
   const { cart } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const [total, setTotal] = useState(0);
+  // const [subtotal, setSubtotal] = useState(0);
 
-  const [inputs, setInputs] = useState({
-    size: '',
-    frequency: '',
-  });
+  // const [inputs, setInputs] = useState({
+  //   size: '',
+  //   frequency: '',
+  // });
+  // const onChange = (ev) => {
+  //   setInputs({
+  //     ...inputs,
+  //     [ev.target.name]: ev.target.value,
+  //   });
+  // };
 
-  const onChange = (ev) => {
-    setInputs({
-      ...inputs,
-      [ev.target.name]: ev.target.value,
-    });
+  // useEffect(() => {
+  //   setSubtotal(
+  //     cart.lineItems.reduce((accum, lineItem) => {
+  //       return accum + lineItem.quantity * lineItem.bundle.price;
+  //     }, 0)
+  //   );
+  //   setTotal(subtotal * 2);
+  // }, [cart]);
+
+  const calcSubtotal = (lineItems) => {
+    return parseFloat(
+      lineItems.reduce((sum, lineItem) => {
+        if (lineItem.size === 'Large') {
+          if (lineItem.frequency === 'Annually') {
+            return sum + lineItem.quantity * lineItem.bundle.price * 1.75 * 12;
+          }
+          return sum + lineItem.quantity * lineItem.bundle.price * 1.75;
+        } else if (lineItem.size === 'Small') {
+          if (lineItem.frequency === 'Annually') {
+            return sum + lineItem.quantity * lineItem.bundle.price * 1.0 * 12;
+          }
+          return sum + lineItem.quantity * lineItem.bundle.price * 1.0;
+        }
+      }, 0)
+    ).toFixed(2);
   };
+
+  const subtotal = calcSubtotal(cart.lineItems) || 0;
 
   return (
     <Container>
@@ -182,7 +212,7 @@ const Cart = () => {
             </Typography>
             <hr />
             <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
-              Subtotal
+              Subtotal {subtotal}
             </Typography>
             <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
               Shipping - Free
@@ -192,7 +222,7 @@ const Cart = () => {
             </Typography>
             <hr />
             <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
-              Total
+              Total {total}
             </Typography>
             <br />
             <Button variant="contained" fullWidth>
