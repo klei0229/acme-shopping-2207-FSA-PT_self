@@ -15,6 +15,6 @@ app.use('/api/orders', require('./api/orders'));
 app.use('/api/users', require('./api/users'));
 app.use('/api/bundles', require('./api/bundles'));
 app.use('/api/products', require('./api/products'));
-
+app.use('/api/addresses', require('./api/addresses'));
 
 module.exports = app;
