@@ -54,7 +54,7 @@ const Cart = () => {
       const response = await axios.post('/api/stripe/checkout', [
         {
           total: total,
-          name: 'All Bundles',
+          name: 'Bundles',
           quantity: 1,
         },
       ]);
