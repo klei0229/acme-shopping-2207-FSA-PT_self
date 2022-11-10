@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { addQtyCart, removeQtyCart, fetchCart } from '../store';
 import EmptyCart from './EmptyCart';
-//test
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import {
   Container,
@@ -55,7 +54,7 @@ const Cart = () => {
       const response = await axios.post('/api/stripe/checkout', [
         {
           total: total,
-          name: 'Bundles',
+          name: 'All Bundles',
           quantity: 1,
         },
       ]);
