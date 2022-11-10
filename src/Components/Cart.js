@@ -63,6 +63,7 @@ const Cart = () => {
 
   return (
     <Container>
+      <br />
       <CssBaseline />
       {cart.lineItems.length > 0 ? (
         <Grid container spacing={5}>

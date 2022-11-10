@@ -8,6 +8,8 @@ import Bundle from './Bundle';
 import BundleDetail from './BundleDetail';
 import OrderSuccess from './OrderSuccess';
 import OrderFail from './OrderFail';
+import Orders from './Orders';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchBundles } from '../store';
 import { Routes, Route } from 'react-router-dom';
@@ -39,6 +41,7 @@ const App = () => {
             <Route path="/bundles/:id" element={<BundleDetail />} />
             <Route path="/order-success" element={<OrderSuccess />} />
             <Route path="/order-fail" element={<OrderFail />} />
+            <Route path="/orders" element={<Orders />} />
           </Routes>
         </div>
       )}
