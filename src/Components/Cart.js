@@ -37,7 +37,7 @@ const Cart = () => {
     <Container>
       <CssBaseline />
       {cart.lineItems.length > 0 ? (
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{mt:8}}>
           <Grid item xs={12} sm={8}>
             <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
               Cart

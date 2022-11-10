@@ -113,7 +113,7 @@ function ResponsiveAppBar() {
   //Search Bar Code End
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -167,8 +167,8 @@ function ResponsiveAppBar() {
               {/* On Smaller Window */}
               {pages.map((page) => (
                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                  <Link to={page.url} style={{ textDecoration: 'none' }}>
-                    <Typography textAlign="center">{page.name}</Typography>
+                  <Link   to={page.url} style={{ textDecoration: 'none' }}>
+                    <Typography  textAlign="center">{page.name}</Typography>
                   </Link>
                 </MenuItem>
               ))}
@@ -197,15 +197,17 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Link
+              key={page.url}
                 to={page.url}
                 underline="hover"
                 style={{ textDecoration: 'none' }}
               >
                 <Button
-                  key={page.name}
+                  
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
+                  
                   {page.name}
                 </Button>
               </Link>
@@ -247,8 +249,8 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting}>
-                  <Link to={setting.url} style={{ textDecoration: 'none' }}>
+                <MenuItem key={setting.url}>
+                  <Link  to={setting.url} style={{ textDecoration: 'none' }}>
                     <Typography textAlign="center">{setting.name}</Typography>
                   </Link>
                 </MenuItem>
