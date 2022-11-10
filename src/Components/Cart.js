@@ -50,17 +50,15 @@ const Cart = () => {
   const total = parseFloat(subtotal + taxes * 1).toFixed(2);
 
   const checkout = async () => {
-    try {
-      const response = await axios.post('/api/stripe/checkout', [
-        {
-          total: total,
-          name: 'Bundles',
-          quantity: 1,
-        },
-      ]);
-      window.open(response.data);
-      window.close();
-    } catch (err) {}
+    const response = await axios.post('/api/stripe/checkout', [
+      {
+        total: total,
+        name: 'Bundles',
+        quantity: 1,
+      },
+    ]);
+    window.open(response.data);
+    window.close();
   };
 
   return (
