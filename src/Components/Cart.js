@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { addQtyCart, removeQtyCart } from '../store';
+import { addQtyCart, removeQtyCart, fetchCart } from '../store';
+import EmptyCart from './EmptyCart';
+
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import {
   Container,
@@ -20,6 +23,10 @@ import {
 const Cart = () => {
   const { cart } = useSelector((state) => state);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCart());
+  }, []);
 
   const calcSubtotal = (lineItems) => {
     return parseFloat(
@@ -42,6 +49,19 @@ const Cart = () => {
   const subtotal = calcSubtotal(cart.lineItems) * 1;
   const taxes = parseFloat(subtotal * 0.08).toFixed(2);
   const total = parseFloat(subtotal + taxes * 1).toFixed(2);
+
+  const checkout = async () => {
+    try {
+      const response = await axios.post('/api/stripe/checkout', [
+        {
+          total: total,
+          name: 'Bundles',
+          quantity: 1,
+        },
+      ]);
+      window.open(response.data);
+    } catch (err) {}
+  };
 
   return (
     <Container>
@@ -192,24 +212,24 @@ const Cart = () => {
 
             <Grid container>
               <Grid container>
-                <Grid item item xs={12} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
                     Subtotal
                   </Typography>
                 </Grid>
-                <Grid item item xs={12} sm={6} align="right">
+                <Grid item xs={12} sm={6} align="right">
                   <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
                     {subtotal}
                   </Typography>
                 </Grid>
               </Grid>
               <Grid container>
-                <Grid item item xs={12} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
                     Shipping
                   </Typography>
                 </Grid>
-                <Grid item item xs={12} sm={6} align="right">
+                <Grid item xs={12} sm={6} align="right">
                   <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
                     Free
                   </Typography>
@@ -222,7 +242,7 @@ const Cart = () => {
                   Taxes
                 </Typography>
               </Grid>
-              <Grid item item xs={12} sm={6} align="right">
+              <Grid item xs={12} sm={6} align="right">
                 <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
                   {taxes}
                 </Typography>
@@ -231,12 +251,12 @@ const Cart = () => {
 
             <hr />
             <Grid container>
-              <Grid item item xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
                   Total
                 </Typography>
               </Grid>
-              <Grid item item xs={12} sm={6} align="right">
+              <Grid item xs={12} sm={6} align="right">
                 <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
                   {total}
                 </Typography>
@@ -244,15 +264,13 @@ const Cart = () => {
             </Grid>
 
             <br />
-            <Button variant="contained" fullWidth>
+            <Button variant="contained" fullWidth onClick={checkout}>
               CONTINUE TO CHECKOUT
             </Button>
           </Grid>
         </Grid>
       ) : (
-        <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-          YOUR CART IS EMPTY
-        </Typography>
+        <EmptyCart />
       )}
     </Container>
   );
