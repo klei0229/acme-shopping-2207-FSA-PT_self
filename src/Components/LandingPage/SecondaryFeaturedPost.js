@@ -12,34 +12,24 @@ function MainFeaturedPost(props) {
 
   return (
     <Paper
-      sx={[
-        {
-          minWidth: "75%",
-          minHeight: "35%",
-          position: "relative",
-          backgroundColor: "grey.800",
-          color: "#fff",
-          mb: 4,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          backgroundImage: `url(${post.image})`,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          transition: ".5s",
+      sx={{
+        // minWidth: "7",
+        // maxHeight: "45%",
+        minHeight: "300px",
+        position: "relative",
+        backgroundColor: "grey.800",
+        color: "#fff",
+        mb: 4,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundImage: `url(${post.image})`,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
 
-          // backgroundColor:'green',
-        },
-        {
-          "&:hover": {
-            // backgroundSize: "contain",
-            // transform: 'scale(1.5)'
-            // backgroundSize: "150%",
-            // transition: "transform backgroundSize(101%) .5s ease"
-          },
-        },
-      ]}
+        backgroundColor: "green",
+      }}
     >
       {/* Increase the priority of the hero background image */}
       {
@@ -58,7 +48,7 @@ function MainFeaturedPost(props) {
           right: 0,
           left: 0,
           backgroundColor: "rgba(0,0,0,.3)",
-          // backgroundColor:'red',
+          //   backgroundColor:'red',
         }}
       />
       <Grid container align="center">
@@ -66,13 +56,9 @@ function MainFeaturedPost(props) {
           <Box
             sx={{
               // backgroundColor:'green',
-              minWidth: "65%",
-              maxWidth: "75%",
+              minWidth: "100%",
               position: "relative",
-              p: "20",
               // pt: { xs: 3, md: 6 }
-              // backgroundColor:"black",
-              // backgroundOpacity:"25"
             }}
           >
             <Typography
@@ -83,9 +69,9 @@ function MainFeaturedPost(props) {
             >
               {post.title}
             </Typography>
-            <Typography variant="h5" color="inherit" paragraph>
+            {/* <Typography variant="h5" color="inherit" paragraph>
               {post.description}
-            </Typography>
+            </Typography> */}
             <Button variant="contained" sx={{ backgroundColor: "teal" }}>
               View Bundles
             </Button>

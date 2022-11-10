@@ -7,11 +7,6 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 
-import { Paper } from "@mui/material";
-
-import InventoryIcon from "@mui/icons-material/Inventory";
-import CssBaseline from "@mui/material/CssBaseline";
-
 const bull = (
   <Box
     component="span"
@@ -19,7 +14,7 @@ const bull = (
   ></Box>
 );
 
-function InfoCard(props) {
+function NowTrendingCard(props) {
   // console.log(props);
   const { card } = props;
   // console.log(card);
@@ -28,25 +23,32 @@ function InfoCard(props) {
     <div>
       <Card
         sx={{
-          minWidth: 275,
-          minHeight: "350px",
+          minWidth: "175px",
+          minHeight: "200px",
           pt: "40",
           mt: "10",
           mb: "30",
         }}
       >
         <Typography variant="h5" component="div">
-          {card.number}
+          {/* {card.number} */}
         </Typography>
         <CardContent>
-          <img src={card.image}></img>
+          {/* <img src={card.image}></img> */}
+          <Box
+            sx={{
+              width: "10rem",
+              height: "10rem",
+              borderRadius: "50%",
+              // backgroundColor:"green",
+              backgroundSize: "contain",
+              // border: '1px dashed grey',
+              backgroundImage: `url(https://i5.walmartimages.com/asr/43eca98b-40b9-4fc7-a6ae-c02f63b957cc.7a725e370c9d1dafbab842b9a3c861e3.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF)`,
+            }}
+          ></Box>
 
           <Typography variant="h5" component="div">
-            {card.title}
-          </Typography>
-
-          <Typography variant="body2" color="grey">
-            {card.description}
+            {card.name}
           </Typography>
         </CardContent>
       </Card>
@@ -54,13 +56,12 @@ function InfoCard(props) {
   );
 }
 
-InfoCard.propTypes = {
+NowTrendingCard.propTypes = {
   card: PropTypes.shape({
-    number: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    URL: PropTypes.string.isRequired,
   }).isRequired,
 };
 
-export default InfoCard;
+export default NowTrendingCard;

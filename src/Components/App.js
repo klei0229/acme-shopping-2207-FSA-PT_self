@@ -5,6 +5,7 @@ import Cart from './Cart';
 import Profile from './Profile';
 import Checkout from './Checkout';
 import Bundle from './Bundle';
+import LandingPage from './LandingPage';
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchBundles } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
@@ -35,7 +36,7 @@ const App = () => {
             <Link to="/bundles">Bundles</Link>
           </nav> */}
           <Routes>
-            <Route path="/" element={<h3>Home</h3>} />
+            <Route path="/" element={<Home/>} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/checkout" element={<Checkout />} />
