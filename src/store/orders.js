@@ -5,7 +5,8 @@ const orders = (state = [], action) => {
     return action.orders;
   }
   if (action.type === 'CREATE_ORDER') {
-    return [...state, action.orders];
+    //return [...state, action.orders];
+    return action.orders;
   }
   return state;
 };

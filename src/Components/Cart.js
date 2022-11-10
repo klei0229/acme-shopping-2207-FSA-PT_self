@@ -60,6 +60,7 @@ const Cart = () => {
         },
       ]);
       window.open(response.data);
+      window.close();
     } catch (err) {}
   };
 
