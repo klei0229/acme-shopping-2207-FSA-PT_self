@@ -7,6 +7,10 @@ const Address = conn.define('address', {
 		primaryKey: true,
 		defaultValue: UUIDV4,
 	},
+	label: {
+		type: STRING,
+		defaultValue: 'Home',
+	},
 	street1: {
 		type: STRING,
 		allowNull: false,

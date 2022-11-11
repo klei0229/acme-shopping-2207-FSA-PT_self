@@ -13,3 +13,11 @@ app.put('/:id', async (req, res, next) => {
 		next(ex);
 	}
 });
+
+app.post('/', async (req, res, next) => {
+	try {
+		res.status(201).send(await Address.create(req.body));
+	} catch (ex) {
+		next(ex);
+	}
+});
