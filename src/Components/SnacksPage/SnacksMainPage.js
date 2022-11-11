@@ -2,7 +2,7 @@ import * as React from "react";
 import { Container, Paper } from "@mui/material";
 // import MainFeaturedPost from "./LandingPage/MainFeaturedPost";
 // import SecondaryFeaturedPost from "./LandingPage/SecondaryFeaturedPost";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, CssBaseline } from "@mui/material";
 import SnackItemCard from "./SnackItemCard";
 
 import { useSelector } from "react-redux";
