@@ -1,9 +1,9 @@
 import axios from 'axios';
+
 const cart = (state = { lineItems: [] }, action) => {
   if (action.type === 'SET_CART') {
     return action.cart;
   }
-
   return state;
 };
 
@@ -19,7 +19,7 @@ export const fetchCart = () => {
   };
 };
 
-export const addQtyCart = (bundle, quantity, size, frequency) => {
+export const addQtyCart = (bundle, quantity, size, frequency, price) => {
   return async (dispatch) => {
     const token = window.localStorage.getItem('token');
     const response = await axios.post(
@@ -29,6 +29,7 @@ export const addQtyCart = (bundle, quantity, size, frequency) => {
         quantity,
         size,
         frequency,
+        price,
       },
       {
         headers: {
