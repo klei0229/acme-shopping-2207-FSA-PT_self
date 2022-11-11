@@ -4,16 +4,17 @@ import Login from './Login';
 import Cart from './Cart';
 import Profile from './Profile';
 import Checkout from './Checkout';
-import Bundle from './Bundle';
+
+import Bundle from './Bundle/Bundle';
 import LandingPage from './LandingPage';
-import BundleDetail from './BundleDetail';
+import BundleDetail from './Bundle/BundleDetail';
 import OrderSuccess from './OrderSuccess';
 import OrderFail from './OrderFail';
 import Orders from './Orders';
-
-import BundleFeatured from './BundleFeatured';
-import BundleNew from './BundleNew';
-import BundleBest from './BundleBest';
+import { SnackbarProvider} from 'notistack';
+import BundleFeatured from './Bundle/BundleFeatured';
+import BundleNew from './Bundle/BundleNew';
+import BundleBest from './Bundle/BundleBest';
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchBundles } from '../store';
 import { Routes, Route } from 'react-router-dom';
@@ -32,6 +33,7 @@ const App = () => {
 		}
 	}, [auth]);
 	return (
+		<SnackbarProvider maxSnack={3}>
 		<div>
 			{auth.id ? <Home /> : <Login />}
 			{!!auth.id && (
@@ -60,6 +62,7 @@ const App = () => {
 				</div>
 			)}
 		</div>
+		</SnackbarProvider>
 	);
 };
 
