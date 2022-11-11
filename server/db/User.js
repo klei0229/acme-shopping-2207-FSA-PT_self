@@ -88,6 +88,7 @@ User.prototype.getCart = async function () {
         include: [conn.models.bundle],
       },
     ],
+    order: [[conn.models.lineItem, 'id', 'DESC']],
   });
   return cart;
 };

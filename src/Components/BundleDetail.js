@@ -1,44 +1,69 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import {
+	Card,
+	Grid,
+	Container,
+	CardContent,
+	CardMedia,
+	Typography,
+	Button
+} from '@mui/material';
 
 const BundleDetail = () => {
 	const { id } = useParams();
 	const { bundles } = useSelector((state) => state);
-	// const bundle = bundles.find((bundle) => bundle.id === id) || {};
-	// const products = bundle.products || null;
 	const [bundle, setBundle] = useState({});
 	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
-
-		console.log(typeof bundles)
-		console.log(bundles.length)
-		const bundle = bundles.find((bundle) => bundle.id === id) || {};
-		console.log(bundle);
-		if (bundle) {
+		if (bundles.length) {
+			const bundle = bundles.find((bundle) => bundle.id === id);
 			setBundle(bundle);
 			setProducts(bundle.products);
 		}
-	},[bundles]);
+	}, [bundles]);
 
 	return (
 		<div>
 			<div>
 				<h1>{bundle.name}</h1>
-				<h4>
-					<Link to={'/bundles'}>Return to our other bundles</Link>
-				</h4>
+				<Button sx={{mt:4}}>
+					<Link to={'/bundles'} style={{textDecoration: "none"}}>Return to our other bundles</Link>
+				</Button>
 			</div>
 			<div>
-				{products.map((product) => {
-					return (
-						<ul key={product.id}>
-							<li>{product.name}</li>
-							<img src={product.imageURL} />
-						</ul>
-					);
-				})}
+				<Container sx={{ py: 8 }} maxWidth='md'>
+					<Grid container spacing={4}>
+						{products.map((product) => (
+							<Grid item key={product.id} xs={12} sm={6} md={4}>
+								<Card
+									sx={{
+										height: '100%',
+										display: 'flex',
+										flexDirection: 'column',
+									}}
+								>
+									<CardMedia
+										component='img'
+										sx={{
+											// 16:9
+											pt: '56.25%',
+										}}
+										image={product.imageURL}
+										alt={product.name}
+									/>
+									<CardContent sx={{ flexGrow: 1 }}>
+										<Typography gutterBottom variant='h5' component='h2'>
+											{product.name}
+										</Typography>
+									</CardContent>
+								</Card>
+							</Grid>
+						))}
+					</Grid>
+				</Container>
 			</div>
 		</div>
 	);
