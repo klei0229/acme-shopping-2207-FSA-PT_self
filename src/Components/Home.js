@@ -20,7 +20,6 @@ const Home = () => {
     <div>
       <ResponsiveAppBar></ResponsiveAppBar>
       <br></br>
-      <LandingPage></LandingPage>
     </div>
   );
 };

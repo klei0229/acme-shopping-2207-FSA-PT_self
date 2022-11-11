@@ -36,7 +36,7 @@ const App = () => {
             <Link to="/bundles">Bundles</Link>
           </nav> */}
           <Routes>
-            <Route path="/" element={<Home/>} />
+            <Route path="/" element={<LandingPage/>} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/checkout" element={<Checkout />} />
