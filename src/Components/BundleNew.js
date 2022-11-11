@@ -16,7 +16,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link} from 'react-router-dom';
 import { addQtyCart} from '../store';
 
-
 function Copyright() {
 	return (
 		<Typography variant='body2' color='text.secondary' align='center'>
@@ -34,16 +33,16 @@ function Copyright() {
 
 const theme = createTheme();
 
-const Bundle = () => {
+const BundleNew = () => {
 	const dispatch = useDispatch();
 	const { bundles } = useSelector((state) => state);
 	const [_bundles, setBundles] = useState([]);
 	useEffect(() => {
 		if (bundles.length) {
-			setBundles(bundles);
+            const featured = bundles.filter(bundle => bundle.type === 'new')
+			setBundles(featured);
 		}
 	}, [bundles]);
-	
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
@@ -82,7 +81,7 @@ const Bundle = () => {
 							spacing={2}
 							justifyContent='center'
 						>
-							<Link to='/bundles' style={{textDecoration: "none"}}><Button>All</Button></Link>
+                            <Link to='/bundles' style={{textDecoration: "none"}}><Button>All</Button></Link>
 							<Link to='/bundles/featured' style={{textDecoration: "none"}}><Button>Featured</Button></Link>
 							<Link to='/bundles/new' style={{textDecoration: "none"}}><Button>New</Button></Link>
 							<Link to='/bundles/best' style={{textDecoration: "none"}}><Button>Best Sellers</Button></Link>
@@ -92,7 +91,8 @@ const Bundle = () => {
 				<Container sx={{ py: 8 }} maxWidth='md'>
 					{/* End hero unit */}
 					<Grid container spacing={4}>
-						{ 
+						{
+                         
 						_bundles.map((bundle) => (
 							<Grid item key={bundle.id} xs={12} sm={6} md={4}>
 								<Card 
@@ -152,4 +152,4 @@ const Bundle = () => {
 	);
 };
 
-export default Bundle;
+export default BundleNew;

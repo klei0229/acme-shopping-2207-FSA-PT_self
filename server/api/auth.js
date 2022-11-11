@@ -14,6 +14,7 @@ app.post('/', async (req, res, next) => {
 
 app.get('/', async (req, res, next) => {
 	try {
+		console.log(req.headers.authorization)
 		res.send(await User.findByToken(req.headers.authorization));
 	} catch (ex) {
 		next(ex);

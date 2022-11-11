@@ -50,90 +50,83 @@ const syncAndSeed = async () => {
 		glutenfree,
 		vegan,
 	] = await Promise.all([
-		User.create({
-			username: 'moe',
-			password: '123',
-			firstName: 'Moe',
-			lastName: 'Stooge',
-			email: 'moe@gmail.com',
-		}),
-		User.create({
-			username: 'lucy',
-			password: '123',
-			firstName: 'Lucy',
-			lastName: 'Lawless',
-			email: 'xena@gmail.com',
-		}),
+		User.create({ username: 'moe', password: '123', avatar }),
+		User.create({ username: 'lucy', password: '123' }),
 		User.create({ username: 'larry', password: '123' }),
-		User.create({
-			username: 'ethyl',
-			password: '123',
-			firstName: 'Ethyl',
-			lastName: 'Methyl',
-			email: 'ethyl@gmail.com',
-		}),
+		User.create({ username: 'ethyl', password: '123' }),
 		Bundle.create({
 			name: 'Korean Package',
 			imageUrl:
 				'https://i.etsystatic.com/27761931/r/il/1eec00/3451205856/il_fullxfull.3451205856_l9l0.jpg',
 			price: 35.0,
+			type: 'featured',
 		}),
 		Bundle.create({
 			name: 'French Package',
 			imageUrl: 'https://m.media-amazon.com/images/I/61GaJPDd5RL._SS400_.jpg',
 			price: 50.0,
+			type: 'best',
 		}),
 		Bundle.create({
 			name: 'Canadian Package',
 			imageUrl:
 				'https://i.etsystatic.com/26971947/r/il/7b856a/3431395249/il_fullxfull.3431395249_43v9.jpg',
 			price: 40.0,
+			type: 'featured',
 		}),
 		Bundle.create({
 			name: 'Kitkat Package',
 			imageUrl:
 				'https://theawesomer.com/photos/2020/02/kit_kat_variety_pack_1.jpg',
 			price: 30.0,
+			type: 'new',
 		}),
 		Bundle.create({
 			name: 'Oreo Package',
 			imageUrl: 'https://miro.medium.com/max/1200/1*-Q2u9C1n2hYnZsFlvbA6QQ.png',
 			price: 30.0,
+			type: 'best',
 		}),
 		Bundle.create({
 			name: 'Christmas Package',
 			imageUrl:
 				'https://images.snackmagic.com/spree/product_set_price_mappings/2834656/medium/pnh5i5r7hnxgoqyeyy6dpf2llpde.jpeg?1667217051',
 			price: 50.0,
+			type: 'featured',
 		}),
 		Bundle.create({
 			name: 'Spicy Package',
 			imageUrl:
 				'http://cdn.shopify.com/s/files/1/0017/4148/8194/products/Loteria-Candy-Co-Mexican-Candy-Box-1_9230bc14-bdd0-4a60-ba4e-cafcc4eb5769_1200x1200.jpg?v=1619551785',
 			price: 35.0,
+			type: 'new',
 		}),
 		Bundle.create({
 			name: 'Chips Package',
 			imageUrl:
 				'https://i0.wp.com/www.courtneyinthemiddleseat.com/wp-content/uploads/2021/10/International-Snacks-2021-Blog-Post-Cover-.png?fit=1024%2C731&ssl=1',
 			price: 30.0,
+			type: 'best',
 		}),
 		Bundle.create({
 			name: ' Chewing Gum Package',
 			imageUrl:
 				'https://www.history.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTU3ODc4NjgwODIyMDk3MjI1/istock_000040358208large-2.jpg',
 			price: 20.0,
+			type: 'new',
 		}),
 		Bundle.create({
 			name: 'Gluten Free Package',
 			imageUrl: 'https://m.media-amazon.com/images/I/81SWnlqtLvL.jpg',
 			price: 45.0,
+			type: 'new',
 		}),
 		Bundle.create({
 			name: 'Vegan Package',
 			imageUrl:
 				'https://m.media-amazon.com/images/I/51BEso1LFPL._AC_SY580_.jpg',
 			price: 45.0,
+			type: 'featured',
 		}),
 	]);
 

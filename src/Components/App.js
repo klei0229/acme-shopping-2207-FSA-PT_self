@@ -5,7 +5,11 @@ import Cart from './Cart';
 import Profile from './Profile';
 import Checkout from './Checkout';
 import Bundle from './Bundle';
+import LandingPage from './LandingPage';
 import BundleDetail from './BundleDetail';
+import BundleFeatured from './BundleFeatured';
+import BundleNew from './BundleNew';
+import BundleBest from './BundleBest';
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchBundles } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
@@ -36,12 +40,15 @@ const App = () => {
             <Link to="/bundles">Bundles</Link>
           </nav> */}
 					<Routes>
-						<Route path='/' element={<h3>Home</h3>} />
+						<Route path='/' element={<LandingPage/>} />
 						<Route path='/cart' element={<Cart />} />
 						<Route path='/profile' element={<Profile />} />
 						<Route path='/checkout' element={<Checkout />} />
 						<Route path='/bundles' element={<Bundle />} />
 						<Route path='/bundles/:id' element={<BundleDetail />} />
+						<Route path='/bundles/featured' element={<BundleFeatured />} />
+						<Route path='/bundles/new' element={<BundleNew />} />
+						<Route path='/bundles/best' element={<BundleBest />} />
 					</Routes>
 				</div>
 			)}
