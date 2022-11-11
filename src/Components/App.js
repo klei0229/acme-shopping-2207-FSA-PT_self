@@ -5,6 +5,7 @@ import Cart from './Cart';
 import Profile from './Profile';
 import Checkout from './Checkout';
 import Bundle from './Bundle';
+import LandingPage from './LandingPage';
 import BundleDetail from './BundleDetail';
 import BundleFeatured from './BundleFeatured';
 import BundleNew from './BundleNew';
@@ -39,7 +40,7 @@ const App = () => {
             <Link to="/bundles">Bundles</Link>
           </nav> */}
 					<Routes>
-						<Route path='/' element={<h3>Home</h3>} />
+						<Route path='/' element={<LandingPage/>} />
 						<Route path='/cart' element={<Cart />} />
 						<Route path='/profile' element={<Profile />} />
 						<Route path='/checkout' element={<Checkout />} />

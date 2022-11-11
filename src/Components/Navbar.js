@@ -55,8 +55,8 @@ function ResponsiveAppBar() {
   
   useEffect(()=>{
     setCart(cart);
-    console.log(cart);
-    console.log(cart.lineItems.length)  
+    // console.log(cart);
+    // console.log(cart.lineItems.length)  
   },[cart])
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
