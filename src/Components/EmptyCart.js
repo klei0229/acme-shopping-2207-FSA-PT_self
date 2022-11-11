@@ -29,6 +29,12 @@ const EmptyCart = () => {
             RETURN TO SHOP
           </Typography>
         </Link>
+        <br />
+        <Link to={`/orders`}>
+          <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
+            REVIEW ORDERS
+          </Typography>
+        </Link>
       </div>
     </Container>
   );

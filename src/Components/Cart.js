@@ -45,7 +45,7 @@ const Cart = () => {
     ).toFixed(2);
   };
 
-  const subtotal = calcSubtotal(cart.lineItems) * 1;
+  const subtotal = parseFloat(calcSubtotal(cart.lineItems) * 1).toFixed(2);
   const taxes = parseFloat(subtotal * 0.08).toFixed(2);
   const total = parseFloat(subtotal + taxes * 1).toFixed(2);
 
