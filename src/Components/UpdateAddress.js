@@ -1,11 +1,13 @@
 import React, { useEffect, useState, Fragment } from 'react';
-import { useDispatch } from 'react-redux';
-import { updateAuth } from '../store';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { loginWithToken } from '../store';
 import { Grid, Typography, TextField } from '@mui/material';
 
-const UpdateAddress = ({ addresses, auth }) => {
+const UpdateAddress = () => {
+	const { auth } = useSelector((state) => state);
 	const dispatch = useDispatch();
+	const [addresses, setAddresses] = useState([]);
 	const [address, setAddress] = useState({
 		label: '',
 		street1: '',
@@ -21,21 +23,24 @@ const UpdateAddress = ({ addresses, auth }) => {
 	};
 
 	useEffect(() => {
-		if (addresses && auth) {
-			const last = addresses.length - 1;
-			const address = addresses[last];
-			if (address) {
-				setAddress({
-					id: address.id,
-					label: address.label,
-					street1: address.street1,
-					street2: address.street2,
-					city: address.city,
-					state: address.state,
-					zipcode: address.zipcode,
-					country: address.country,
-					userId: auth.id,
-				});
+		if (auth) {
+			setAddresses(auth.addresses);
+			if (addresses && auth) {
+				const last = addresses.length - 1;
+				const address = addresses[last];
+				if (address) {
+					setAddress({
+						id: address.id,
+						label: address.label,
+						street1: address.street1,
+						street2: address.street2,
+						city: address.city,
+						state: address.state,
+						zipcode: address.zipcode,
+						country: address.country,
+						userId: auth.id,
+					});
+				}
 			}
 		}
 	}, [addresses, auth]);
@@ -44,9 +49,9 @@ const UpdateAddress = ({ addresses, auth }) => {
 		ev.preventDefault();
 		try {
 			await axios.put(`/api/addresses/${address.id}`, address);
-			await dispatch(updateAuth(auth));
+			await dispatch(loginWithToken());
 		} catch (ex) {
-			console.log(ex.response.data);
+			console.log(ex);
 		}
 	};
 

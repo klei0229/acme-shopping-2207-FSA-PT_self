@@ -118,11 +118,7 @@ const Profile = () => {
 				<img src={data} />
 			</Fragment>
 			<br />
-			{!addresses.length ? (
-				<CreateAddress addresses={addresses} auth={auth} />
-			) : (
-				<UpdateAddress addresses={addresses} auth={auth} />
-			)}
+			{!addresses.length ? <CreateAddress /> : <UpdateAddress />}
 		</div>
 	);
 };

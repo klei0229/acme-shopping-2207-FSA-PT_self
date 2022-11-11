@@ -1,11 +1,11 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
-import { updateAuth } from '../store';
-import UpdateAddress from './UpdateAddress';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginWithToken } from '../store';
 import { Grid, Typography, TextField } from '@mui/material';
 
-const CreateAddress = ({ addresses, auth }) => {
+const CreateAddress = () => {
+	const { auth } = useSelector((state) => state);
 	const dispatch = useDispatch();
 	const [address, setAddress] = useState({
 		label: '',
@@ -26,7 +26,7 @@ const CreateAddress = ({ addresses, auth }) => {
 		address.userId = auth.id;
 		try {
 			await axios.post('/api/addresses', address);
-			await dispatch(updateAuth(auth));
+			await dispatch(loginWithToken());
 		} catch (ex) {
 			console.log(ex.response.data);
 		}
