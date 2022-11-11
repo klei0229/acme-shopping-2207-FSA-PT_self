@@ -1,4 +1,5 @@
 import React, { useEffect, useState, Fragment } from 'react';
+import axios from 'axios';
 import { updateAuth } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -14,6 +15,7 @@ const Profile = () => {
 	const [el, setEl] = useState(null);
 	const [data, setData] = useState('');
 	const dispatch = useDispatch();
+	const [addresses, setAddresses] = useState([]);
 	const [user, setUser] = useState({
 		username: auth.username,
 		firstName: auth.firstName,
@@ -28,7 +30,6 @@ const Profile = () => {
 		state: '',
 		zipcode: '',
 		country: '',
-		isShipping: true,
 	});
 
 	const onChange = (ev) => {
@@ -48,16 +49,18 @@ const Profile = () => {
 			});
 		}
 		if (auth) {
-			const _address = auth.addresses[0];
-			if (_address) {
+			setAddresses(auth.addresses);
+			const last = auth.addresses.length - 1;
+			const address = auth.addresses[last];
+			if (address) {
 				setAddress({
-					street1: _address.street1,
-					street2: _address.street2,
-					city: _address.city,
-					state: _address.state,
-					zipcode: _address.zipcode,
-					country: _address.zipcode,
-					isShipping: _address.isShipping,
+					id: address.id,
+					street1: address.street1,
+					street2: address.street2,
+					city: address.city,
+					state: address.state,
+					zipcode: address.zipcode,
+					country: address.zipcode,
 				});
 			}
 		}
@@ -72,22 +75,13 @@ const Profile = () => {
 			email: user.email,
 			avatar: data,
 		};
-		const newAddress = {
-			street1: address.street1,
-			street2: address.street2,
-			city: address.city,
-			state: address.state,
-			zipcode: address.zipcode,
-			country: address.zipcode,
-			isShipping: address.isShipping,
-		};
 		try {
-			console.log(newAddress);
+			await axios.put(`/api/addresses/${address.id}`, address);
 			await dispatch(updateAuth(newAuth));
 			el.value = '';
 			setData('');
-		} catch (error) {
-			setError(ex.response.data);
+		} catch (ex) {
+			console.log(ex.response.data);
 		}
 	};
 	return (

@@ -1,13 +1,14 @@
 const express = require('express');
 const app = express.Router();
-const { User, Address } = require('../db');
+const { Address } = require('../db');
 
 module.exports = app;
 
-app.get('/', async (req, res, next) => {
+app.put('/:id', async (req, res, next) => {
 	try {
-		const user = await User.findByToken(req.headers.authorization);
-		res.send(await Address.findAll({ where: { userId: user.id } }));
+		const address = await Address.findByPk(req.params.id);
+		await address.update(req.body);
+		res.send(address);
 	} catch (ex) {
 		next(ex);
 	}
