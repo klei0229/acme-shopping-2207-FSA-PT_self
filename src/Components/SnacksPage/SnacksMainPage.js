@@ -13,17 +13,17 @@ function LandingPage() {
 
   const [products, setProducts] = useState([]);
   let productArray = [];
-  console.log(bundles);
+  // console.log(bundles);
 
   useEffect(() => {
-    console.log(bundles);
+    // console.log(bundles);
     try {
       bundles.forEach((bundle) => {
         // console.log(bundle.products)
         productArray = productArray.concat(bundle.products);
         // console.log(products);
       });
-      console.log(productArray);
+      // console.log(productArray);
       setProducts(productArray);
     } catch (ex) {
       console.log(ex);
@@ -57,7 +57,7 @@ function LandingPage() {
         <Grid container spacing={1}>
           {/* {products.length} */}
           {products.map((product) => {
-            console.log(product);
+            // console.log(product);
             return (
               <Grid item md={3}>
                 {/* <h1>1</h1> */}

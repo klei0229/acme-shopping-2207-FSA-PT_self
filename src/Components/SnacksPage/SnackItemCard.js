@@ -15,7 +15,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 function SnackInfoCard(props) {
   // console.log(props);
   const { card } = props;
-  console.log(card);
+  // console.log(card);
 
   const cardSX = {
     maxWidth: "250px",
