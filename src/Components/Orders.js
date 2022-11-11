@@ -38,14 +38,14 @@ const Orders = () => {
               Orders
             </Typography>
             <hr />
-            {/* <List disablePadding>
+            <List disablePadding>
               {orders.map((order) => (
                 <ListItem key={order.id} sx={{ py: 1, px: 0 }}>
                   {' '}
                   {order.id}
                 </ListItem>
               ))}
-            </List> */}
+            </List>
           </Grid>
         </Grid>
       ) : (

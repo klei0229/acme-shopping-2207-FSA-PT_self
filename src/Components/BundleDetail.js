@@ -8,6 +8,7 @@ import {
 	CardContent,
 	CardMedia,
 	Typography,
+	Button
 } from '@mui/material';
 
 const BundleDetail = () => {
@@ -28,9 +29,9 @@ const BundleDetail = () => {
 		<div>
 			<div>
 				<h1>{bundle.name}</h1>
-				<h4>
-					<Link to={'/bundles'}>Return to our other bundles</Link>
-				</h4>
+				<Button sx={{mt:4}}>
+					<Link to={'/bundles'} style={{textDecoration: "none"}}>Return to our other bundles</Link>
+				</Button>
 			</div>
 			<div>
 				<Container sx={{ py: 8 }} maxWidth='md'>

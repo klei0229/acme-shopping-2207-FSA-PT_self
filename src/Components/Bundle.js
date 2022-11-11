@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import AppBar from '@mui/material/AppBar';
+import { useSelector, useDispatch } from 'react-redux';
 import Button from '@mui/material/Button';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -11,12 +9,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 // import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+import { addQtyCart } from '../store';
 
 function Copyright() {
   return (
@@ -31,11 +29,10 @@ function Copyright() {
   );
 }
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 const theme = createTheme();
 
 const Bundle = () => {
+  const dispatch = useDispatch();
   const { bundles } = useSelector((state) => state);
   const [_bundles, setBundles] = useState([]);
   useEffect(() => {
@@ -43,6 +40,7 @@ const Bundle = () => {
       setBundles(bundles);
     }
   }, [bundles]);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -55,7 +53,7 @@ const Bundle = () => {
             pb: 6,
           }}
         >
-          <Container maxWidth="sm">
+          <Container maxWidth="sm" sx={{ mt: 4 }}>
             <Typography
               component="h1"
               variant="h2"
@@ -81,9 +79,18 @@ const Bundle = () => {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained">Featured</Button>
-              <Button variant="contained">New</Button>
-              <Button variant="contained">Best Sellers</Button>
+              <Link to="/bundles" style={{ textDecoration: 'none' }}>
+                <Button>All</Button>
+              </Link>
+              <Link to="/bundles/featured" style={{ textDecoration: 'none' }}>
+                <Button>Featured</Button>
+              </Link>
+              <Link to="/bundles/new" style={{ textDecoration: 'none' }}>
+                <Button>New</Button>
+              </Link>
+              <Link to="/bundles/best" style={{ textDecoration: 'none' }}>
+                <Button>Best Sellers</Button>
+              </Link>
             </Stack>
           </Container>
         </Box>
@@ -102,6 +109,7 @@ const Bundle = () => {
                   <CardMedia
                     component="img"
                     sx={{
+                      // 16:9
                       width: 'auto',
                       height: 250,
                     }}
@@ -114,11 +122,27 @@ const Bundle = () => {
                     </Typography>
                     <Typography>{bundle.description}</Typography>
                   </CardContent>
-                  <CardActions>
+                  <CardActions sx={{ gap: 10 }}>
                     <Button size="small">
-                      <Link to={`/bundles/${bundle.id}`}>View</Link>
+                      <Link
+                        to={`/bundles/${bundle.id}`}
+                        style={{ textDecoration: 'none' }}
+                      >
+                        View
+                      </Link>
                     </Button>
-                    <Button size="small">Buy</Button>
+                    <Button
+                      size="small"
+                      style={{ textDecoration: 'none' }}
+                      onClick={(ev) => {
+                        ev.preventDefault();
+                        dispatch(addQtyCart(bundle));
+                      }}
+                    >
+                      <Link to={`/cart`} style={{ textDecoration: 'none' }}>
+                        Add to cart
+                      </Link>
+                    </Button>
                   </CardActions>
                 </Card>
               </Grid>
