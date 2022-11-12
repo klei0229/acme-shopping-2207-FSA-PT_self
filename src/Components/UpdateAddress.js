@@ -75,21 +75,16 @@ const UpdateAddress = () => {
 						Shipping Address
 					</Typography>
 					<div>
-						<FormControl variant='filled' sx={{ minWidth: 200 }}>
-							<InputLabel id='demo-simple-select-filled-label'>
-								Choose an address to update:
-							</InputLabel>
-							<Select
-								labelId='demo-simple-select-filled-label'
-								id='demo-simple-select-filled'
-								value={address}
-								onChange={changeAddress}
-							>
-								{addresses.map((_address) => {
-									<MenuItem value={_address.id}>{_address.label}</MenuItem>;
-								})}
-							</Select>
-						</FormControl>
+						<label>Choose an address to update:</label>
+						<select value={address.id} onChange={changeAddress}>
+							{addresses.map((_address) => {
+								return (
+									<option key={_address.id} value={_address.id}>
+										{_address.label}
+									</option>
+								);
+							})}
+						</select>
 					</div>
 					<div>
 						<Grid container spacing={3}>
