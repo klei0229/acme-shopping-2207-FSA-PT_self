@@ -7,20 +7,27 @@ import Checkout from './Checkout';
 import Bundle from './Bundle';
 import LandingPage from './LandingPage';
 import BundleDetail from './BundleDetail';
+import OrderSuccess from './OrderSuccess';
+import OrderFail from './OrderFail';
+import Orders from './Orders';
+
 import BundleFeatured from './BundleFeatured';
 import BundleNew from './BundleNew';
 import BundleBest from './BundleBest';
+
+import SnacksMainPage from './SnacksPage/SnacksMainPage';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchBundles } from '../store';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
-	const { auth } = useSelector((state) => state);
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(loginWithToken());
-		dispatch(fetchBundles());
-	}, []);
+  const { auth } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loginWithToken());
+    dispatch(fetchBundles());
+  }, []);
 
 	useEffect(() => {
 		if (auth.id) {
@@ -45,10 +52,14 @@ const App = () => {
 						<Route path='/profile' element={<Profile />} />
 						<Route path='/checkout' element={<Checkout />} />
 						<Route path='/bundles' element={<Bundle />} />
+						<Route path='/snacks' element={<SnacksMainPage />} />
 						<Route path='/bundles/:id' element={<BundleDetail />} />
 						<Route path='/bundles/featured' element={<BundleFeatured />} />
 						<Route path='/bundles/new' element={<BundleNew />} />
 						<Route path='/bundles/best' element={<BundleBest />} />
+            <Route path="/order-success" element={<OrderSuccess />} />
+            <Route path="/order-fail" element={<OrderFail />} />
+            <Route path="/orders" element={<Orders />} />
 					</Routes>
 				</div>
 			)}

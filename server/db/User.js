@@ -70,6 +70,22 @@ User.prototype.createOrder = async function () {
 	return cart;
 };
 
+User.prototype.getOrder = async function () {
+  let order = await conn.models.order.findAll({
+    where: {
+      userId: this.id,
+      isCart: false,
+    },
+    include: [
+      {
+        model: conn.models.lineItem,
+        include: [conn.models.bundle],
+      },
+    ],
+  });
+  return order;
+};
+
 User.prototype.getCart = async function () {
 	let cart = await conn.models.order.findOne({
 		where: {

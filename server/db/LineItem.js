@@ -10,12 +10,12 @@ const LineItem = conn.define('lineItem', {
   quantity: {
     type: INTEGER,
     defaultValue: 1,
-    // allowNull: false,
+    allowNull: false,
   },
   size: {
     type: ENUM('Small', 'Large'),
     defaultValue: 'Small',
-    // allowNull: false,
+    allowNull: false,
   },
   frequency: {
     type: ENUM('Monthly', 'Annually'),

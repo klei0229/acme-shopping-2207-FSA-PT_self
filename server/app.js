@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+
 app.use(express.json({ limit: '50mb' }));
 
 app.use('/dist', express.static(path.join(__dirname, '../dist')));
@@ -16,5 +17,6 @@ app.use('/api/users', require('./api/users'));
 app.use('/api/bundles', require('./api/bundles'));
 app.use('/api/products', require('./api/products'));
 app.use('/api/addresses', require('./api/addresses'));
+app.use('/api/stripe', require('./api/stripe'));
 
 module.exports = app;
