@@ -15,6 +15,7 @@ import { SnackbarProvider} from 'notistack';
 import BundleFeatured from './Bundle/BundleFeatured';
 import BundleNew from './Bundle/BundleNew';
 import BundleBest from './Bundle/BundleBest';
+import SnacksMainPage from './SnacksPage/SnacksMainPage';
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchBundles } from '../store';
 import { Routes, Route } from 'react-router-dom';
@@ -51,6 +52,7 @@ const App = () => {
 						<Route path='/profile' element={<Profile />} />
 						<Route path='/checkout' element={<Checkout />} />
 						<Route path='/bundles' element={<Bundle />} />
+						<Route path='/snacks' element={<SnacksMainPage />} />
 						<Route path='/bundles/:id' element={<BundleDetail />} />
 						<Route path='/bundles/featured' element={<BundleFeatured />} />
 						<Route path='/bundles/new' element={<BundleNew />} />
