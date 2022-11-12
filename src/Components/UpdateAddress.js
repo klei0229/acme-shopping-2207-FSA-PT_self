@@ -7,6 +7,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Box from '@mui/material/Box';
 
 const UpdateAddress = () => {
 	const { auth } = useSelector((state) => state);
@@ -30,17 +31,7 @@ const UpdateAddress = () => {
 				const last = addresses.length - 1;
 				const address = addresses[last];
 				if (address) {
-					setAddress({
-						id: address.id,
-						label: address.label,
-						street1: address.street1,
-						street2: address.street2,
-						city: address.city,
-						state: address.state,
-						zipcode: address.zipcode,
-						country: address.country,
-						userId: auth.id,
-					});
+					setAddress(address);
 				}
 			}
 		}
@@ -75,16 +66,26 @@ const UpdateAddress = () => {
 						Shipping Address
 					</Typography>
 					<div>
-						<label>Choose an address to update:</label>
-						<select value={address.id} onChange={changeAddress}>
-							{addresses.map((_address) => {
-								return (
-									<option key={_address.id} value={_address.id}>
-										{_address.label}
-									</option>
-								);
-							})}
-						</select>
+						<Box sx={{ minWidth: 120 }}>
+							<FormControl fullWidth>
+								<InputLabel key='inputlabel'>
+									Choose an address to update:
+								</InputLabel>
+								<Select
+									value={address.id || ''}
+									label='Choose an address to update:'
+									onChange={changeAddress}
+								>
+									{addresses.map((_address) => {
+										return (
+											<MenuItem key={_address.id} value={_address.id}>
+												{_address.label}
+											</MenuItem>
+										);
+									})}
+								</Select>
+							</FormControl>
+						</Box>
 					</div>
 					<div>
 						<Grid container spacing={3}>
