@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import { updateAuth } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
-import TextField from '@mui/material/TextField';
+import { Grid, Typography, TextField } from '@mui/material';
+import UpdateAddress from './UpdateAddress';
+import CreateAddress from './CreateAddress';
 
 const Profile = () => {
 	const { auth } = useSelector((state) => state);
 	const [el, setEl] = useState(null);
 	const [data, setData] = useState('');
 	const dispatch = useDispatch();
+	const [addresses, setAddresses] = useState([]);
 	const [user, setUser] = useState({
 		username: auth.username,
 		firstName: auth.firstName,
@@ -15,6 +18,7 @@ const Profile = () => {
 		email: auth.email,
 		avatar: auth.avatar,
 	});
+	const [error, setError] = useState({});
 
 	const onChange = (ev) => {
 		setUser({ ...user, [ev.target.name]: ev.target.value });
@@ -31,9 +35,12 @@ const Profile = () => {
 				});
 			});
 		}
-	}, [el]);
+		if (auth) {
+			setAddresses(auth.addresses);
+		}
+	}, [auth, el, addresses]);
 
-	const save = async (ev) => {
+	const saveUser = async (ev) => {
 		ev.preventDefault();
 		const newAuth = {
 			username: user.username,
@@ -46,46 +53,90 @@ const Profile = () => {
 			await dispatch(updateAuth(newAuth));
 			el.value = '';
 			setData('');
-		} catch (error) {
+		} catch (ex) {
 			setError(ex.response.data);
 		}
 	};
+
+	let messages = [];
+	if (error.errors) {
+		messages = error.errors.map((e) => e.message);
+	}
+
 	return (
 		<div>
-			<h2>Profile</h2>
-			<form onSubmit={save}>
-				<TextField
-					name='username'
-					label='Username'
-					variant='outlined'
-					value={user.username}
-					onChange={onChange}
-				/>
-				<TextField
-					name='firstName'
-					label='First Name'
-					variant='outlined'
-					value={user.firstName}
-					onChange={onChange}
-				/>
-				<TextField
-					name='lastName'
-					label='Last Name'
-					variant='outlined'
-					value={user.lastName}
-					onChange={onChange}
-				/>
-				<TextField
-					name='email'
-					label='Email'
-					variant='outlined'
-					value={user.email}
-					onChange={onChange}
-				/>
-				<input type='file' ref={(x) => setEl(x)} />
-				<button>Update Profile</button>
-			</form>
-			<img src={data} />
+			<Fragment>
+				<Typography variant='h6' gutterBottom>
+					Profile
+				</Typography>
+				<form onSubmit={saveUser}>
+					<ul>
+						{messages.map((message) => {
+							return (
+								<li key={message} className={'error'}>
+									{message}
+								</li>
+							);
+						})}
+					</ul>
+					<Grid container spacing={3} style={{ padding: '0 20px' }}>
+						<Grid item xs={12} sm={6}>
+							<TextField
+								required
+								name='username'
+								label='Username'
+								variant='standard'
+								fullWidth
+								value={user.username}
+								onChange={onChange}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextField
+								required
+								name='firstName'
+								label='First Name'
+								variant='standard'
+								fullWidth
+								value={user.firstName}
+								onChange={onChange}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextField
+								required
+								name='lastName'
+								label='Last Name'
+								variant='standard'
+								fullWidth
+								value={user.lastName}
+								onChange={onChange}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextField
+								required
+								name='email'
+								label='Email'
+								variant='standard'
+								fullWidth
+								value={user.email}
+								onChange={onChange}
+							/>
+						</Grid>
+						<Grid item xs={12}>
+							<label>Upload a user photo: </label>
+							<input type='file' ref={(x) => setEl(x)} />
+						</Grid>
+					</Grid>
+					<button>Update Your Profile</button>
+				</form>
+				<img src={data} />
+			</Fragment>
+			<br />
+			{<CreateAddress />}
+			<br />
+			{!addresses.length ? null : <UpdateAddress />}
 		</div>
 	);
 };

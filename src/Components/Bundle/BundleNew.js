@@ -14,7 +14,8 @@ import Container from '@mui/material/Container';
 // import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link} from 'react-router-dom';
-import { addQtyCart} from '../store';
+import { addQtyCart, fetchCart} from '../../store';
+import { useSnackbar } from 'notistack';
 
 function Copyright() {
 	return (
@@ -33,16 +34,34 @@ function Copyright() {
 
 const theme = createTheme();
 
-const BundleFeatured = () => {
+const BundleNew = () => {
+	const  {enqueueSnackbar} = useSnackbar();
+	
 	const dispatch = useDispatch();
+	const {cart} = useSelector((state) => state);
 	const { bundles } = useSelector((state) => state);
 	const [_bundles, setBundles] = useState([]);
 	useEffect(() => {
 		if (bundles.length) {
-            const featured = bundles.filter(bundle => bundle.type === 'featured')
+            const featured = bundles.filter(bundle => bundle.type === 'new')
 			setBundles(featured);
 		}
+		dispatch(fetchCart());
 	}, [bundles]);
+	const handleClickVariant = (bundle) => {
+    
+		const item = cart.lineItems.find(lineItem => lineItem.bundleId === bundle.id)
+		if (item) {
+		  dispatch(addQtyCart(
+			item.bundle,
+			1,
+			item.size,
+			item.frequency));
+		  } else {
+			dispatch(addQtyCart(bundle))
+		  }
+		enqueueSnackbar('Item added to your cart!', { variant: 'success' });
+	  }
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
@@ -106,13 +125,14 @@ const BundleFeatured = () => {
 										component='img'
 										sx={{
 											// 16:9
-											pt: '56.25%',
+											width: 'auto',
+											height: 250,
 										}}
 										image={bundle.imageUrl}
 										alt={bundle.name}
 									/>
 									<CardContent sx={{ flexGrow: 1 }} >
-										<Typography gutterBottom variant='h5' component='h2'>
+										<Typography align = "center" gutterBottom variant='h5' component='h2'>
 											{bundle.name}
 										</Typography>
 										<Typography>{bundle.description}</Typography>
@@ -123,9 +143,9 @@ const BundleFeatured = () => {
 										</Button>
 										<Button size='small' style={{textDecoration: "none"}} 
 										onClick= {(ev)=> {
-												ev.preventDefault();
-												dispatch(addQtyCart(bundle))
-											}}><Link to={`/cart`} style={{textDecoration: "none"}}>Add to cart</Link>
+											ev.preventDefault();
+                        handleClickVariant(bundle)
+											}}> Add to cart
 											</Button>
 									</CardActions>
 								</Card>
@@ -152,4 +172,4 @@ const BundleFeatured = () => {
 	);
 };
 
-export default BundleFeatured;
+export default BundleNew;

@@ -39,7 +39,8 @@ function NowTrending() {
         <Grid container align="center" spacing={2}>
           {trendingBundles.map((bundle) => {
             return (
-              <Grid item align="center" xs={2}>
+              <Grid item key = {bundle.id} align="center" xs={2}>
+
                 {/* <h1>1</h1> */}
                 <NowTrendingCard card={bundle}></NowTrendingCard>
               </Grid>
