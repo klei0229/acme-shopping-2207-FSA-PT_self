@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Typography, CssBaseline } from '@mui/material';
-import BundleBest from './BundleBest';
 
 const EmptyCart = () => {
   return (
@@ -21,7 +20,6 @@ const EmptyCart = () => {
           We think you might like...
         </Typography>
         <br />
-        <BundleBest />
         <br />
         <Link to={`/bundles`}>
           <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
