@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
-import { Button, BasicCard, Card, Container } from "@mui/material";
+import { Button, BasicCard, Card, Container, CssBaseline } from "@mui/material";
 import InfoCard from "./InfoCard";
 
 function HowItWorks() {
@@ -39,6 +39,7 @@ function HowItWorks() {
 
   return (
     <div>
+      <CssBaseline/>
       <Typography variant="h3" align="center" gutterBottom>
         How It Works
       </Typography>
