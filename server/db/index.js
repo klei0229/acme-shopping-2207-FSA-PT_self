@@ -829,9 +829,20 @@ const syncAndSeed = async () => {
 
 	await Promise.all([
 		Address.create({
+			label: 'Home',
 			street1: '123 Fake Street',
 			street2: '4E',
 			city: 'New York',
+			state: 'NY',
+			zipcode: '10001',
+			userId: moe.id,
+			country: 'United States',
+		}),
+		Address.create({
+			label: 'Work',
+			street1: '555 West Street',
+			street2: '',
+			city: 'Hudson',
 			state: 'NY',
 			zipcode: '10001',
 			userId: moe.id,

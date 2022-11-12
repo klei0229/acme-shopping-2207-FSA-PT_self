@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { loginWithToken } from '../store';
 import { Grid, Typography, TextField } from '@mui/material';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const UpdateAddress = () => {
 	const { auth } = useSelector((state) => state);
@@ -18,14 +22,11 @@ const UpdateAddress = () => {
 		country: '',
 	});
 
-	const onChange = (ev) => {
-		setAddress({ ...address, [ev.target.name]: ev.target.value });
-	};
-
 	useEffect(() => {
 		if (auth) {
 			setAddresses(auth.addresses);
 			if (addresses && auth) {
+				console.log(addresses);
 				const last = addresses.length - 1;
 				const address = addresses[last];
 				if (address) {
@@ -45,6 +46,17 @@ const UpdateAddress = () => {
 		}
 	}, [addresses, auth]);
 
+	const onChange = (ev) => {
+		setAddress({ ...address, [ev.target.name]: ev.target.value });
+	};
+
+	const changeAddress = (ev) => {
+		ev.preventDefault();
+		const id = ev.target.value;
+		const newAddress = addresses.find((x) => x.id === id);
+		setAddress(newAddress);
+	};
+
 	const saveAddress = async (ev) => {
 		ev.preventDefault();
 		try {
@@ -62,6 +74,23 @@ const UpdateAddress = () => {
 					<Typography variant='h6' gutterBottom>
 						Shipping Address
 					</Typography>
+					<div>
+						<FormControl variant='filled' sx={{ minWidth: 200 }}>
+							<InputLabel id='demo-simple-select-filled-label'>
+								Choose an address to update:
+							</InputLabel>
+							<Select
+								labelId='demo-simple-select-filled-label'
+								id='demo-simple-select-filled'
+								value={address}
+								onChange={changeAddress}
+							>
+								{addresses.map((_address) => {
+									<MenuItem value={_address.id}>{_address.label}</MenuItem>;
+								})}
+							</Select>
+						</FormControl>
+					</div>
 					<div>
 						<Grid container spacing={3}>
 							<Grid item xs={12}>
