@@ -113,7 +113,7 @@ const Bundle = () => {
                 <Button>New</Button>
               </Link>
               <Link to="/bundles/best" style={{ textDecoration: 'none' }}>
-                <Button>Best Sellers</Button>
+                <Button>Bestsellers</Button>
               </Link>
             </Stack>
           </Container>

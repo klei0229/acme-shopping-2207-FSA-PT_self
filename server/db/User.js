@@ -64,11 +64,13 @@ const User = conn.define('user', {
 	},
 });
 
-User.prototype.createOrder = async function () {
-	const cart = await this.getCart();
-	cart.isCart = false;
-	await cart.save();
-	return cart;
+User.prototype.createOrder = async function ({ total, tax }) {
+  const cart = await this.getCart();
+  cart.isCart = false;
+  cart.total = total;
+  cart.tax = tax;
+  await cart.save();
+  return cart;
 };
 
 User.prototype.getOrder = async function () {
