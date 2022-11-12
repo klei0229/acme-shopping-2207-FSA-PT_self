@@ -1,15 +1,40 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Container, Typography, CssBaseline } from '@mui/material';
 import { createOrder } from '../store';
 
 const OrderSuccess = () => {
+  const { cart } = useSelector((state) => state);
   const dispatch = useDispatch();
 
+  const calcSubtotal = (lineItems) => {
+    return parseFloat(
+      lineItems.reduce((sum, lineItem) => {
+        if (lineItem.size === 'Large') {
+          if (lineItem.frequency === 'Annually') {
+            return sum + lineItem.quantity * lineItem.bundle.price * 1.75 * 11;
+          }
+          return sum + lineItem.quantity * lineItem.bundle.price * 1.75;
+        } else if (lineItem.size === 'Small') {
+          if (lineItem.frequency === 'Annually') {
+            return sum + lineItem.quantity * lineItem.bundle.price * 1.0 * 11;
+          }
+          return sum + lineItem.quantity * lineItem.bundle.price * 1.0;
+        }
+      }, 0)
+    ).toFixed(2);
+  };
+
   useEffect(() => {
-    dispatch(createOrder());
-  }, []);
+    console.log(cart);
+    if (cart.lineItems.length > 0) {
+      const subtotal = parseFloat(calcSubtotal(cart.lineItems) * 1).toFixed(2);
+      const tax = parseFloat(subtotal * 1 * 0.08).toFixed(2);
+      const total = parseFloat(subtotal * 1 + tax * 1).toFixed(2);
+      dispatch(createOrder(total, tax));
+    }
+  }, [cart]);
 
   return (
     <Container>

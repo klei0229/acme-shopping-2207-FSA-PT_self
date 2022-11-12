@@ -32,12 +32,12 @@ const Cart = () => {
       lineItems.reduce((sum, lineItem) => {
         if (lineItem.size === 'Large') {
           if (lineItem.frequency === 'Annually') {
-            return sum + lineItem.quantity * lineItem.bundle.price * 1.75 * 12;
+            return sum + lineItem.quantity * lineItem.bundle.price * 1.75 * 11;
           }
           return sum + lineItem.quantity * lineItem.bundle.price * 1.75;
         } else if (lineItem.size === 'Small') {
           if (lineItem.frequency === 'Annually') {
-            return sum + lineItem.quantity * lineItem.bundle.price * 1.0 * 12;
+            return sum + lineItem.quantity * lineItem.bundle.price * 1.0 * 11;
           }
           return sum + lineItem.quantity * lineItem.bundle.price * 1.0;
         }
@@ -45,9 +45,9 @@ const Cart = () => {
     ).toFixed(2);
   };
 
-  const subtotal = calcSubtotal(cart.lineItems) * 1;
-  const taxes = parseFloat(subtotal * 0.08).toFixed(2);
-  const total = parseFloat(subtotal + taxes * 1).toFixed(2);
+  const subtotal = parseFloat(calcSubtotal(cart.lineItems) * 1).toFixed(2);
+  const tax = parseFloat(subtotal * 1 * 0.08).toFixed(2);
+  const total = parseFloat(subtotal * 1 + tax * 1).toFixed(2);
 
   const checkout = async () => {
     const response = await axios.post('/api/stripe/checkout', [
@@ -64,6 +64,8 @@ const Cart = () => {
   return (
     <Container>
       <br />
+      <br />
+      <br />
       <CssBaseline />
       {cart.lineItems.length > 0 ? (
         <Grid container spacing={5}>
@@ -74,12 +76,12 @@ const Cart = () => {
             <hr />
             <List disablePadding>
               {cart.lineItems.map((lineItem) => (
-                <ListItem key={lineItem.id} sx={{ py: 1, px: 0 }}>
+                <ListItem key={lineItem.id} sx={{ py: 2, px: 0 }}>
                   <Grid
                     container
                     alignItems="left"
                     justifyContent="center"
-                    spacing={0}
+                    spacing={2}
                     direction="row"
                   >
                     {/* Image */}
@@ -238,12 +240,12 @@ const Cart = () => {
             <Grid container>
               <Grid item xs={12} sm={6}>
                 <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
-                  Taxes
+                  Tax
                 </Typography>
               </Grid>
               <Grid item xs={12} sm={6} align="right">
                 <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
-                  {taxes}
+                  {tax}
                 </Typography>
               </Grid>
             </Grid>

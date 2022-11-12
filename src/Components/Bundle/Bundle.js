@@ -11,10 +11,17 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { useSnackbar } from 'notistack';
 // import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
-import { addQtyCart } from '../store';
+import { Link} from 'react-router-dom';
+import { addQtyCart, fetchCart } from '../../store';
+
+
+
+
+ 
+
 
 function Copyright() {
   return (
@@ -33,16 +40,33 @@ const theme = createTheme();
 
 const Bundle = () => {
   const dispatch = useDispatch();
+  const {cart} = useSelector((state) => state);
   const { bundles } = useSelector((state) => state);
   const [_bundles, setBundles] = useState([]);
   useEffect(() => {
     if (bundles.length) {
       setBundles(bundles);
     }
+      dispatch(fetchCart());
   }, [bundles]);
-
+  const  {enqueueSnackbar} = useSnackbar();
+  const handleClickVariant = (bundle) => {
+    
+    const item = cart.lineItems.find(lineItem => lineItem.bundleId === bundle.id)
+    if (item) {
+      dispatch(addQtyCart(
+        item.bundle,
+        1,
+        item.size,
+        item.frequency));
+      } else {
+        dispatch(addQtyCart(bundle))
+      }
+    enqueueSnackbar('Item added to your cart!', { variant: 'success' });
+  }
   return (
     <ThemeProvider theme={theme}>
+     
       <CssBaseline />
       <main>
         {/* Hero unit */}
@@ -89,7 +113,7 @@ const Bundle = () => {
                 <Button>New</Button>
               </Link>
               <Link to="/bundles/best" style={{ textDecoration: 'none' }}>
-                <Button>Best Sellers</Button>
+                <Button>Bestsellers</Button>
               </Link>
             </Stack>
           </Container>
@@ -117,7 +141,7 @@ const Bundle = () => {
                     alt={bundle.name}
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography align = "center" gutterBottom variant="h5" component="h2">
                       {bundle.name}
                     </Typography>
                     <Typography>{bundle.description}</Typography>
@@ -136,12 +160,10 @@ const Bundle = () => {
                       style={{ textDecoration: 'none' }}
                       onClick={(ev) => {
                         ev.preventDefault();
-                        dispatch(addQtyCart(bundle));
+                        handleClickVariant(bundle)
                       }}
                     >
-                      <Link to={`/cart`} style={{ textDecoration: 'none' }}>
                         Add to cart
-                      </Link>
                     </Button>
                   </CardActions>
                 </Card>
@@ -164,6 +186,7 @@ const Bundle = () => {
         <Copyright />
       </Box>
       {/* End footer */}
+      
     </ThemeProvider>
   );
 };
