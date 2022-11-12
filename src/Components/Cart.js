@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { addQtyCart, removeQtyCart, fetchCart, createOrder } from '../store';
+import { addQtyCart, removeQtyCart, fetchCart } from '../store';
 import EmptyCart from './EmptyCart';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import {
@@ -46,13 +46,13 @@ const Cart = () => {
   };
 
   const subtotal = parseFloat(calcSubtotal(cart.lineItems) * 1).toFixed(2);
-  const taxes = parseFloat(subtotal * 1 * 0.08).toFixed(2);
-  const total = parseFloat(subtotal * 1 + taxes * 1).toFixed(2);
+  const tax = parseFloat(subtotal * 1 * 0.08).toFixed(2);
+  const total = parseFloat(subtotal * 1 + tax * 1).toFixed(2);
 
   const checkout = async () => {
     const response = await axios.post('/api/stripe/checkout', [
       {
-        total: total,
+        total: parseFloat(total).toFixed(2),
         name: 'Bundles',
         quantity: 1,
       },
@@ -238,12 +238,12 @@ const Cart = () => {
             <Grid container>
               <Grid item xs={12} sm={6}>
                 <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
-                  Taxes
+                  Tax
                 </Typography>
               </Grid>
               <Grid item xs={12} sm={6} align="right">
                 <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
-                  {taxes}
+                  {tax}
                 </Typography>
               </Grid>
             </Grid>

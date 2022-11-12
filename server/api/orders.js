@@ -16,7 +16,9 @@ app.get('/', async (req, res, next) => {
 app.post('/', async (req, res, next) => {
   try {
     const user = await User.findByToken(req.headers.authorization);
-    res.send(await user.createOrder(req.body));
+    await user.createOrder(req.body);
+    // Need to pull new cart after order creation
+    res.send(await user.getCart());
   } catch (ex) {
     next(ex);
   }

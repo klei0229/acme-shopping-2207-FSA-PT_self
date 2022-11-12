@@ -26,13 +26,16 @@ export const fetchOrders = () => {
   };
 };
 
-export const createOrder = (total) => {
+export const createOrder = (total, tax) => {
   return async (dispatch) => {
     try {
       const token = window.localStorage.getItem('token');
       const response = await axios.post(
         '/api/orders',
-        { total },
+        {
+          total: total,
+          tax: tax,
+        },
         {
           headers: {
             authorization: token,

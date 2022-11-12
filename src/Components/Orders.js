@@ -19,7 +19,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 
 function Row(orders) {
   const { row } = orders;
-  console.log(row);
   const [open, setOpen] = React.useState(false);
 
   return (
