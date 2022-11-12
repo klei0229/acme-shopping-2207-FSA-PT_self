@@ -46,23 +46,19 @@ const Cart = () => {
   };
 
   const subtotal = parseFloat(calcSubtotal(cart.lineItems) * 1).toFixed(2);
-  const taxes = parseFloat(subtotal * 0.08).toFixed(2);
-  const total = parseFloat(subtotal + taxes * 1).toFixed(2);
+  const taxes = parseFloat(subtotal * 1 * 0.08).toFixed(2);
+  const total = parseFloat(subtotal * 1 + taxes * 1).toFixed(2);
 
   const checkout = async () => {
-    try {
-      const response = await axios.post('/api/stripe/checkout', [
-        {
-          total: total,
-          name: 'Bundles',
-          quantity: 1,
-        },
-      ]);
-      window.open(response.data);
-      window.close();
-    } catch (err) {
-      console.log(err);
-    }
+    const response = await axios.post('/api/stripe/checkout', [
+      {
+        total: total,
+        name: 'Bundles',
+        quantity: 1,
+      },
+    ]);
+    window.open(response.data);
+    window.close();
   };
 
   return (
@@ -261,7 +257,7 @@ const Cart = () => {
               </Grid>
               <Grid item xs={12} sm={6} align="right">
                 <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
-                  {subtotal}
+                  {total}
                 </Typography>
               </Grid>
             </Grid>

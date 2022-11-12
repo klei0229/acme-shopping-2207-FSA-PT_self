@@ -2,14 +2,13 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Container, Typography, CssBaseline } from '@mui/material';
-import { createOrder } from '../store';
+// import { createOrder } from '../store';
 
 const OrderSuccess = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(createOrder('CREATE', 0, 0));
-  }, []);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(createOrder());
+  // }, []);
 
   return (
     <Container>
