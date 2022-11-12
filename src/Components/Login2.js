@@ -14,6 +14,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CreateUser2 from './CreateUser2';
 
 const Login2 = () => {
   const dispatch = useDispatch();
@@ -41,20 +42,16 @@ const Login2 = () => {
         <Grid
           item
           xs={false}
-          sm={4.5}
+          sm={5}
           sx={{
             backgroundImage:
               'url(https://media.istockphoto.com/id/1330491451/vector/pre-packaged-snacks-color-doodle-illustration.jpg?s=1024x1024&w=is&k=20&c=kzlZlzvgFaOOcjjkjtZPBrQokkP3tWMngV9_0tpHDy8=)',
             backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-              t.palette.mode === 'light'
-                ? t.palette.grey[50]
-                : t.palette.grey[900],
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'right',
           }}
         />
-        <Grid item xs={12} sm={7.5} component={Paper} square>
+        <Grid item xs={12} sm={7} component={Paper} square>
           <Box
             sx={{
               my: 8,
@@ -109,13 +106,9 @@ const Login2 = () => {
               >
                 Sign In
               </Button>
-              <Grid container>
-                <Grid item>
-                  <Link href="#" variant="body2" align="center">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
-              </Grid>
+            </Box>
+            <Box>
+              <CreateUser2 />
             </Box>
           </Box>
         </Grid>

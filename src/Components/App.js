@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import Home from './Home';
-import Login from './Login';
 import Login2 from './Login2';
+import CreateUser2 from './CreateUser2';
 import Cart from './Cart';
 import Profile from './Profile';
 import Checkout from './Checkout';
-
 import Bundle from './Bundle/Bundle';
 import LandingPage from './LandingPage';
 import BundleDetail from './Bundle/BundleDetail';
@@ -40,15 +39,9 @@ const App = () => {
         {auth.id ? <Home /> : <Login2 />}
         {!!auth.id && (
           <div>
-            {/* <nav>
-            <Link to="/">Home</Link>
-            <Link to="/cart">Cart</Link>
-            <Link to="/profile">Profile</Link>
-            <Link to="/checkout">Checkout</Link>
-            <Link to="/bundles">Bundles</Link>
-          </nav> */}
             <Routes>
               <Route path="/" element={<LandingPage />} />
+              <Route path="/signup" element={<CreateUser2 />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/checkout" element={<Checkout />} />
