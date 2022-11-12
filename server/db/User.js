@@ -62,9 +62,18 @@ const User = conn.define('user', {
   },
 });
 
-User.prototype.createOrder = async function () {
+User.prototype.createOrder = async function ({ action, total, taxes }) {
   const cart = await this.getCart();
-  cart.isCart = false;
+  if (action === 'CREATE') {
+    cart.isCart = false;
+    console.log('cart/order added!');
+  }
+  if (action === 'UPDATE') {
+    cart.total = total;
+    cart.taxes = taxes;
+    console.log('cart/order updated');
+    console.log(total);
+  }
   await cart.save();
   return cart;
 };

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { addQtyCart, removeQtyCart, fetchCart } from '../store';
+import { addQtyCart, removeQtyCart, fetchCart, createOrder } from '../store';
 import EmptyCart from './EmptyCart';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import {
@@ -32,12 +32,12 @@ const Cart = () => {
       lineItems.reduce((sum, lineItem) => {
         if (lineItem.size === 'Large') {
           if (lineItem.frequency === 'Annually') {
-            return sum + lineItem.quantity * lineItem.bundle.price * 1.75 * 12;
+            return sum + lineItem.quantity * lineItem.bundle.price * 1.75 * 11;
           }
           return sum + lineItem.quantity * lineItem.bundle.price * 1.75;
         } else if (lineItem.size === 'Small') {
           if (lineItem.frequency === 'Annually') {
-            return sum + lineItem.quantity * lineItem.bundle.price * 1.0 * 12;
+            return sum + lineItem.quantity * lineItem.bundle.price * 1.0 * 11;
           }
           return sum + lineItem.quantity * lineItem.bundle.price * 1.0;
         }
@@ -50,15 +50,19 @@ const Cart = () => {
   const total = parseFloat(subtotal + taxes * 1).toFixed(2);
 
   const checkout = async () => {
-    const response = await axios.post('/api/stripe/checkout', [
-      {
-        total: total,
-        name: 'Bundles',
-        quantity: 1,
-      },
-    ]);
-    window.open(response.data);
-    window.close();
+    try {
+      const response = await axios.post('/api/stripe/checkout', [
+        {
+          total: total,
+          name: 'Bundles',
+          quantity: 1,
+        },
+      ]);
+      window.open(response.data);
+      window.close();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -257,7 +261,7 @@ const Cart = () => {
               </Grid>
               <Grid item xs={12} sm={6} align="right">
                 <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
-                  {total}
+                  {subtotal}
                 </Typography>
               </Grid>
             </Grid>

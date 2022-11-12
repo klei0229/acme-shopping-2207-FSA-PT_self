@@ -8,7 +8,7 @@ const OrderSuccess = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(createOrder());
+    dispatch(createOrder('CREATE', 0, 0));
   }, []);
 
   return (
