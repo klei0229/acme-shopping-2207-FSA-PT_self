@@ -14,8 +14,8 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { Container } from '@mui/system';
-import { CssBaseline } from '@mui/material';
+import Container from '@mui/system/Container';
+import CssBaseline from '@mui/material/CssBaseline';
 
 function Row(orders) {
   const { row } = orders;
@@ -24,7 +24,7 @@ function Row(orders) {
 
   return (
     <React.Fragment>
-      <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
+      <TableRow sx={{ '& > *': { borderBottom: 'unset' } }} hover="true">
         <TableCell>
           <IconButton
             aria-label="expand row"
@@ -34,26 +34,26 @@ function Row(orders) {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row" align="right">
+        <TableCell component="th" scope="row" align="left">
           {'OR-'.concat(String(row.id).substring(1, 13).toUpperCase())}
         </TableCell>
-        <TableCell align="right">{row.updatedAt}</TableCell>
-        <TableCell align="right">{row.total || 0}</TableCell>
-        <TableCell align="right">{row.tax || 0}</TableCell>
+        <TableCell align="left">{Date(row.updatedAt)}</TableCell>
         <TableCell align="right">{row.discount || 0}</TableCell>
+        <TableCell align="right">{row.tax || 0}</TableCell>
+        <TableCell align="right">{row.total || 0}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
-              <Typography variant="h6" gutterBottom component="div">
-                Line Item
+              <Typography variant="subtitle1" gutterBottom component="div">
+                Line Items:
               </Typography>
-              <Table size="small" aria-label="purchases">
+              <Table size="small" aria-label="orders">
                 <TableHead>
                   <TableRow>
-                    <TableCell align="left">Date</TableCell>
-                    <TableCell align="left">Bundle</TableCell>
+                    <TableCell align="left">Transaction Timestamp</TableCell>
+                    <TableCell align="left">Bundle Name</TableCell>
                     <TableCell align="left">Size</TableCell>
                     <TableCell align="left">Frequency</TableCell>
                     <TableCell align="right">Quantity</TableCell>
@@ -61,9 +61,9 @@ function Row(orders) {
                 </TableHead>
                 <TableBody>
                   {row.lineItems.map((lineItemRow) => (
-                    <TableRow key={lineItemRow.id}>
+                    <TableRow key={lineItemRow.id} hover="true">
                       <TableCell component="th" scope="row">
-                        {lineItemRow.updatedAt}
+                        {Date(lineItemRow.updatedAt)}
                       </TableCell>
                       <TableCell component="th" scope="row">
                         {lineItemRow.bundle.name}
@@ -101,16 +101,19 @@ const Orders = () => {
       <br />
       <br />
       <CssBaseline />
+      <Typography variant="h6" gutterBottom component="div">
+        Order History
+      </Typography>
       <TableContainer component={Paper}>
         <Table aria-label="collapsible table">
           <TableHead>
             <TableRow>
               <TableCell />
-              <TableCell align="right">ID</TableCell>
-              <TableCell align="right">Order Date</TableCell>
-              <TableCell align="right">Total</TableCell>
-              <TableCell align="right">Tax</TableCell>
+              <TableCell align="left">Order No.</TableCell>
+              <TableCell align="left">Transaction Timestamp</TableCell>
               <TableCell align="right">Discount</TableCell>
+              <TableCell align="right">Tax</TableCell>
+              <TableCell align="right">Total</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
