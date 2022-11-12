@@ -24,6 +24,7 @@ const CreateAddress = () => {
 	});
 
 	const [open, setOpen] = useState(false);
+	const [error, setError] = useState({});
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -45,9 +46,14 @@ const CreateAddress = () => {
 			await dispatch(loginWithToken());
 			handleClose();
 		} catch (ex) {
-			console.log(ex.response.data);
+			setError(ex.response.data);
 		}
 	};
+
+	let messages = [];
+	if (error.errors) {
+		messages = error.errors.map((e) => e.message);
+	}
 
 	return (
 		<div>
@@ -66,6 +72,15 @@ const CreateAddress = () => {
 							<Typography variant='h6' gutterBottom>
 								Create a New Address to Save to your Profile
 							</Typography>
+							<ul>
+								{messages.map((message) => {
+									return (
+										<li key={message} className={'error'}>
+											{message}
+										</li>
+									);
+								})}
+							</ul>
 							<div>
 								<Grid container spacing={3}>
 									<Grid item xs={12}>

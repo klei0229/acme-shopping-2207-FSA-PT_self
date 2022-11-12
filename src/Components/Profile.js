@@ -18,6 +18,7 @@ const Profile = () => {
 		email: auth.email,
 		avatar: auth.avatar,
 	});
+	const [error, setError] = useState({});
 
 	const onChange = (ev) => {
 		setUser({ ...user, [ev.target.name]: ev.target.value });
@@ -53,9 +54,15 @@ const Profile = () => {
 			el.value = '';
 			setData('');
 		} catch (ex) {
-			console.log(ex.response.data);
+			setError(ex.response.data);
 		}
 	};
+
+	let messages = [];
+	if (error.errors) {
+		messages = error.errors.map((e) => e.message);
+	}
+
 	return (
 		<div>
 			<Fragment>
@@ -63,6 +70,15 @@ const Profile = () => {
 					Profile
 				</Typography>
 				<form onSubmit={saveUser}>
+					<ul>
+						{messages.map((message) => {
+							return (
+								<li key={message} className={'error'}>
+									{message}
+								</li>
+							);
+						})}
+					</ul>
 					<Grid container spacing={3} style={{ padding: '0 20px' }}>
 						<Grid item xs={12} sm={6}>
 							<TextField

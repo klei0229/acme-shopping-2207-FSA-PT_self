@@ -22,6 +22,7 @@ const UpdateAddress = () => {
 		zipcode: '',
 		country: '',
 	});
+	const [error, setError] = useState({});
 
 	useEffect(() => {
 		if (auth) {
@@ -54,9 +55,14 @@ const UpdateAddress = () => {
 			await axios.put(`/api/addresses/${address.id}`, address);
 			await dispatch(loginWithToken());
 		} catch (ex) {
-			console.log(ex);
+			setError(ex.response.data);
 		}
 	};
+
+	let messages = [];
+	if (error.errors) {
+		messages = error.errors.map((e) => e.message);
+	}
 
 	return (
 		<div>
@@ -87,6 +93,15 @@ const UpdateAddress = () => {
 							</FormControl>
 						</Box>
 					</div>
+					<ul>
+						{messages.map((message) => {
+							return (
+								<li key={message} className={'error'}>
+									{message}
+								</li>
+							);
+						})}
+					</ul>
 					<div>
 						<Grid container spacing={3}>
 							<Grid item xs={12}>

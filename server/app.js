@@ -19,4 +19,9 @@ app.use('/api/products', require('./api/products'));
 app.use('/api/addresses', require('./api/addresses'));
 app.use('/api/stripe', require('./api/stripe'));
 
+app.use((err, req, res, next) => {
+	console.log(err);
+	res.status(500).send(err);
+});
+
 module.exports = app;
