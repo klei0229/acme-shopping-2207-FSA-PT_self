@@ -10,6 +10,7 @@ import BundleDetail from './BundleDetail';
 import BundleFeatured from './BundleFeatured';
 import BundleNew from './BundleNew';
 import BundleBest from './BundleBest';
+import UpdateAddress from './UpdateAddress';
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchBundles } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
@@ -40,7 +41,7 @@ const App = () => {
             <Link to="/bundles">Bundles</Link>
           </nav> */}
 					<Routes>
-						<Route path='/' element={<LandingPage/>} />
+						<Route path='/' element={<LandingPage />} />
 						<Route path='/cart' element={<Cart />} />
 						<Route path='/profile' element={<Profile />} />
 						<Route path='/checkout' element={<Checkout />} />
@@ -49,6 +50,7 @@ const App = () => {
 						<Route path='/bundles/featured' element={<BundleFeatured />} />
 						<Route path='/bundles/new' element={<BundleNew />} />
 						<Route path='/bundles/best' element={<BundleBest />} />
+						<Route path='/addresses/:id' element={<UpdateAddress />} />
 					</Routes>
 				</div>
 			)}

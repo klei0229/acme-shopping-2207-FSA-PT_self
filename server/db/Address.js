@@ -20,10 +20,6 @@ const Address = conn.define('address', {
 	},
 	street2: {
 		type: STRING,
-		allowNull: false,
-		validate: {
-			notEmpty: true,
-		},
 	},
 	city: {
 		type: STRING,

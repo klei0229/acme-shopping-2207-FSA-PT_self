@@ -4,6 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Typography, TextField } from '@mui/material';
 import UpdateAddress from './UpdateAddress';
 import CreateAddress from './CreateAddress';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 
 const Profile = () => {
 	const { auth } = useSelector((state) => state);
@@ -118,7 +122,15 @@ const Profile = () => {
 				<img src={data} />
 			</Fragment>
 			<br />
-			{!addresses.length ? <CreateAddress /> : <UpdateAddress />}
+			<Grid container spacing={3} style={{ padding: '0 20px' }}>
+				{addresses.map((_address) => (
+					<Grid item key={_address.id} xs={12}>
+						<p>{_address.name}</p>
+					</Grid>
+				))}
+			</Grid>
+			<br />
+			<CreateAddress />
 		</div>
 	);
 };
