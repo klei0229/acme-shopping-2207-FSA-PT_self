@@ -10,7 +10,6 @@ const Address = conn.define('address', {
 	label: {
 		type: STRING,
 		defaultValue: 'Home',
-		unique: true,
 		validate: {
 			notEmpty: true,
 		},
