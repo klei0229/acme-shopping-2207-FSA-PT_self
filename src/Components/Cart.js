@@ -52,7 +52,7 @@ const Cart = () => {
   const checkout = async () => {
     const response = await axios.post('/api/stripe/checkout', [
       {
-        total: parseFloat(total).toFixed(2),
+        total: total,
         name: 'Bundles',
         quantity: 1,
       },
@@ -64,6 +64,8 @@ const Cart = () => {
   return (
     <Container>
       <br />
+      <br />
+      <br />
       <CssBaseline />
       {cart.lineItems.length > 0 ? (
         <Grid container spacing={5}>
@@ -74,12 +76,12 @@ const Cart = () => {
             <hr />
             <List disablePadding>
               {cart.lineItems.map((lineItem) => (
-                <ListItem key={lineItem.id} sx={{ py: 1, px: 0 }}>
+                <ListItem key={lineItem.id} sx={{ py: 2, px: 0 }}>
                   <Grid
                     container
                     alignItems="left"
                     justifyContent="center"
-                    spacing={0}
+                    spacing={2}
                     direction="row"
                   >
                     {/* Image */}
