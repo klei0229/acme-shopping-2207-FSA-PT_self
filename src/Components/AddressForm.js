@@ -1,113 +1,181 @@
-import * as React from 'react';
-import {
-	Grid,
-	Typography,
-	TextField,
-	FormControlLabel,
-	Checkbox,
-} from '@mui/material';
+import React, { useEffect, useState, Fragment } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import { loginWithToken } from '../store';
+import { Grid, Typography, TextField } from '@mui/material';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import Box from '@mui/material/Box';
 
 export default function AddressForm() {
+	const { auth } = useSelector((state) => state);
+	const dispatch = useDispatch();
+	const [addresses, setAddresses] = useState([]);
+	const [address, setAddress] = useState({
+		label: '',
+		street1: '',
+		street2: '',
+		city: '',
+		state: '',
+		zipcode: '',
+		country: '',
+	});
+	const [error, setError] = useState({});
+
+	useEffect(() => {
+		if (auth) {
+			setAddresses(auth.addresses);
+			if (addresses && auth) {
+				console.log(addresses);
+				const last = addresses.length - 1;
+				const address = addresses[last];
+				if (address) {
+					setAddress(address);
+				}
+			}
+		}
+	}, [addresses, auth]);
+
+	const onChange = (ev) => {
+		setAddress({ ...address, [ev.target.name]: ev.target.value });
+	};
+
+	const changeAddress = (ev) => {
+		ev.preventDefault();
+		const id = ev.target.value;
+		const newAddress = addresses.find((x) => x.id === id);
+		setAddress(newAddress);
+	};
+
+	const saveAddress = async (ev) => {
+		ev.preventDefault();
+		try {
+			await axios.put(`/api/addresses/${address.id}`, address);
+			await dispatch(loginWithToken());
+		} catch (ex) {
+			setError(ex.response.data);
+		}
+	};
+
+	let messages = [];
+	if (error.errors) {
+		messages = error.errors.map((e) => e.message);
+	}
+
 	return (
-		<React.Fragment>
-			<Typography variant='h6' gutterBottom>
-				Shipping address
-			</Typography>
-			<Grid container spacing={3}>
-				<Grid item xs={12} sm={6}>
+		<Grid container align='center' width='100vw'>
+			<FormControl onSubmit={saveAddress}>
+				<Typography variant='h6' gutterBottom>
+					Shipping Address
+				</Typography>
+				<Box>
+					<FormControl fullWidth>
+						<InputLabel key='inputlabel'>
+							Choose an address to update:
+						</InputLabel>
+						<Select
+							value={address.id || ''}
+							label='Choose an address to update:'
+							onChange={changeAddress}
+						>
+							{addresses.map((_address) => {
+								return (
+									<MenuItem key={_address.id} value={_address.id}>
+										{_address.label}
+									</MenuItem>
+								);
+							})}
+						</Select>
+					</FormControl>
+				</Box>
+				<ul>
+					{messages.map((message) => {
+						return (
+							<li key={message} className={'error'}>
+								{message}
+							</li>
+						);
+					})}
+				</ul>
+				<Grid item xs={12}>
 					<TextField
 						required
-						id='firstName'
-						name='firstName'
-						label='First name'
+						name='label'
+						label='Address Label'
 						fullWidth
-						autoComplete='given-name'
 						variant='standard'
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<TextField
-						required
-						id='lastName'
-						name='lastName'
-						label='Last name'
-						fullWidth
-						autoComplete='family-name'
-						variant='standard'
+						value={address.label}
+						onChange={onChange}
 					/>
 				</Grid>
 				<Grid item xs={12}>
 					<TextField
 						required
-						id='address1'
-						name='address1'
+						name='street1'
 						label='Address line 1'
 						fullWidth
-						autoComplete='shipping address-line1'
 						variant='standard'
+						value={address.street1}
+						onChange={onChange}
 					/>
 				</Grid>
 				<Grid item xs={12}>
 					<TextField
-						id='address2'
-						name='address2'
+						name='street2'
 						label='Address line 2'
 						fullWidth
-						autoComplete='shipping address-line2'
 						variant='standard'
+						value={address.street2}
+						onChange={onChange}
 					/>
 				</Grid>
-				<Grid item xs={12} sm={6}>
+				<Grid item xs={12}>
 					<TextField
 						required
-						id='city'
 						name='city'
 						label='City'
 						fullWidth
-						autoComplete='shipping address-level2'
 						variant='standard'
+						value={address.city}
+						onChange={onChange}
 					/>
 				</Grid>
-				<Grid item xs={12} sm={6}>
+				<Grid item xs={12}>
 					<TextField
-						id='state'
 						name='state'
 						label='State/Province/Region'
 						fullWidth
 						variant='standard'
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<TextField
-						required
-						id='zipcode'
-						name='zipcode'
-						label='Zipcode / Postal code'
-						fullWidth
-						autoComplete='shipping postal-code'
-						variant='standard'
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<TextField
-						required
-						id='country'
-						name='country'
-						label='Country'
-						fullWidth
-						autoComplete='shipping country'
-						variant='standard'
+						value={address.state}
+						onChange={onChange}
 					/>
 				</Grid>
 				<Grid item xs={12}>
-					<FormControlLabel
-						control={
-							<Checkbox color='secondary' name='saveAddress' value='yes' />
-						}
-						label='Use this address for payment details'
+					<TextField
+						required
+						name='zipcode'
+						label='Zipcode / Postal code'
+						fullWidth
+						variant='standard'
+						value={address.zipcode}
+						onChange={onChange}
 					/>
 				</Grid>
-			</Grid>
-		</React.Fragment>
+				<Grid item xs={12} sm={6}>
+					<TextField
+						required
+						name='country'
+						label='Country'
+						fullWidth
+						variant='standard'
+						value={address.country}
+						onChange={onChange}
+					/>
+				</Grid>
+				<button>Update Address</button>
+			</FormControl>
+		</Grid>
 	);
 }
