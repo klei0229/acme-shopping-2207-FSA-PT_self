@@ -1,7 +1,7 @@
 // import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 // import { logout } from '../store';
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 // import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -19,55 +19,57 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-import { Badge } from "@mui/material";
+import { Badge, Icon } from "@mui/material";
 import ShoppingCartSharpIcon from "@mui/icons-material/ShoppingCartOutlined";
 // import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 // import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 // import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
+import Link from "@mui/material/Link";
+
 import Cart from "./Cart";
 import { logout } from "../store";
+
+import Theme from "./App"
 
 // const pages = ['Home', 'Bundles', 'Snacks'];
 // const settings = [ 'Account', 'Cart', 'Dashboard', 'Logout'];
 
-
-
 const settings = [
-  { name: "Account", url: "/profile" },
-  { name: "Cart", url: "/cart" },
-  { name: "Checkout", url: "/checkout" },
-  { name: "Dashboard", url: "/dashboard" },
+  { name: "Profile", url: "#/profile" },
+  { name: "Cart", url: "#/cart" },
+  // { name: "Checkout", url: "/checkout" },
+  { name: "Orders", url: "#/dashboard" },
 ];
 
 const pages = [
   { name: "Home", url: "/" },
-  { name: "Bundles", url: "/bundles" },
-  { name: "Snacks", url: "/snacks" },
+  { name: "Bundles", url: "#/bundles" },
+  { name: "Snacks", url: "#/snacks" },
 ];
 
-const companyName = "Company";
+const companyName = "SNACKCLUB";
 
 function ResponsiveAppBar() {
   const dispatch = useDispatch();
   const [cartItems, setCart] = useState([]);
   const { cart } = useSelector((state) => state);
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     setCart(cart);
     // console.log(cart);
-    // console.log(cart.lineItems.length)  
-  },[cart])
+    // console.log(cart.lineItems.length)
+  }, [cart]);
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   const navigateToCart = () => {
-    navigate('/cart');
-  }
+    navigate("/cart");
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -136,7 +138,13 @@ function ResponsiveAppBar() {
     <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
+          
+          <Icon sx={{
+            mr:"5"
+          }}>
+            <img src={"https://cdn-icons-png.flaticon.com/512/2553/2553691.png"} height={25} width={25} />
+          </Icon>
           <Typography
             variant="h6"
             noWrap
@@ -148,7 +156,7 @@ function ResponsiveAppBar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "white",
               textDecoration: "none",
             }}
           >
@@ -187,7 +195,7 @@ function ResponsiveAppBar() {
               {/* On Smaller Window */}
               {pages.map((page) => (
                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                  <Link to={page.url} style={{ textDecoration: "none" }}>
+                  <Link underline="hover" href={page.url}>
                     <Typography textAlign="center">{page.name}</Typography>
                   </Link>
                 </MenuItem>
@@ -207,7 +215,7 @@ function ResponsiveAppBar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "white",
               textDecoration: "none",
             }}
           >
@@ -216,12 +224,7 @@ function ResponsiveAppBar() {
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Link
-                key={page.url}
-                to={page.url}
-                underline="hover"
-                style={{ textDecoration: "none" }}
-              >
+              <Link underline="hover" key={page.url} href={page.url}>
                 <Button
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
@@ -244,23 +247,25 @@ function ResponsiveAppBar() {
           </Search>
 
           <Box sx={{ flexGrow: 0 }}>
-          <IconButton onClick={navigateToCart} sx={{ p: 0, mr:1 }}>
-                <Badge badgeContent={cart.lineItems.length} color="secondary">
-                  <ShoppingCartSharpIcon style={{fill:"white"}} fontSize="medium"></ShoppingCartSharpIcon>
-                </Badge>
-              </IconButton>
+            <IconButton href="#/cart" sx={{ p: 0,ml:2, mr: 2 }}>
+              <Badge badgeContent={cart.lineItems.length} color="secondary">
+                <ShoppingCartSharpIcon
+                  style={{ fill: "white" }}
+                  fontSize="medium"
+                ></ShoppingCartSharpIcon>
+              </Badge>
+            </IconButton>
             <Tooltip title="Open settings">
-              
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" /> */}
                 {/* <Avatar src="/broken-image.jpg"></Avatar> */}
-                <AccountCircleIcon style={{fill:"white"}} fontSize="large"></AccountCircleIcon>
-                
+                <AccountCircleIcon
+                  style={{ fill: "white" }}
+                  fontSize="large"
+                ></AccountCircleIcon>
               </IconButton>
-
             </Tooltip>
 
-              
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
@@ -279,7 +284,7 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting.url}>
-                  <Link to={setting.url} style={{ textDecoration: "none" }}>
+                  <Link underline="hover" href={setting.url}>
                     <Typography textAlign="center">{setting.name}</Typography>
                   </Link>
                 </MenuItem>

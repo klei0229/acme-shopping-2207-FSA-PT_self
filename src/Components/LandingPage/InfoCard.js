@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 
-import { Paper } from "@mui/material";
+import { Paper, CardMedia } from "@mui/material";
 
 import InventoryIcon from "@mui/icons-material/Inventory";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -29,17 +29,28 @@ function InfoCard(props) {
       <Card
         sx={{
           minWidth: 275,
-          minHeight: "350px",
+          minHeight: "100%",
           pt: "40",
           mt: "10",
           mb: "30",
         }}
+        raised="true"
       >
         <Typography variant="h5" component="div">
           {card.number}
         </Typography>
+        <br></br>
+        <CardMedia sx ={{
+          objectFit: "contain",
+          mb:3
+        }}
+                  component="img"
+                  height="150px"
+                  image={card.image}
+                  alt="image"
+                />
         <CardContent>
-          <img src={card.image}></img>
+          {/* <img src={card.image}></img> */}
 
           <Typography variant="h5" component="div">
             {card.title}

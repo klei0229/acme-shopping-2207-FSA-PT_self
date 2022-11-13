@@ -2,7 +2,7 @@ import * as React from "react";
 import { Container, Paper } from "@mui/material";
 import MainFeaturedPost from "./LandingPage/MainFeaturedPost";
 import SecondaryFeaturedPost from "./LandingPage/SecondaryFeaturedPost";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, Divider } from "@mui/material";
 import HowItWorks from "./LandingPage/HowItWorks";
 import NowTrending from "./LandingPage/NowTrending";
 
@@ -10,7 +10,7 @@ function LandingPage() {
   const mainFeaturedPost = {
     title: "Snack Bundles for Everyone",
     description:
-      "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
+      "Welcome to Snack Club!",
     image:
       "https://img.freepik.com/free-photo/closeup-shot-candy-canes-other-candies-green-background-perfcet-cool-wallpaper_181624-10003.jpg?w=1800&t=st=1667946946~exp=1667947546~hmac=333269566a28179218ace76b7b948dd3793d52f9f7d060c4bea26dff4a0ca960",
     imageText: "main image description",
@@ -67,10 +67,9 @@ function LandingPage() {
 
   return (
     <div>
+      <MainFeaturedPost post={mainFeaturedPost} />
       <Container maxWidth="xl" align="center">
-        <MainFeaturedPost post={mainFeaturedPost} />
-
-        <Grid container spacing={2}>
+        {/* <Grid container spacing={2}>
           <Grid item md={4}>
             <SecondaryFeaturedPost post={sideFeaturedPost1} />
           </Grid>
@@ -80,13 +79,18 @@ function LandingPage() {
           <Grid item md={4}>
             <SecondaryFeaturedPost post={sideFeaturedPost3} />
           </Grid>
-        </Grid>
+        </Grid> */}
 
         <HowItWorks></HowItWorks>
 
         <Typography variant="h3" align="center" gutterBottom>
-          Upcoming Holidays
+          Upcoming Holiday Bundles
         </Typography>
+        <Container maxWidth="xs">
+          <Divider variant="middle"></Divider>
+        </Container>
+        <br></br>
+        <br></br>
         <Grid container spacing={2}>
           <Grid item md={6}>
             <SecondaryFeaturedPost post={christmasFeaturedPost} />
@@ -97,6 +101,8 @@ function LandingPage() {
         </Grid>
 
         <NowTrending></NowTrending>
+        <br></br>
+        <br></br>
       </Container>
     </div>
   );

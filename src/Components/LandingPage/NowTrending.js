@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
-import { Button, BasicCard, Card, Container } from "@mui/material";
+import { Button, BasicCard, Card, Container, Divider } from "@mui/material";
 import InfoCard from "./InfoCard";
 import NowTrendingCard from "./NowTrendingCard";
 import { useSelector } from "react-redux";
@@ -14,6 +14,8 @@ function NowTrending() {
   const { bundles } = useSelector((state) => state);
   //   console.log(bundles);
   //   let trendingBundles = [];
+  
+  console.log(bundles);
   const [trendingBundles, setTrendingBundles] = React.useState([]);
 
   const card1 = {
@@ -22,24 +24,30 @@ function NowTrending() {
     url: "https://www.snackcrate.com/wp-content/uploads/2021/08/set2-box.svg",
   };
 
-  React.useEffect(() => {
-    if (bundles.length > 0) {
-      setTrendingBundles(bundles.slice(0, 6));
+	React.useEffect(() => {
+		if (bundles.length) {
+      const featured = bundles.filter(bundle => bundle.type === 'featured')
+			setTrendingBundles(featured);
+      console.log(featured);
     }
-  }, [bundles]);
+    console.log(trendingBundles);
+	}, [bundles]);
 
   return (
     <div>
       <Typography variant="h3" align="center" gutterBottom>
         Now Trending
       </Typography>
-
+      <Container maxWidth="xs">
+      <Divider variant = "middle"></Divider>
+      </Container>
+      <br></br>
       <Container maxWidth="xl">
         {/* <QuiltedImageList></QuiltedImageList> */}
         <Grid container align="center" spacing={2}>
           {trendingBundles.map((bundle) => {
             return (
-              <Grid item key = {bundle.id} align="center" xs={2}>
+              <Grid item key = {bundle.id} align="center" xs={3}>
 
                 {/* <h1>1</h1> */}
                 <NowTrendingCard card={bundle}></NowTrendingCard>

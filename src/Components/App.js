@@ -20,6 +20,51 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchBundles } from '../store';
 import { Routes, Route } from 'react-router-dom';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+
+const black = "#010101"
+const pink = "#ffcfda"
+const copper = "#b16132"
+const martinque = "#42385d"
+const bouquet = "#b094ae"
+
+export const Theme = createTheme({
+	palette: {
+		
+		type: 'light',	
+		primary: {
+		  main: bouquet,
+		},
+		secondary: {
+		  main: '#f2385d',
+		},
+
+		navButton: {
+			main:"#000000"
+		},
+		
+		typography: {
+			button: {
+				fontSize: 20, // works
+				color: '#000000' // doesn't work
+			  },
+
+			allVariants: {
+			  color: "pink"
+			},
+		  },
+		  
+	  },
+	overrides: {
+		MuiButton: {
+		  label: {
+			color: "#000000",
+		  },
+		},
+  	}}
+  );
+
 const App = () => {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -34,6 +79,7 @@ const App = () => {
     }
   }, [auth]);
   return (
+	<ThemeProvider theme={Theme}>
     <SnackbarProvider maxSnack={3}>
       <div>
         {auth.id ? <Home /> : <Login2 />}
@@ -59,6 +105,7 @@ const App = () => {
         )}
       </div>
     </SnackbarProvider>
+	</ThemeProvider>
   );
 };
 
