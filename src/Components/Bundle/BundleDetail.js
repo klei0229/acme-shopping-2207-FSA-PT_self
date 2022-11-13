@@ -33,8 +33,8 @@ const BundleDetail = () => {
   const [bundle, setBundle] = useState({});
   const [products, setProducts] = useState([]);
 
-  const [subscription, setSubscription] = useState("monthly");
-  const [size, setSize] = useState("small");
+  const [subscription, setSubscription] = useState("Monthly");
+  const [size, setSize] = useState("Small");
 
   const basePrice = 14.99;
   const [price, setPrice] = useState(`$${basePrice}`);
@@ -46,15 +46,15 @@ const BundleDetail = () => {
     console.log("last is:" + subscription);
     if (newSubscription !== null) {
       setSubscription(newSubscription);
-      if (newSubscription == "monthly") {
-        if (size == "small") {
+      if (newSubscription == "Monthly") {
+        if (size == "Small") {
           setPrice(`$${basePrice}`);
           console.log(1);
         } else {
           setPrice(`$${(basePrice * 1.75).toFixed(2)}`);
         }
       } else {
-        if (size == "small") {
+        if (size == "Small") {
           setPrice(`$${(basePrice * 1.75).toFixed(2)}`);
           console.log(1);
         } else {
@@ -69,15 +69,15 @@ const BundleDetail = () => {
       setSize(newSize);
       //   calculatePrice();
 
-      if (newSize == "large") {
-        if (subscription == "monthly") {
+      if (newSize == "Large") {
+        if (subscription == "Monthly") {
           setPrice(`$${(basePrice * 1.75).toFixed(2)}`);
           console.log(1);
         } else {
           setPrice(`$${(basePrice * 1.75 * 11).toFixed(2)}`);
         }
       } else {
-        if (subscription == "monthly") {
+        if (subscription == "Monthly") {
           setPrice(`$${basePrice}`);
           console.log(1);
         } else {
@@ -109,11 +109,13 @@ const BundleDetail = () => {
   const handleClickVariant = () => {
     const item = cart.lineItems.find(
       (lineItem) => lineItem.bundleId === bundle.id
-    );
+      );
+ 
     if (item) {
+      console.log(item);
       dispatch(addQtyCart(item.bundle, 1, item.size, item.frequency));
     } else {
-      dispatch(addQtyCart(bundle));
+      dispatch(addQtyCart(bundle,1,size,subscription));
     }
     enqueueSnackbar("Item added to your cart!", { variant: "success" });
   };
@@ -196,10 +198,10 @@ const BundleDetail = () => {
                     aria-label="subscription"
                     fullWidth="true"
                   >
-                    <ToggleButton value="monthly" aria-label="monthly">
+                    <ToggleButton value="Monthly" aria-label="Monthly">
                       Monthly
                     </ToggleButton>
-                    <ToggleButton value="annually" aria-label="annually">
+                    <ToggleButton value="Annually" aria-label="Snnually">
                       Annually
                     </ToggleButton>
                   </ToggleButtonGroup>
@@ -214,10 +216,10 @@ const BundleDetail = () => {
                     aria-label="small"
                     fullWidth="true"
                   >
-                    <ToggleButton value="small" aria-label="small">
+                    <ToggleButton value="Small" aria-label="Small">
                       Small
                     </ToggleButton>
-                    <ToggleButton value="large" aria-label="large">
+                    <ToggleButton value="Large" aria-label="Large">
                       Large
                     </ToggleButton>
                   </ToggleButtonGroup>

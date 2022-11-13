@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
-import { Button } from "@mui/material";
+import { Button, alpha } from "@mui/material";
 
 function MainFeaturedPost(props) {
   const { post } = props;
@@ -15,7 +15,7 @@ function MainFeaturedPost(props) {
       sx={{
         // minWidth: "7",
         // maxHeight: "45%",
-        minHeight: "300px",
+        minHeight: "400px",
         position: "relative",
         backgroundColor: "grey.800",
         color: "#fff",
@@ -55,8 +55,9 @@ function MainFeaturedPost(props) {
         <Grid item md={12}>
           <Box
             sx={{
-              // backgroundColor:'green',
-              minWidth: "100%",
+              padding:3,
+              backgroundColor:alpha('#000000',.5),
+              minWidth: "75%",
               position: "relative",
               // pt: { xs: 3, md: 6 }
             }}
