@@ -20,7 +20,9 @@ import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { Badge } from "@mui/material";
-import ShoppingCartSharpIcon from "@mui/icons-material/ShoppingCartSharp";
+import ShoppingCartSharpIcon from "@mui/icons-material/ShoppingCartOutlined";
+// import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+// import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 // import { useDispatch } from "react-redux";
@@ -242,21 +244,22 @@ function ResponsiveAppBar() {
           </Search>
 
           <Box sx={{ flexGrow: 0 }}>
+          <IconButton onClick={navigateToCart} sx={{ p: 0, mr:1 }}>
+                <Badge badgeContent={cart.lineItems.length} color="secondary">
+                  <ShoppingCartSharpIcon style={{fill:"white"}} fontSize="medium"></ShoppingCartSharpIcon>
+                </Badge>
+              </IconButton>
             <Tooltip title="Open settings">
               
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" /> */}
                 {/* <Avatar src="/broken-image.jpg"></Avatar> */}
-                <AccountCircleIcon fontSize="large"></AccountCircleIcon>
+                <AccountCircleIcon style={{fill:"white"}} fontSize="large"></AccountCircleIcon>
                 
               </IconButton>
 
             </Tooltip>
-              <IconButton onClick={navigateToCart} sx={{ p: 0 }}>
-                <Badge badgeContent={cart.lineItems.length} color="secondary">
-                  <ShoppingCartSharpIcon fontSize="medium"></ShoppingCartSharpIcon>
-                </Badge>
-              </IconButton>
+
               
             <Menu
               sx={{ mt: "45px" }}
