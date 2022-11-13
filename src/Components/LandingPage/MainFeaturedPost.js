@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
-import { Button, alpha } from "@mui/material";
+import { Button, alpha, Container } from "@mui/material";
 
 function MainFeaturedPost(props) {
   const { post } = props;
@@ -34,7 +34,7 @@ function MainFeaturedPost(props) {
         {
           "&:hover": {
             // backgroundSize: "contain",
-            // transform: 'scale(1.5)'
+            // transform: "scale(1.1)",
             // backgroundSize: "150%",
             // transition: "transform backgroundSize(101%) .5s ease"
           },
@@ -71,7 +71,7 @@ function MainFeaturedPost(props) {
               position: "relative",
               p: "20",
               // pt: { xs: 3, md: 6 }
-              backgroundColor: alpha('#000000',.3),
+              backgroundColor: alpha("#000000", 0.3),
               // backgroundOpacity:"25"
             }}
           >
@@ -86,7 +86,11 @@ function MainFeaturedPost(props) {
             <Typography variant="h5" color="inherit" paragraph>
               {post.description}
             </Typography>
-            <Button variant="contained" sx={{ backgroundColor: "teal" }}>
+            <Button
+              href="#/bundles"
+              variant="contained"
+              sx={{ backgroundColor: "teal" }}
+            >
               View Bundles
             </Button>
           </Box>

@@ -6,7 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
-import Link from '@mui/material/Link';;
+import Link from '@mui/material/Link';
 
 const bull = (
   <Box

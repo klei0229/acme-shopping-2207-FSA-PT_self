@@ -22,17 +22,48 @@ import { Routes, Route } from 'react-router-dom';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-const theme = createTheme({
+
+const black = "#010101"
+const pink = "#ffcfda"
+const copper = "#b16132"
+const martinque = "#42385d"
+const bouquet = "#b094ae"
+
+export const Theme = createTheme({
 	palette: {
-		type: 'light',
+		
+		type: 'light',	
 		primary: {
-		  main: '#FD706B',
+		  main: bouquet,
 		},
 		secondary: {
-		  main: '#C23A22',
+		  main: '#f2385d',
 		},
+
+		navButton: {
+			main:"#000000"
+		},
+		
+		typography: {
+			button: {
+				fontSize: 20, // works
+				color: '#000000' // doesn't work
+			  },
+
+			allVariants: {
+			  color: "pink"
+			},
+		  },
+		  
 	  },
-  });
+	overrides: {
+		MuiButton: {
+		  label: {
+			color: "#000000",
+		  },
+		},
+  	}}
+  );
 
 const App = () => {
   const { auth } = useSelector((state) => state);
@@ -48,7 +79,7 @@ const App = () => {
 		}
 	}, [auth]);
 	return (
-		<ThemeProvider theme={theme}>
+		<ThemeProvider theme={Theme}>
 		<SnackbarProvider maxSnack={3}>
 		<div>
 			{auth.id ? <Home /> : <Login />}
