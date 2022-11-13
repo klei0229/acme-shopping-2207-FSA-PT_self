@@ -181,7 +181,9 @@ const UpdateAddress = () => {
 					</Grid>
 				</div>
 				<Grid item xs={12}>
-					<Button variant='contained'>Update Address</Button>
+					<Button variant='contained' onClick={saveAddress}>
+						Update Address
+					</Button>
 				</Grid>
 			</form>
 		</Fragment>

@@ -193,4 +193,11 @@ User.authenticate = async function ({ username, password }) {
 	throw error;
 };
 
+User.prototype.cartAddress = async function ({ address }) {
+	const cart = await this.getCart();
+	cart.addressId = address.id;
+	await cart.save();
+	return this.getCart();
+};
+
 module.exports = User;

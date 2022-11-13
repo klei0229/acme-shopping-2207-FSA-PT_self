@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import { loginWithToken } from '../store';
+import { loginWithToken, updateAddress } from '../store';
 import { Grid, Typography, TextField, FormHelperText } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 
 export default function AddressForm() {
 	const { auth } = useSelector((state) => state);
+	const { cart } = useSelector((state) => state);
 	const dispatch = useDispatch();
 	const [addresses, setAddresses] = useState([]);
 	const [address, setAddress] = useState({
@@ -51,8 +52,8 @@ export default function AddressForm() {
 	const saveAddress = async (ev) => {
 		ev.preventDefault();
 		try {
-			await axios.put(`/api/addresses/${address.id}`, address);
-			await dispatch(loginWithToken());
+			// await axios.put(`/api/addresses/${address.id}`, address);
+			await dispatch(updateAddress(address));
 		} catch (ex) {
 			setError(ex.response.data);
 		}
@@ -178,7 +179,9 @@ export default function AddressForm() {
 						/>
 					</Grid>
 					<Grid item xs={12}>
-						<Button variant='contained'>Update Address</Button>
+						<Button variant='contained' onClick={saveAddress}>
+							Use this address for your cart
+						</Button>
 					</Grid>
 				</Grid>
 			</FormControl>
