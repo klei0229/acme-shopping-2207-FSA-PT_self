@@ -58,7 +58,7 @@ const CreateAddress = () => {
 	return (
 		<div>
 			<Fragment>
-				<Button variant='outlined' onClick={handleClickOpen}>
+				<Button variant='contained' onClick={handleClickOpen}>
 					Create a new address
 				</Button>
 				<Dialog open={open} onClose={handleClose}>
