@@ -2,12 +2,11 @@ import React, { useEffect, useState, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { loginWithToken } from '../store';
-import { Grid, Typography, TextField } from '@mui/material';
-import InputLabel from '@mui/material/InputLabel';
+import { Grid, Typography, TextField, FormHelperText } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
 export default function AddressForm() {
 	const { auth } = useSelector((state) => state);
@@ -69,19 +68,16 @@ export default function AddressForm() {
 			<FormControl onSubmit={saveAddress}>
 				<Grid container align='center' width='100vw' spacing={3}>
 					<Grid item xs={12}>
-						<Typography variant='h6' gutterBottom>
+						<Typography variant='h3' gutterBottom>
 							Shipping Address
 						</Typography>
 					</Grid>
 					<Grid item xs={12} width='100vw'>
 						<FormControl>
-							<InputLabel key='inputlabel'>
-								Choose an address to update:
-							</InputLabel>
 							<Select
 								value={address.id || ''}
-								label='Choose an address to update:'
 								onChange={changeAddress}
+								variant='filled'
 							>
 								{addresses.map((_address) => {
 									return (
@@ -91,6 +87,7 @@ export default function AddressForm() {
 									);
 								})}
 							</Select>
+							<FormHelperText>Select an address to use: </FormHelperText>
 						</FormControl>
 					</Grid>
 
@@ -111,7 +108,7 @@ export default function AddressForm() {
 							name='label'
 							label='Address Label'
 							fullWidth
-							variant='standard'
+							variant='filled'
 							value={address.label}
 							onChange={onChange}
 						/>
@@ -122,7 +119,7 @@ export default function AddressForm() {
 							name='street1'
 							label='Address line 1'
 							fullWidth
-							variant='standard'
+							variant='filled'
 							value={address.street1}
 							onChange={onChange}
 						/>
@@ -132,7 +129,7 @@ export default function AddressForm() {
 							name='street2'
 							label='Address line 2'
 							fullWidth
-							variant='standard'
+							variant='filled'
 							value={address.street2}
 							onChange={onChange}
 						/>
@@ -143,7 +140,7 @@ export default function AddressForm() {
 							name='city'
 							label='City'
 							fullWidth
-							variant='standard'
+							variant='filled'
 							value={address.city}
 							onChange={onChange}
 						/>
@@ -153,7 +150,7 @@ export default function AddressForm() {
 							name='state'
 							label='State/Province/Region'
 							fullWidth
-							variant='standard'
+							variant='filled'
 							value={address.state}
 							onChange={onChange}
 						/>
@@ -164,7 +161,7 @@ export default function AddressForm() {
 							name='zipcode'
 							label='Zipcode / Postal code'
 							fullWidth
-							variant='standard'
+							variant='filled'
 							value={address.zipcode}
 							onChange={onChange}
 						/>
@@ -175,12 +172,14 @@ export default function AddressForm() {
 							name='country'
 							label='Country'
 							fullWidth
-							variant='standard'
+							variant='filled'
 							value={address.country}
 							onChange={onChange}
 						/>
 					</Grid>
-					<button>Update Address</button>
+					<Grid item xs={12}>
+						<Button variant='contained'>Update Address</Button>
+					</Grid>
 				</Grid>
 			</FormControl>
 		</Fragment>

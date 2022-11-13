@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { loginWithToken } from '../store';
 import { Grid, Typography, TextField } from '@mui/material';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
+import FormHelperText from '@mui/material/FormHelperText';
+import Button from '@mui/material/Button';
 
 const UpdateAddress = () => {
 	const { auth } = useSelector((state) => state);
@@ -67,19 +68,17 @@ const UpdateAddress = () => {
 	return (
 		<Fragment>
 			<form onSubmit={saveAddress}>
-				<Typography variant='h6' gutterBottom>
+				<Typography variant='h3' gutterBottom>
 					Shipping Address
 				</Typography>
 				<div>
 					<Box sx={{ minWidth: 120 }}>
 						<FormControl fullWidth>
-							<InputLabel key='inputlabel'>
-								Choose an address to update:
-							</InputLabel>
 							<Select
 								value={address.id || ''}
 								label='Choose an address to update:'
 								onChange={changeAddress}
+								variant='filled'
 							>
 								{addresses.map((_address) => {
 									return (
@@ -89,6 +88,7 @@ const UpdateAddress = () => {
 									);
 								})}
 							</Select>
+							<FormHelperText>Select an address to update: </FormHelperText>
 						</FormControl>
 					</Box>
 				</div>
@@ -109,7 +109,7 @@ const UpdateAddress = () => {
 								name='label'
 								label='Address Label'
 								fullWidth
-								variant='standard'
+								variant='filled'
 								value={address.label}
 								onChange={onChange}
 							/>
@@ -120,7 +120,7 @@ const UpdateAddress = () => {
 								name='street1'
 								label='Address line 1'
 								fullWidth
-								variant='standard'
+								variant='filled'
 								value={address.street1}
 								onChange={onChange}
 							/>
@@ -130,7 +130,7 @@ const UpdateAddress = () => {
 								name='street2'
 								label='Address line 2'
 								fullWidth
-								variant='standard'
+								variant='filled'
 								value={address.street2}
 								onChange={onChange}
 							/>
@@ -141,7 +141,7 @@ const UpdateAddress = () => {
 								name='city'
 								label='City'
 								fullWidth
-								variant='standard'
+								variant='filled'
 								value={address.city}
 								onChange={onChange}
 							/>
@@ -151,7 +151,7 @@ const UpdateAddress = () => {
 								name='state'
 								label='State/Province/Region'
 								fullWidth
-								variant='standard'
+								variant='filled'
 								value={address.state}
 								onChange={onChange}
 							/>
@@ -162,7 +162,7 @@ const UpdateAddress = () => {
 								name='zipcode'
 								label='Zipcode / Postal code'
 								fullWidth
-								variant='standard'
+								variant='filled'
 								value={address.zipcode}
 								onChange={onChange}
 							/>
@@ -173,14 +173,16 @@ const UpdateAddress = () => {
 								name='country'
 								label='Country'
 								fullWidth
-								variant='standard'
+								variant='filled'
 								value={address.country}
 								onChange={onChange}
 							/>
 						</Grid>
 					</Grid>
 				</div>
-				<button>Update Address</button>
+				<Grid item xs={12}>
+					<Button variant='contained'>Update Address</Button>
+				</Grid>
 			</form>
 		</Fragment>
 	);
