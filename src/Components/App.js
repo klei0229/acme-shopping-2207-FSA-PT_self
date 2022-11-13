@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import Home from './Home';
-import Login from './Login';
+import Login2 from './Login2';
+import CreateUser2 from './CreateUser2';
 import Cart from './Cart';
 import Profile from './Profile';
 import Checkout from './Checkout';
-
 import Bundle from './Bundle/Bundle';
 import LandingPage from './LandingPage';
 import BundleDetail from './Bundle/BundleDetail';
 import OrderSuccess from './OrderSuccess';
 import OrderFail from './OrderFail';
 import Orders from './Orders';
-import { SnackbarProvider} from 'notistack';
+import { SnackbarProvider } from 'notistack';
 import BundleFeatured from './Bundle/BundleFeatured';
 import BundleNew from './Bundle/BundleNew';
 import BundleBest from './Bundle/BundleBest';
@@ -73,46 +73,40 @@ const App = () => {
     dispatch(fetchBundles());
   }, []);
 
-	useEffect(() => {
-		if (auth.id) {
-			dispatch(fetchCart());
-		}
-	}, [auth]);
-	return (
-		<ThemeProvider theme={Theme}>
-		<SnackbarProvider maxSnack={3}>
-		<div>
-			{auth.id ? <Home /> : <Login />}
-			{!!auth.id && (
-				<div>
-					{/* <nav>
-            <Link to="/">Home</Link>
-            <Link to="/cart">Cart</Link>
-            <Link to="/profile">Profile</Link>
-            <Link to="/checkout">Checkout</Link>
-            <Link to="/bundles">Bundles</Link>
-          </nav> */}
-					<Routes>
-						<Route path='/' element={<LandingPage/>} />
-						<Route path='/cart' element={<Cart />} />
-						<Route path='/profile' element={<Profile />} />
-						<Route path='/checkout' element={<Checkout />} />
-						<Route path='/bundles' element={<Bundle />} />
-						<Route path='/snacks' element={<SnacksMainPage />} />
-						<Route path='/bundles/:id' element={<BundleDetail />} />
-						<Route path='/bundles/featured' element={<BundleFeatured />} />
-						<Route path='/bundles/new' element={<BundleNew />} />
-						<Route path='/bundles/best' element={<BundleBest />} />
-            <Route path="/order-success" element={<OrderSuccess />} />
-            <Route path="/order-fail" element={<OrderFail />} />
-            <Route path="/orders" element={<Orders />} />
-					</Routes>
-				</div>
-			)}
-		</div>
-		</SnackbarProvider>
-		</ThemeProvider>
-	);
+  useEffect(() => {
+    if (auth.id) {
+      dispatch(fetchCart());
+    }
+  }, [auth]);
+  return (
+	<ThemeProvider theme={Theme}>
+    <SnackbarProvider maxSnack={3}>
+      <div>
+        {auth.id ? <Home /> : <Login2 />}
+        {!!auth.id && (
+          <div>
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/signup" element={<CreateUser2 />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/bundles" element={<Bundle />} />
+              <Route path="/snacks" element={<SnacksMainPage />} />
+              <Route path="/bundles/:id" element={<BundleDetail />} />
+              <Route path="/bundles/featured" element={<BundleFeatured />} />
+              <Route path="/bundles/new" element={<BundleNew />} />
+              <Route path="/bundles/best" element={<BundleBest />} />
+              <Route path="/order-success" element={<OrderSuccess />} />
+              <Route path="/order-fail" element={<OrderFail />} />
+              <Route path="/orders" element={<Orders />} />
+            </Routes>
+          </div>
+        )}
+      </div>
+    </SnackbarProvider>
+	</ThemeProvider>
+  );
 };
 
 export default App;
