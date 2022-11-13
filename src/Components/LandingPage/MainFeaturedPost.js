@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
-import { Button } from "@mui/material";
+import { Button, alpha } from "@mui/material";
 
 function MainFeaturedPost(props) {
   const { post } = props;
@@ -14,8 +14,8 @@ function MainFeaturedPost(props) {
     <Paper
       sx={[
         {
-          minWidth: "75%",
-          minHeight: "35%",
+          minWidth: "100%",
+          minHeight: "65%",
           position: "relative",
           backgroundColor: "grey.800",
           color: "#fff",
@@ -71,7 +71,7 @@ function MainFeaturedPost(props) {
               position: "relative",
               p: "20",
               // pt: { xs: 3, md: 6 }
-              // backgroundColor:"black",
+              backgroundColor: alpha('#000000',.3),
               // backgroundOpacity:"25"
             }}
           >

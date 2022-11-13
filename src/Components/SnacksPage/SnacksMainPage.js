@@ -33,6 +33,8 @@ function LandingPage() {
   return (
     <div>
       <CssBaseline />
+      <br></br>
+      <br></br>
       <Container maxWidth="sm" sx={{ mt: 4 }}>
         <Typography
           component="h1"
@@ -52,6 +54,8 @@ function LandingPage() {
           These are all the potential snacks you can receive from one of our
           bundles. Have a look!
         </Typography>
+        <br></br>
+        <br></br>
       </Container>
       <Container maxWidth="lg" align="center">
         <Grid container spacing={1}>

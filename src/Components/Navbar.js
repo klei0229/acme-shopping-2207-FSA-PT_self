@@ -35,11 +35,12 @@ import { logout } from "../store";
 
 
 
+
 const settings = [
-  { name: "Account", url: "/profile" },
+  { name: "Profile", url: "/profile" },
   { name: "Cart", url: "/cart" },
-  { name: "Checkout", url: "/checkout" },
-  { name: "Dashboard", url: "/dashboard" },
+  // { name: "Checkout", url: "/checkout" },
+  { name: "Orders", url: "/dashboard" },
 ];
 
 const pages = [
@@ -48,7 +49,7 @@ const pages = [
   { name: "Snacks", url: "/snacks" },
 ];
 
-const companyName = "Company";
+const companyName = "SNACKCLUB";
 
 function ResponsiveAppBar() {
   const dispatch = useDispatch();
@@ -148,7 +149,7 @@ function ResponsiveAppBar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "white",
               textDecoration: "none",
             }}
           >
@@ -207,7 +208,7 @@ function ResponsiveAppBar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "white",
               textDecoration: "none",
             }}
           >

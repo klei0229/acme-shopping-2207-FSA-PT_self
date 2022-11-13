@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
+import Link from '@mui/material/Link';;
 
 const bull = (
   <Box
@@ -22,9 +23,10 @@ function NowTrendingCard(props) {
   return (
     <div>
       <Card
+        raised="true"
         sx={{
           minWidth: "175px",
-          minHeight: "200px",
+          minHeight: "100%",
           pt: "40",
           mt: "10",
           mb: "30",
@@ -37,18 +39,24 @@ function NowTrendingCard(props) {
           {/* <img src={card.image}></img> */}
           <Box
             sx={{
-              width: "10rem",
-              height: "10rem",
+              width: "300px",
+              height: "300px",
               borderRadius: "50%",
               // backgroundColor:"green",
               backgroundSize: "contain",
               // border: '1px dashed grey',
-              backgroundImage: `url(https://i5.walmartimages.com/asr/43eca98b-40b9-4fc7-a6ae-c02f63b957cc.7a725e370c9d1dafbab842b9a3c861e3.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF)`,
+              backgroundImage: `url(${card.imageUrl})`,
             }}
           ></Box>
 
+          <br></br>
+          <Link color="black" underline="hover" href={`#/bundles/${card.id}`}>
+            <Typography variant="h5" textAlign="center">{card.name}</Typography>
+          </Link> 
+          
+
           <Typography variant="h5" component="div">
-            {card.name}
+            {/* {card.name} */}
           </Typography>
         </CardContent>
       </Card>
@@ -58,7 +66,7 @@ function NowTrendingCard(props) {
 
 NowTrendingCard.propTypes = {
   card: PropTypes.shape({
-    image: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     URL: PropTypes.string.isRequired,
   }).isRequired,

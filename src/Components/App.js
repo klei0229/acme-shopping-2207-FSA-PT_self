@@ -20,6 +20,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchBundles } from '../store';
 import { Routes, Route } from 'react-router-dom';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+	palette: {
+		type: 'light',
+		primary: {
+		  main: '#FD706B',
+		},
+		secondary: {
+		  main: '#C23A22',
+		},
+	  },
+  });
+
 const App = () => {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -34,6 +48,7 @@ const App = () => {
 		}
 	}, [auth]);
 	return (
+		<ThemeProvider theme={theme}>
 		<SnackbarProvider maxSnack={3}>
 		<div>
 			{auth.id ? <Home /> : <Login />}
@@ -65,6 +80,7 @@ const App = () => {
 			)}
 		</div>
 		</SnackbarProvider>
+		</ThemeProvider>
 	);
 };
 
