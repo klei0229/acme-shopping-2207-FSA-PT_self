@@ -65,126 +65,124 @@ const UpdateAddress = () => {
 	}
 
 	return (
-		<div>
-			<Fragment>
-				<form onSubmit={saveAddress}>
-					<Typography variant='h6' gutterBottom>
-						Shipping Address
-					</Typography>
-					<div>
-						<Box sx={{ minWidth: 120 }}>
-							<FormControl fullWidth>
-								<InputLabel key='inputlabel'>
-									Choose an address to update:
-								</InputLabel>
-								<Select
-									value={address.id || ''}
-									label='Choose an address to update:'
-									onChange={changeAddress}
-								>
-									{addresses.map((_address) => {
-										return (
-											<MenuItem key={_address.id} value={_address.id}>
-												{_address.label}
-											</MenuItem>
-										);
-									})}
-								</Select>
-							</FormControl>
-						</Box>
-					</div>
-					<ul>
-						{messages.map((message) => {
-							return (
-								<li key={message} className={'error'}>
-									{message}
-								</li>
-							);
-						})}
-					</ul>
-					<div>
-						<Grid container spacing={3}>
-							<Grid item xs={12}>
-								<TextField
-									required
-									name='label'
-									label='Address Label'
-									fullWidth
-									variant='standard'
-									value={address.label}
-									onChange={onChange}
-								/>
-							</Grid>
-							<Grid item xs={12}>
-								<TextField
-									required
-									name='street1'
-									label='Address line 1'
-									fullWidth
-									variant='standard'
-									value={address.street1}
-									onChange={onChange}
-								/>
-							</Grid>
-							<Grid item xs={12}>
-								<TextField
-									name='street2'
-									label='Address line 2'
-									fullWidth
-									variant='standard'
-									value={address.street2}
-									onChange={onChange}
-								/>
-							</Grid>
-							<Grid item xs={12} sm={6}>
-								<TextField
-									required
-									name='city'
-									label='City'
-									fullWidth
-									variant='standard'
-									value={address.city}
-									onChange={onChange}
-								/>
-							</Grid>
-							<Grid item xs={12} sm={6}>
-								<TextField
-									name='state'
-									label='State/Province/Region'
-									fullWidth
-									variant='standard'
-									value={address.state}
-									onChange={onChange}
-								/>
-							</Grid>
-							<Grid item xs={12} sm={6}>
-								<TextField
-									required
-									name='zipcode'
-									label='Zipcode / Postal code'
-									fullWidth
-									variant='standard'
-									value={address.zipcode}
-									onChange={onChange}
-								/>
-							</Grid>
-							<Grid item xs={12} sm={6}>
-								<TextField
-									required
-									name='country'
-									label='Country'
-									fullWidth
-									variant='standard'
-									value={address.country}
-									onChange={onChange}
-								/>
-							</Grid>
+		<Fragment>
+			<form onSubmit={saveAddress}>
+				<Typography variant='h6' gutterBottom>
+					Shipping Address
+				</Typography>
+				<div>
+					<Box sx={{ minWidth: 120 }}>
+						<FormControl fullWidth>
+							<InputLabel key='inputlabel'>
+								Choose an address to update:
+							</InputLabel>
+							<Select
+								value={address.id || ''}
+								label='Choose an address to update:'
+								onChange={changeAddress}
+							>
+								{addresses.map((_address) => {
+									return (
+										<MenuItem key={_address.id} value={_address.id}>
+											{_address.label}
+										</MenuItem>
+									);
+								})}
+							</Select>
+						</FormControl>
+					</Box>
+				</div>
+				<ul>
+					{messages.map((message) => {
+						return (
+							<li key={message} className={'error'}>
+								{message}
+							</li>
+						);
+					})}
+				</ul>
+				<div>
+					<Grid container spacing={3}>
+						<Grid item xs={12}>
+							<TextField
+								required
+								name='label'
+								label='Address Label'
+								fullWidth
+								variant='standard'
+								value={address.label}
+								onChange={onChange}
+							/>
 						</Grid>
-					</div>
-					<button>Update Address</button>
-				</form>
-			</Fragment>
-		</div>
+						<Grid item xs={12}>
+							<TextField
+								required
+								name='street1'
+								label='Address line 1'
+								fullWidth
+								variant='standard'
+								value={address.street1}
+								onChange={onChange}
+							/>
+						</Grid>
+						<Grid item xs={12}>
+							<TextField
+								name='street2'
+								label='Address line 2'
+								fullWidth
+								variant='standard'
+								value={address.street2}
+								onChange={onChange}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextField
+								required
+								name='city'
+								label='City'
+								fullWidth
+								variant='standard'
+								value={address.city}
+								onChange={onChange}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextField
+								name='state'
+								label='State/Province/Region'
+								fullWidth
+								variant='standard'
+								value={address.state}
+								onChange={onChange}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextField
+								required
+								name='zipcode'
+								label='Zipcode / Postal code'
+								fullWidth
+								variant='standard'
+								value={address.zipcode}
+								onChange={onChange}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextField
+								required
+								name='country'
+								label='Country'
+								fullWidth
+								variant='standard'
+								value={address.country}
+								onChange={onChange}
+							/>
+						</Grid>
+					</Grid>
+				</div>
+				<button>Update Address</button>
+			</form>
+		</Fragment>
 	);
 };
 

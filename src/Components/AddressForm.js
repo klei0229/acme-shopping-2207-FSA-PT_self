@@ -65,117 +65,124 @@ export default function AddressForm() {
 	}
 
 	return (
-		<Grid container align='center' width='100vw'>
+		<Fragment>
 			<FormControl onSubmit={saveAddress}>
-				<Typography variant='h6' gutterBottom>
-					Shipping Address
-				</Typography>
-				<Box>
-					<FormControl fullWidth>
-						<InputLabel key='inputlabel'>
-							Choose an address to update:
-						</InputLabel>
-						<Select
-							value={address.id || ''}
-							label='Choose an address to update:'
-							onChange={changeAddress}
-						>
-							{addresses.map((_address) => {
+				<Grid container align='center' width='100vw' spacing={3}>
+					<Grid item xs={12}>
+						<Typography variant='h6' gutterBottom>
+							Shipping Address
+						</Typography>
+					</Grid>
+					<Grid item xs={12} width='100vw'>
+						<FormControl>
+							<InputLabel key='inputlabel'>
+								Choose an address to update:
+							</InputLabel>
+							<Select
+								value={address.id || ''}
+								label='Choose an address to update:'
+								onChange={changeAddress}
+							>
+								{addresses.map((_address) => {
+									return (
+										<MenuItem key={_address.id} value={_address.id}>
+											{_address.label}
+										</MenuItem>
+									);
+								})}
+							</Select>
+						</FormControl>
+					</Grid>
+
+					<Grid item xs={12}>
+						<ul>
+							{messages.map((message) => {
 								return (
-									<MenuItem key={_address.id} value={_address.id}>
-										{_address.label}
-									</MenuItem>
+									<li key={message} className={'error'}>
+										{message}
+									</li>
 								);
 							})}
-						</Select>
-					</FormControl>
-				</Box>
-				<ul>
-					{messages.map((message) => {
-						return (
-							<li key={message} className={'error'}>
-								{message}
-							</li>
-						);
-					})}
-				</ul>
-				<Grid item xs={12}>
-					<TextField
-						required
-						name='label'
-						label='Address Label'
-						fullWidth
-						variant='standard'
-						value={address.label}
-						onChange={onChange}
-					/>
+						</ul>
+					</Grid>
+					<Grid item xs={12}>
+						<TextField
+							required
+							name='label'
+							label='Address Label'
+							fullWidth
+							variant='standard'
+							value={address.label}
+							onChange={onChange}
+						/>
+					</Grid>
+					<Grid item xs={12}>
+						<TextField
+							required
+							name='street1'
+							label='Address line 1'
+							fullWidth
+							variant='standard'
+							value={address.street1}
+							onChange={onChange}
+						/>
+					</Grid>
+					<Grid item xs={12}>
+						<TextField
+							name='street2'
+							label='Address line 2'
+							fullWidth
+							variant='standard'
+							value={address.street2}
+							onChange={onChange}
+						/>
+					</Grid>
+					<Grid item xs={12}>
+						<TextField
+							required
+							name='city'
+							label='City'
+							fullWidth
+							variant='standard'
+							value={address.city}
+							onChange={onChange}
+						/>
+					</Grid>
+					<Grid item xs={12}>
+						<TextField
+							name='state'
+							label='State/Province/Region'
+							fullWidth
+							variant='standard'
+							value={address.state}
+							onChange={onChange}
+						/>
+					</Grid>
+					<Grid item xs={12}>
+						<TextField
+							required
+							name='zipcode'
+							label='Zipcode / Postal code'
+							fullWidth
+							variant='standard'
+							value={address.zipcode}
+							onChange={onChange}
+						/>
+					</Grid>
+					<Grid item xs={12}>
+						<TextField
+							required
+							name='country'
+							label='Country'
+							fullWidth
+							variant='standard'
+							value={address.country}
+							onChange={onChange}
+						/>
+					</Grid>
+					<button>Update Address</button>
 				</Grid>
-				<Grid item xs={12}>
-					<TextField
-						required
-						name='street1'
-						label='Address line 1'
-						fullWidth
-						variant='standard'
-						value={address.street1}
-						onChange={onChange}
-					/>
-				</Grid>
-				<Grid item xs={12}>
-					<TextField
-						name='street2'
-						label='Address line 2'
-						fullWidth
-						variant='standard'
-						value={address.street2}
-						onChange={onChange}
-					/>
-				</Grid>
-				<Grid item xs={12}>
-					<TextField
-						required
-						name='city'
-						label='City'
-						fullWidth
-						variant='standard'
-						value={address.city}
-						onChange={onChange}
-					/>
-				</Grid>
-				<Grid item xs={12}>
-					<TextField
-						name='state'
-						label='State/Province/Region'
-						fullWidth
-						variant='standard'
-						value={address.state}
-						onChange={onChange}
-					/>
-				</Grid>
-				<Grid item xs={12}>
-					<TextField
-						required
-						name='zipcode'
-						label='Zipcode / Postal code'
-						fullWidth
-						variant='standard'
-						value={address.zipcode}
-						onChange={onChange}
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<TextField
-						required
-						name='country'
-						label='Country'
-						fullWidth
-						variant='standard'
-						value={address.country}
-						onChange={onChange}
-					/>
-				</Grid>
-				<button>Update Address</button>
 			</FormControl>
-		</Grid>
+		</Fragment>
 	);
 }
