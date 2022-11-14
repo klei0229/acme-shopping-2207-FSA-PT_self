@@ -1,113 +1,211 @@
-import * as React from 'react';
-import {
-	Grid,
-	Typography,
-	TextField,
-	FormControlLabel,
-	Checkbox,
-} from '@mui/material';
+import React, { useEffect, useState, Fragment } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import { updateAddress } from '../store';
+import { Grid, Typography, TextField, FormHelperText } from '@mui/material';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
 
 export default function AddressForm() {
+	const { auth } = useSelector((state) => state);
+	const { cart } = useSelector((state) => state);
+	const dispatch = useDispatch();
+	const [addresses, setAddresses] = useState([]);
+	const [address, setAddress] = useState({
+		label: '',
+		street1: '',
+		street2: '',
+		city: '',
+		state: '',
+		zipcode: '',
+		country: '',
+	});
+	const [error, setError] = useState({});
+
+	useEffect(() => {
+		if (auth) {
+			setAddresses(auth.addresses);
+			if (addresses && auth) {
+				console.log(addresses);
+				const last = addresses.length - 1;
+				const address = addresses[last];
+				if (address) {
+					setAddress(address);
+				}
+			}
+		}
+	}, [addresses, auth]);
+
+	const onChange = (ev) => {
+		setAddress({ ...address, [ev.target.name]: ev.target.value });
+	};
+
+	const changeAddress = (ev) => {
+		ev.preventDefault();
+		const id = ev.target.value;
+		const newAddress = addresses.find((x) => x.id === id);
+		setAddress(newAddress);
+	};
+
+	const saveAddress = async (ev) => {
+		ev.preventDefault();
+		try {
+			await axios.put(`/api/addresses/${address.id}`, address);
+			await dispatch(updateAddress(address));
+			handleClose();
+		} catch (ex) {
+			setError(ex.response.data);
+		}
+	};
+	const [open, setOpen] = useState(false);
+
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
+	};
+
+	let messages = [];
+	if (error.errors) {
+		messages = error.errors.map((e) => e.message);
+	}
+
 	return (
-		<React.Fragment>
-			<Typography variant='h6' gutterBottom>
-				Shipping address
-			</Typography>
-			<Grid container spacing={3}>
-				<Grid item xs={12} sm={6}>
-					<TextField
-						required
-						id='firstName'
-						name='firstName'
-						label='First name'
-						fullWidth
-						autoComplete='given-name'
-						variant='standard'
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<TextField
-						required
-						id='lastName'
-						name='lastName'
-						label='Last name'
-						fullWidth
-						autoComplete='family-name'
-						variant='standard'
-					/>
-				</Grid>
-				<Grid item xs={12}>
-					<TextField
-						required
-						id='address1'
-						name='address1'
-						label='Address line 1'
-						fullWidth
-						autoComplete='shipping address-line1'
-						variant='standard'
-					/>
-				</Grid>
-				<Grid item xs={12}>
-					<TextField
-						id='address2'
-						name='address2'
-						label='Address line 2'
-						fullWidth
-						autoComplete='shipping address-line2'
-						variant='standard'
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<TextField
-						required
-						id='city'
-						name='city'
-						label='City'
-						fullWidth
-						autoComplete='shipping address-level2'
-						variant='standard'
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<TextField
-						id='state'
-						name='state'
-						label='State/Province/Region'
-						fullWidth
-						variant='standard'
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<TextField
-						required
-						id='zipcode'
-						name='zipcode'
-						label='Zipcode / Postal code'
-						fullWidth
-						autoComplete='shipping postal-code'
-						variant='standard'
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<TextField
-						required
-						id='country'
-						name='country'
-						label='Country'
-						fullWidth
-						autoComplete='shipping country'
-						variant='standard'
-					/>
-				</Grid>
-				<Grid item xs={12}>
-					<FormControlLabel
-						control={
-							<Checkbox color='secondary' name='saveAddress' value='yes' />
-						}
-						label='Use this address for payment details'
-					/>
-				</Grid>
-			</Grid>
-		</React.Fragment>
+		<Fragment>
+			<Button variant='contained' onClick={handleClickOpen}>
+				Choose an address to use for this order
+			</Button>
+			<Dialog open={open} onClose={handleClose}>
+				<DialogContent>
+					<FormControl onSubmit={saveAddress}>
+						<Grid container align='center' spacing={3}>
+							<Grid item xs={12}>
+								<Typography variant='h3' gutterBottom>
+									Shipping Address
+								</Typography>
+							</Grid>
+							<Grid item xs={12}>
+								<FormControl>
+									<Select
+										value={address.id || ''}
+										onChange={changeAddress}
+										variant='filled'
+									>
+										{addresses.map((_address) => {
+											return (
+												<MenuItem key={_address.id} value={_address.id}>
+													{_address.label}
+												</MenuItem>
+											);
+										})}
+									</Select>
+									<FormHelperText>Select an address to use: </FormHelperText>
+								</FormControl>
+							</Grid>
+
+							<Grid item xs={12}>
+								<ul>
+									{messages.map((message) => {
+										return (
+											<li key={message} className={'error'}>
+												{message}
+											</li>
+										);
+									})}
+								</ul>
+							</Grid>
+							<Grid item xs={12}>
+								<TextField
+									required
+									name='label'
+									label='Address Label'
+									fullWidth
+									variant='filled'
+									value={address.label}
+									onChange={onChange}
+								/>
+							</Grid>
+							<Grid item xs={12}>
+								<TextField
+									required
+									name='street1'
+									label='Address line 1'
+									fullWidth
+									variant='filled'
+									value={address.street1}
+									onChange={onChange}
+								/>
+							</Grid>
+							<Grid item xs={12}>
+								<TextField
+									name='street2'
+									label='Address line 2'
+									fullWidth
+									variant='filled'
+									value={address.street2}
+									onChange={onChange}
+								/>
+							</Grid>
+							<Grid item xs={12}>
+								<TextField
+									required
+									name='city'
+									label='City'
+									fullWidth
+									variant='filled'
+									value={address.city}
+									onChange={onChange}
+								/>
+							</Grid>
+							<Grid item xs={12}>
+								<TextField
+									name='state'
+									label='State/Province/Region'
+									fullWidth
+									variant='filled'
+									value={address.state}
+									onChange={onChange}
+								/>
+							</Grid>
+							<Grid item xs={12}>
+								<TextField
+									required
+									name='zipcode'
+									label='Zipcode / Postal code'
+									fullWidth
+									variant='filled'
+									value={address.zipcode}
+									onChange={onChange}
+								/>
+							</Grid>
+							<Grid item xs={12}>
+								<TextField
+									required
+									name='country'
+									label='Country'
+									fullWidth
+									variant='filled'
+									value={address.country}
+									onChange={onChange}
+								/>
+							</Grid>
+						</Grid>
+					</FormControl>
+					<DialogActions>
+						<Button onClick={handleClose}>Cancel</Button>
+						<Button onClick={saveAddress} variant='contained'>
+							Use this address
+						</Button>
+					</DialogActions>
+				</DialogContent>
+			</Dialog>
+		</Fragment>
 	);
 }
