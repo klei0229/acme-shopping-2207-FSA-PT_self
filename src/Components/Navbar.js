@@ -1,56 +1,56 @@
 // import React from 'react';
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 // import { logout } from '../store';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 // import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import { styled, alpha } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
-import SearchIcon from "@mui/icons-material/Search";
-import { Badge, Icon } from "@mui/material";
-import ShoppingCartSharpIcon from "@mui/icons-material/ShoppingCartOutlined";
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import AdbIcon from '@mui/icons-material/Adb';
+import { styled, alpha } from '@mui/material/styles';
+import InputBase from '@mui/material/InputBase';
+import SearchIcon from '@mui/icons-material/Search';
+import { Badge, Icon } from '@mui/material';
+import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartOutlined';
 // import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 // import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 // import { useDispatch } from "react-redux";
 // import { Link, useNavigate } from "react-router-dom";
-import Link from "@mui/material/Link";
+import Link from '@mui/material/Link';
 
-import Cart from "./Cart";
-import { logout } from "../store";
+import Cart from './Cart';
+import { logout } from '../store';
 
-import Theme from "./App"
+import Theme from './App';
 
 // const pages = ['Home', 'Bundles', 'Snacks'];
 // const settings = [ 'Account', 'Cart', 'Dashboard', 'Logout'];
 
 const settings = [
-  { name: "Profile", url: "#/profile" },
-  { name: "Cart", url: "#/cart" },
+  { name: 'Profile', url: '#/profile' },
+  { name: 'Cart', url: '#/cart' },
   // { name: "Checkout", url: "/checkout" },
-  { name: "Orders", url: "#/dashboard" },
+  { name: 'Orders', url: '#/orders' },
 ];
 
 const pages = [
-  { name: "Home", url: "/" },
-  { name: "Bundles", url: "#/bundles" },
-  { name: "Snacks", url: "#/snacks" },
+  { name: 'Home', url: '/' },
+  { name: 'Bundles', url: '#/bundles' },
+  { name: 'Snacks', url: '#/snacks' },
 ];
 
-const companyName = "SNACKCLUB";
+const companyName = 'SNACKCLUB';
 
 function ResponsiveAppBar() {
   const dispatch = useDispatch();
@@ -68,7 +68,7 @@ function ResponsiveAppBar() {
 
   // let navigate = useNavigate();
   const navigateToCart = () => {
-    navigate("/cart");
+    navigate('/cart');
   };
 
   const handleOpenNavMenu = (event) => {
@@ -87,46 +87,46 @@ function ResponsiveAppBar() {
   };
 
   //Search Bar Code
-  const Search = styled("div")(({ theme }) => ({
-    position: "relative",
+  const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
-    "&:hover": {
+    '&:hover': {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
     marginLeft: 0,
     //updated marginRight to 10
     marginRight: 10,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(1),
-      width: "auto",
+      width: 'auto',
     },
   }));
 
-  const SearchIconWrapper = styled("div")(({ theme }) => ({
+  const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   }));
 
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "inherit",
-    "& .MuiInputBase-input": {
+    color: 'inherit',
+    '& .MuiInputBase-input': {
       padding: theme.spacing(1, 1, 1, 0),
       margin: theme.spacing(0, 1, 0, 0),
       // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create("width"),
-      width: "100%",
-      [theme.breakpoints.up("sm")]: {
-        width: "12ch",
-        "&:focus": {
-          width: "20ch",
+      transition: theme.transitions.create('width'),
+      width: '100%',
+      [theme.breakpoints.up('sm')]: {
+        width: '12ch',
+        '&:focus': {
+          width: '20ch',
         },
       },
     },
@@ -139,11 +139,17 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-          
-          <Icon sx={{
-            mr:"5"
-          }}>
-            <img src={"https://cdn-icons-png.flaticon.com/512/2553/2553691.png"} height={25} width={25} />
+
+          <Icon
+            sx={{
+              mr: '5',
+            }}
+          >
+            <img
+              src={'https://cdn-icons-png.flaticon.com/512/2553/2553691.png'}
+              height={25}
+              width={25}
+            />
           </Icon>
           <Typography
             variant="h6"
@@ -152,18 +158,18 @@ function ResponsiveAppBar() {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "white",
-              textDecoration: "none",
+              letterSpacing: '.3rem',
+              color: 'white',
+              textDecoration: 'none',
             }}
           >
             {companyName}
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -178,18 +184,18 @@ function ResponsiveAppBar() {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
+                vertical: 'bottom',
+                horizontal: 'left',
               }}
               keepMounted
               transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
+                vertical: 'top',
+                horizontal: 'left',
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: 'block', md: 'none' },
               }}
             >
               {/* On Smaller Window */}
@@ -202,7 +208,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -210,24 +216,24 @@ function ResponsiveAppBar() {
             href=""
             sx={{
               mr: 2,
-              display: { xs: "flex", md: "none" },
+              display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "white",
-              textDecoration: "none",
+              letterSpacing: '.3rem',
+              color: 'white',
+              textDecoration: 'none',
             }}
           >
             {companyName}
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Link underline="hover" key={page.url} href={page.url}>
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
                 >
                   {page.name}
                 </Button>
@@ -242,15 +248,15 @@ function ResponsiveAppBar() {
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
+              inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
 
           <Box sx={{ flexGrow: 0 }}>
-            <IconButton href="#/cart" sx={{ p: 0,ml:2, mr: 2 }}>
+            <IconButton href="#/cart" sx={{ p: 0, ml: 2, mr: 2 }}>
               <Badge badgeContent={cart.lineItems.length} color="secondary">
                 <ShoppingCartSharpIcon
-                  style={{ fill: "white" }}
+                  style={{ fill: 'white' }}
                   fontSize="medium"
                 ></ShoppingCartSharpIcon>
               </Badge>
@@ -260,24 +266,24 @@ function ResponsiveAppBar() {
                 {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" /> */}
                 {/* <Avatar src="/broken-image.jpg"></Avatar> */}
                 <AccountCircleIcon
-                  style={{ fill: "white" }}
+                  style={{ fill: 'white' }}
                   fontSize="large"
                 ></AccountCircleIcon>
               </IconButton>
             </Tooltip>
 
             <Menu
-              sx={{ mt: "45px" }}
+              sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
+                vertical: 'top',
+                horizontal: 'right',
               }}
               keepMounted
               transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
+                vertical: 'top',
+                horizontal: 'right',
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
@@ -292,7 +298,7 @@ function ResponsiveAppBar() {
 
               <MenuItem
                 onClick={() => {
-                  console.log("logout");
+                  console.log('logout');
                   dispatch(logout());
                 }}
               >
