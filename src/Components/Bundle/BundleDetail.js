@@ -160,7 +160,8 @@ const BundleDetail = () => {
               <Grid item md={7}>
                 <CardMedia
                   component="img"
-                  height="100%"
+                  height="75%"
+                  
                   image={bundle.imageUrl}
                   alt="image"
                 />

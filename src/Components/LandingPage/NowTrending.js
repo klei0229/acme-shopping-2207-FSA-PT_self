@@ -44,7 +44,7 @@ function NowTrending() {
       <br></br>
       <Container maxWidth="xl">
         {/* <QuiltedImageList></QuiltedImageList> */}
-        <Grid container align="center" spacing={2}>
+        <Grid container align="center" spacing={8}>
           {trendingBundles.map((bundle) => {
             return (
               <Grid item key = {bundle.id} align="center" xs={3}>
