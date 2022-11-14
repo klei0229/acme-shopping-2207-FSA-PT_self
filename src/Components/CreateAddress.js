@@ -8,10 +8,12 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
+import { useSnackbar } from 'notistack';
 
 const CreateAddress = () => {
 	const { auth } = useSelector((state) => state);
 	const dispatch = useDispatch();
+	const { enqueueSnackbar } = useSnackbar();
 	const [address, setAddress] = useState({
 		label: '',
 		street1: '',
@@ -50,6 +52,9 @@ const CreateAddress = () => {
 				state: '',
 				zipcode: '',
 				country: '',
+			});
+			enqueueSnackbar('You created a new address!', {
+				variant: 'success',
 			});
 			await dispatch(loginWithToken());
 			handleClose();

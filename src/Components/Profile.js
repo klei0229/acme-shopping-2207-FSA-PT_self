@@ -4,12 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Typography, TextField } from '@mui/material';
 import UpdateAddress from './UpdateAddress';
 import CreateAddress from './CreateAddress';
+import { useSnackbar } from 'notistack';
 
 const Profile = () => {
 	const { auth } = useSelector((state) => state);
 	const [el, setEl] = useState(null);
 	const [data, setData] = useState('');
 	const dispatch = useDispatch();
+	const { enqueueSnackbar } = useSnackbar();
 	const [addresses, setAddresses] = useState([]);
 	const [user, setUser] = useState({
 		username: auth.username,
@@ -53,6 +55,9 @@ const Profile = () => {
 			await dispatch(updateAuth(newAuth));
 			el.value = '';
 			setData('');
+			enqueueSnackbar('You saved changes to your profile!', {
+				variant: 'success',
+			});
 		} catch (ex) {
 			setError(ex.response.data);
 		}

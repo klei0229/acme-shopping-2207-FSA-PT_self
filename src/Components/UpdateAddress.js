@@ -9,10 +9,12 @@ import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import FormHelperText from '@mui/material/FormHelperText';
 import Button from '@mui/material/Button';
+import { useSnackbar } from 'notistack';
 
 const UpdateAddress = () => {
 	const { auth } = useSelector((state) => state);
 	const dispatch = useDispatch();
+	const { enqueueSnackbar } = useSnackbar();
 	const [addresses, setAddresses] = useState([]);
 	const [address, setAddress] = useState({
 		label: '',
@@ -54,6 +56,9 @@ const UpdateAddress = () => {
 		ev.preventDefault();
 		try {
 			await axios.put(`/api/addresses/${address.id}`, address);
+			enqueueSnackbar('You saved changes to this address!', {
+				variant: 'success',
+			});
 			await dispatch(loginWithToken());
 		} catch (ex) {
 			setError(ex.response.data);

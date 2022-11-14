@@ -10,11 +10,13 @@ import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
+import { useSnackbar } from 'notistack';
 
 export default function AddressForm() {
 	const { auth } = useSelector((state) => state);
 	const { cart } = useSelector((state) => state);
 	const dispatch = useDispatch();
+	const { enqueueSnackbar } = useSnackbar();
 	const [addresses, setAddresses] = useState([]);
 	const [address, setAddress] = useState({
 		label: '',
@@ -56,6 +58,9 @@ export default function AddressForm() {
 		ev.preventDefault();
 		try {
 			await axios.put(`/api/addresses/${address.id}`, address);
+			enqueueSnackbar('You saved changes to this address!', {
+				variant: 'success',
+			});
 			await dispatch(updateAddress(address));
 			handleClose();
 		} catch (ex) {
