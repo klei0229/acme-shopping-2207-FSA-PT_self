@@ -20,6 +20,8 @@ import {
 	Select,
 	FormControl,
 	MenuItem,
+	Box,
+	Stack,
 } from '@mui/material';
 import AddressForm from './AddressForm';
 import CreateAddress from './CreateAddress';
@@ -278,28 +280,44 @@ const Cart = () => {
 									{total}
 								</Typography>
 							</Grid>
-							<Grid item xs={12}>
-								<Card>
-									<CardContent align='left'>
-										<Typography>
-											Current Shipping Address:{' '}
-											{!shipping ? 'Add a shipping address' : shipping.label}
-										</Typography>
-									</CardContent>
-									<br />
-									<br />
-									<AddressForm />
-									<br />
-									<br />
-									<CreateAddress />
-								</Card>
-							</Grid>
 						</Grid>
 
 						<br />
 						<Button variant='contained' fullWidth onClick={checkout}>
 							CONTINUE TO CHECKOUT
 						</Button>
+					</Grid>
+					<Grid container xs={12} spacing={1}>
+						{!shipping.label ? (
+							<Typography variant='h4'>Add a shipping address</Typography>
+						) : (
+							<Card xs={12}>
+								<CardContent align='left'>
+									<Typography variant='h4'>
+										Current Shipping Address: {shipping.label}
+									</Typography>
+									<Typography variant='h5'>
+										<Stack>
+											<p>Street 1: {shipping.street1}</p>
+											<p>
+												Street 2: {!shipping.street2 ? 'N/A' : shipping.street2}
+											</p>
+											<p>City: {shipping.city}</p>
+											<p>State: {shipping.state}</p>
+											<p>Postal Code: {shipping.zipcode}</p>
+											<p>Country: {shipping.country}</p>
+										</Stack>
+									</Typography>
+								</CardContent>
+							</Card>
+						)}
+
+						<Grid item xs={12}>
+							<AddressForm />
+						</Grid>
+						<Grid item xs={12}>
+							<CreateAddress />
+						</Grid>
 					</Grid>
 				</Grid>
 			) : (
