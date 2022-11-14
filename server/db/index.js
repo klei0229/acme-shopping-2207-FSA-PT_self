@@ -52,10 +52,35 @@ const syncAndSeed = async () => {
 		glutenfree,
 		vegan,
 	] = await Promise.all([
-		User.create({ username: 'moe', password: '123', avatar }),
-		User.create({ username: 'lucy', password: '123' }),
-		User.create({ username: 'larry', password: '123' }),
-		User.create({ username: 'ethyl', password: '123' }),
+		User.create({
+			username: 'moe',
+			password: '123',
+			avatar,
+			firstName: 'Moe',
+			lastName: 'Stooge',
+			email: 'moe@gmail.com',
+		}),
+		User.create({
+			username: 'lucy',
+			password: '123',
+			firstName: 'Lucy',
+			lastName: 'Lawless',
+			email: 'xena@gmail.com',
+		}),
+		User.create({
+			username: 'larry',
+			password: '123',
+			firstName: 'Larry',
+			lastName: 'Stooge',
+			email: 'larry@gmail.com',
+		}),
+		User.create({
+			username: 'ethyl',
+			password: '123',
+			firstName: 'Ethyl',
+			lastName: 'Stooge',
+			email: 'ethyl@gmail.com',
+		}),
 		Bundle.create({
 			name: 'Korean Package',
 			imageUrl:
@@ -65,7 +90,8 @@ const syncAndSeed = async () => {
 		}),
 		Bundle.create({
 			name: 'French Package',
-			imageUrl: 'https://img.freepik.com/premium-vector/waving-flag-france-country-isolated-french-tricolor-flag-white-background-vector-flat-illustration_502651-399.jpg?w=2000',
+			imageUrl:
+				'https://img.freepik.com/premium-vector/waving-flag-france-country-isolated-french-tricolor-flag-white-background-vector-flat-illustration_502651-399.jpg?w=2000',
 			price: 50.0,
 			type: 'best',
 		}),
@@ -85,7 +111,8 @@ const syncAndSeed = async () => {
 		}),
 		Bundle.create({
 			name: 'Oreo Package',
-			imageUrl: 'https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/oreo-isolated-on-white-background-nenov-images.jpg',
+			imageUrl:
+				'https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/oreo-isolated-on-white-background-nenov-images.jpg',
 			price: 30.0,
 			type: 'best',
 		}),
@@ -105,8 +132,7 @@ const syncAndSeed = async () => {
 		}),
 		Bundle.create({
 			name: 'Chips Package',
-			imageUrl:
-				'https://m.media-amazon.com/images/I/51ZZaghK+FL.jpg',
+			imageUrl: 'https://m.media-amazon.com/images/I/51ZZaghK+FL.jpg',
 			price: 30.0,
 			type: 'best',
 		}),
@@ -119,7 +145,8 @@ const syncAndSeed = async () => {
 		}),
 		Bundle.create({
 			name: 'Gluten Free Package',
-			imageUrl: 'https://img.freepik.com/premium-vector/gluten-free-hand-drawn-lettering-phrase-with-green-leaves-isolated-white-background_166089-1032.jpg?w=2000',
+			imageUrl:
+				'https://img.freepik.com/premium-vector/gluten-free-hand-drawn-lettering-phrase-with-green-leaves-isolated-white-background_166089-1032.jpg?w=2000',
 			price: 45.0,
 			type: 'new',
 		}),
@@ -835,7 +862,7 @@ const syncAndSeed = async () => {
 		}),
 	]);
 
-	await Promise.all([
+	const [moehome, moework] = await Promise.all([
 		Address.create({
 			label: 'Home',
 			street1: '123 Fake Street',
@@ -854,6 +881,39 @@ const syncAndSeed = async () => {
 			state: 'NY',
 			zipcode: '10001',
 			userId: moe.id,
+			country: 'United States',
+		}),
+	]);
+
+	await Promise.all([
+		Address.create({
+			label: 'Home',
+			street1: '179 205th Street',
+			street2: '',
+			city: 'New York',
+			state: 'NY',
+			zipcode: '10001',
+			userId: ethyl.id,
+			country: 'United States',
+		}),
+		Address.create({
+			label: 'Country House',
+			street1: '4 Sunny Lane',
+			street2: '',
+			city: 'Beacon',
+			state: 'NY',
+			zipcode: '10001',
+			userId: larry.id,
+			country: 'United States',
+		}),
+		Address.create({
+			label: 'Home',
+			street1: '100 South Street',
+			street2: '',
+			city: 'Great Barrington',
+			state: 'MA',
+			zipcode: '55555',
+			userId: lucy.id,
 			country: 'United States',
 		}),
 	]);
