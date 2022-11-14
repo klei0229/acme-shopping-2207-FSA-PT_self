@@ -34,10 +34,10 @@ export const Theme = createTheme({
 		
 		type: 'light',	
 		primary: {
-		  main: bouquet,
+		  main: "#010101",
 		},
 		secondary: {
-		  main: '#f2385d',
+		  main: '#ffffff',
 		},
 
 		navButton: {

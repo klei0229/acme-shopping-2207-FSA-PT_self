@@ -55,8 +55,8 @@ function MainFeaturedPost(props) {
         <Grid item md={12}>
           <Box
             sx={{
-              padding:3,
-              backgroundColor:alpha('#000000',.5),
+              padding: 3,
+              backgroundColor: alpha("#000000", 0.5),
               minWidth: "75%",
               position: "relative",
               // pt: { xs: 3, md: 6 }
@@ -73,8 +73,14 @@ function MainFeaturedPost(props) {
             {/* <Typography variant="h5" color="inherit" paragraph>
               {post.description}
             </Typography> */}
-            <Button variant="contained" sx={{ backgroundColor: "teal" }}>
-              View Bundles
+            <Button
+              variant="contained"
+              href={post.link}
+              sx={{
+                // backgroundColor: "teal",
+              }}
+            >
+              See Bundle
             </Button>
           </Box>
         </Grid>
@@ -90,6 +96,7 @@ MainFeaturedPost.propTypes = {
     imageText: PropTypes.string.isRequired,
     linkText: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
   }).isRequired,
 };
 

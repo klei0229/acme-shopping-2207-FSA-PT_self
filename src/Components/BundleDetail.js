@@ -12,6 +12,7 @@ import {
   Box,
   ToggleButtonGroup,
   ToggleButton,
+  CssBaseline,
 } from "@mui/material";
 import SnackItemCard from "./SnacksPage/SnackItemCard";
 
@@ -100,7 +101,7 @@ const BundleDetail = () => {
         {/* <h1>{bundle.name}</h1> */}
         <Button sx={{ mt: 4 }}>
           <Link to={"/bundles"} style={{ textDecoration: "none" }}>
-            Return to our other bundles
+            Return to our other bundless3423
           </Link>
         </Button>
       </div>

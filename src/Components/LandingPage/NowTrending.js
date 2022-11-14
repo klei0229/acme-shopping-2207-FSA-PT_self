@@ -14,7 +14,7 @@ function NowTrending() {
   const { bundles } = useSelector((state) => state);
   //   console.log(bundles);
   //   let trendingBundles = [];
-  
+
   console.log(bundles);
   const [trendingBundles, setTrendingBundles] = React.useState([]);
 
@@ -24,14 +24,14 @@ function NowTrending() {
     url: "https://www.snackcrate.com/wp-content/uploads/2021/08/set2-box.svg",
   };
 
-	React.useEffect(() => {
-		if (bundles.length) {
-      const featured = bundles.filter(bundle => bundle.type === 'featured')
-			setTrendingBundles(featured);
+  React.useEffect(() => {
+    if (bundles.length) {
+      const featured = bundles.filter((bundle) => bundle.type === "featured");
+      setTrendingBundles(featured);
       console.log(featured);
     }
     console.log(trendingBundles);
-	}, [bundles]);
+  }, [bundles]);
 
   return (
     <div>
@@ -39,7 +39,7 @@ function NowTrending() {
         Now Trending
       </Typography>
       <Container maxWidth="xs">
-      <Divider variant = "middle"></Divider>
+        <Divider variant="middle"></Divider>
       </Container>
       <br></br>
       <Container maxWidth="xl">
@@ -47,14 +47,17 @@ function NowTrending() {
         <Grid container align="center" spacing={2}>
           {trendingBundles.map((bundle) => {
             return (
-              <Grid item key = {bundle.id} align="center" xs={3}>
-
-                {/* <h1>1</h1> */}
-                <NowTrendingCard card={bundle}></NowTrendingCard>
-              </Grid>
+                <Grid item key={bundle.id} align="center" xs={3}>
+                  {/* <h1>1</h1> */}
+                  <NowTrendingCard card={bundle}></NowTrendingCard>
+                </Grid>
             );
           })}
         </Grid>
+
+
+
+
       </Container>
     </div>
   );

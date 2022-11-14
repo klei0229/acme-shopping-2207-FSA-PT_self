@@ -32,7 +32,7 @@ import Link from "@mui/material/Link";
 import Cart from "./Cart";
 import { logout } from "../store";
 
-import Theme from "./App"
+import Theme from "./App";
 
 // const pages = ['Home', 'Bundles', 'Snacks'];
 // const settings = [ 'Account', 'Cart', 'Dashboard', 'Logout'];
@@ -139,14 +139,32 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-          
-          <Icon sx={{
-            mr:"5"
-          }}>
-            <img src={"https://cdn-icons-png.flaticon.com/512/2553/2553691.png"} height={25} width={25} />
-          </Icon>
+          <Box
+              sx={{mr:"12"}}
+              component="img"
+              width="50px"
+              height="50px"
+              src="https://cdn-icons-png.flaticon.com/512/2553/2553691.png"
+            ></Box>
+          {/* <Icon
+            sx={{
+              mr: "5",
+            }}
+          >
+            <Box
+              component="img"
+              width="50px"
+              height="50px"
+              src="https://cdn-icons-png.flaticon.com/512/2553/2553691.png"
+            ></Box>
+            <img
+              src={"https://cdn-icons-png.flaticon.com/512/2553/2553691.png"}
+              height={35}
+              width={35}
+            />
+          </Icon> */}
           <Typography
-            variant="h6"
+            variant="h4"
             noWrap
             component="a"
             href="/"
@@ -227,9 +245,12 @@ function ResponsiveAppBar() {
               <Link underline="hover" key={page.url} href={page.url}>
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  sx={{mr:2,ml:2, my: 2, color: "white", display: "block" }}
                 >
+                  <Typography variant="h6">
+                    
                   {page.name}
+                  </Typography>
                 </Button>
               </Link>
             ))}
@@ -247,7 +268,7 @@ function ResponsiveAppBar() {
           </Search>
 
           <Box sx={{ flexGrow: 0 }}>
-            <IconButton href="#/cart" sx={{ p: 0,ml:2, mr: 2 }}>
+            <IconButton href="#/cart" sx={{ p: 0, ml: 2, mr: 2 }}>
               <Badge badgeContent={cart.lineItems.length} color="secondary">
                 <ShoppingCartSharpIcon
                   style={{ fill: "white" }}

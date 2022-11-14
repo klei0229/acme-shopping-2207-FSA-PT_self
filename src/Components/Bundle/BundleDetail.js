@@ -36,8 +36,11 @@ const BundleDetail = () => {
   const [subscription, setSubscription] = useState("Monthly");
   const [size, setSize] = useState("Small");
 
-  const basePrice = 14.99;
-  const [price, setPrice] = useState(`$${basePrice}`);
+  console.log(parseInt(bundle.price));
+
+  // let basePrice = 0;
+  const [price, setPrice] = useState(`$ 0.00`);
+  const [basePrice, setBasePrice] = useState(0);
 
   //   let price = "14.99"
 
@@ -101,9 +104,16 @@ const BundleDetail = () => {
       const bundle = bundles.find((bundle) => bundle.id === id);
       setBundle(bundle);
       setProducts(bundle.products);
+      setBasePrice(parseInt(bundle.price).toFixed(2));
+    
+      // basePrice = parseInt(bundle.price);
+      console.log(basePrice);
+      setPrice(`$ ${parseInt(bundle.price).toFixed(2)}`)
     }
     dispatch(fetchCart());
   }, [bundles]);
+
+
 
   const { enqueueSnackbar } = useSnackbar();
   const handleClickVariant = () => {
@@ -121,7 +131,7 @@ const BundleDetail = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <CssBaseline />
       <div>
         <Fab
@@ -159,8 +169,9 @@ const BundleDetail = () => {
             <Grid container spacing={2}>
               <Grid item md={7}>
                 <CardMedia
+                  sx={{maxHeight:"590px"}}
                   component="img"
-                  height="100%"
+                  height="100%" 
                   image={bundle.imageUrl}
                   alt="image"
                 />
@@ -184,7 +195,7 @@ const BundleDetail = () => {
                     {price}
                   </Typography>
                   <Typography variant="p" gutterBottom>
-                    {description}
+                    {bundle.description}
                   </Typography>
                   <br></br>
                   <br></br>
@@ -231,6 +242,7 @@ const BundleDetail = () => {
                     fullWidth="true"
                     variant="contained"
                     onClick={handleClickVariant}
+                    color="primary"
                   >
                     Add To Cart
                   </Button>

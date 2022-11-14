@@ -6,11 +6,12 @@ import { Grid, Typography, Divider } from "@mui/material";
 import HowItWorks from "./LandingPage/HowItWorks";
 import NowTrending from "./LandingPage/NowTrending";
 
+import { useSelector, useDispatch } from "react-redux";
+
 function LandingPage() {
   const mainFeaturedPost = {
     title: "Snack Bundles for Everyone",
-    description:
-      "Welcome to Snack Club!",
+    description: "Welcome to Snack Club!",
     image:
       "https://img.freepik.com/free-photo/closeup-shot-candy-canes-other-candies-green-background-perfcet-cool-wallpaper_181624-10003.jpg?w=1800&t=st=1667946946~exp=1667947546~hmac=333269566a28179218ace76b7b948dd3793d52f9f7d060c4bea26dff4a0ca960",
     imageText: "main image description",
@@ -46,6 +47,33 @@ function LandingPage() {
     linkText: "See Bundles",
   };
 
+  const { bundles } = useSelector((state) => state);
+  
+  const [christmasLink, setChristmasLink] = React.useState("/");
+  const [thanksgivingLink, setThanksgivingLink] = React.useState("/");
+
+  React.useEffect(()=>{
+
+    console.log(bundles);
+    try{
+      let link1 = `#/bundles/${bundles.find((bundle)=>{return bundle.name === "Christmas Package"}).id}`
+      let link2 = `#/bundles/${bundles.find((bundle)=>{return bundle.name === "Thanksgiving Package"}).id}`
+  
+      setChristmasLink(link1);
+      setThanksgivingLink(link2);
+
+      console.log(link1);
+      console.log(link2);
+    }
+    catch(ex){
+      console.log(ex);
+    }
+
+
+  },[bundles])
+  
+  console.log(bundles);
+
   const christmasFeaturedPost = {
     title: "Christmas Bundle",
     description:
@@ -54,6 +82,7 @@ function LandingPage() {
       "https://www.farmersalmanac.com/wp-content/uploads/2011/12/candy-canes-as_235424105-.jpeg",
     imageText: "main image description",
     linkText: "See Bundles",
+    link: christmasLink,
   };
 
   const thanksGivingFeaturedPost = {
@@ -62,7 +91,7 @@ function LandingPage() {
       "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
     image: "http://www.ohnuts.com/blog/candy-turkey-14.jpg",
     imageText: "main image description",
-    linkText: "See Bundles",
+    link: thanksgivingLink,
   };
 
   return (
@@ -82,7 +111,8 @@ function LandingPage() {
         </Grid> */}
 
         <HowItWorks></HowItWorks>
-
+        <br></br>
+        <br></br>
         <Typography variant="h3" align="center" gutterBottom>
           Upcoming Holiday Bundles
         </Typography>

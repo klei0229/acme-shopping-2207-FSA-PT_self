@@ -89,7 +89,7 @@ function MainFeaturedPost(props) {
             <Button
               href="#/bundles"
               variant="contained"
-              sx={{ backgroundColor: "teal" }}
+              // sx={{ backgroundColor: "teal" }}
             >
               View Bundles
             </Button>

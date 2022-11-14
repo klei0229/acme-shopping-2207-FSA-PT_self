@@ -47,19 +47,29 @@ function HowItWorks() {
       <Divider variant = "middle"></Divider>
       </Container>
       <br></br>
+      {/* <Typography
+              variant="h5"
+              align="center"
+              color="text.secondary"
+              paragraph
+            >
+      4 Step Snacking Experience
+      </Typography> */}
+
+      <br></br>
     <br></br>
       <Container maxWidth="lg">
         <Grid container align="center" spacing={4}>
-          <Grid item align="center" xs={3}>
+          <Grid item align="center" sm={6} md={3}>
             <InfoCard card={card1}></InfoCard>
           </Grid>
-          <Grid item align="center" xs={3}>
+          <Grid item align="center" sm={6} md={3}>
             <InfoCard card={card2}></InfoCard>
           </Grid>
-          <Grid item align="center" xs={3}>
+          <Grid item align="center" sm={6} md={3}>
             <InfoCard card={card3}></InfoCard>
           </Grid>
-          <Grid item align="center" xs={3}>
+          <Grid item align="center" sm={6} md={3}>
             <InfoCard card={card4}></InfoCard>
           </Grid>
         </Grid>
