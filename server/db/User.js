@@ -84,6 +84,9 @@ User.prototype.getOrder = async function () {
 				model: conn.models.lineItem,
 				include: [conn.models.bundle],
 			},
+			{
+				model: conn.models.address,
+			},
 		],
 	});
 	return order;
