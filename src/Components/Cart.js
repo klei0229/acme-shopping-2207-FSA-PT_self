@@ -33,9 +33,9 @@ const Cart = () => {
   const [shipping, setShipping] = useState({});
 
   useEffect(() => {
-    if (!cart) {
-      dispatch(fetchCart());
-    }
+    // if (!cart) {
+    dispatch(fetchCart());
+    // }
     if (cart.address) {
       setShipping(cart.address);
     }
@@ -75,9 +75,9 @@ const Cart = () => {
     window.close();
   };
 
-  const gotocheckout = () => {
-    navigate('/checkout');
-  };
+  // const gotocheckout = () => {
+  //   navigate('/checkout');
+  // };
 
   return (
     <Container>
