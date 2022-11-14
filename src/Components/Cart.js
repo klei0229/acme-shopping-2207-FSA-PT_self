@@ -295,7 +295,7 @@ const Cart = () => {
           </Grid>
           <Grid container xs={12} spacing={0}>
             {!shipping.label ? (
-              <Typography variant="h4">Add a shipping address</Typography>
+              <Typography variant="h6">Add a shipping address</Typography>
             ) : (
               <Card xs={12}>
                 <CardContent align="left">
