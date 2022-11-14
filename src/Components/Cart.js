@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +6,8 @@ import { addQtyCart, removeQtyCart, fetchCart } from '../store';
 import EmptyCart from './EmptyCart';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import {
+	Card,
+	CardContent,
 	Container,
 	Typography,
 	List,
@@ -33,7 +35,7 @@ const Cart = () => {
 			dispatch(fetchCart());
 		}
 		if (cart.address) {
-			console.log(cart.address);
+			setShipping(cart.address);
 		}
 	}, [cart]);
 
@@ -276,18 +278,28 @@ const Cart = () => {
 									{total}
 								</Typography>
 							</Grid>
+							<Grid item xs={12}>
+								<Card>
+									<CardContent align='left'>
+										<Typography>
+											Current Shipping Address:{' '}
+											{!shipping ? 'Add a shipping address' : shipping.label}
+										</Typography>
+									</CardContent>
+									<br />
+									<br />
+									<AddressForm />
+									<br />
+									<br />
+									<CreateAddress />
+								</Card>
+							</Grid>
 						</Grid>
 
 						<br />
 						<Button variant='contained' fullWidth onClick={checkout}>
 							CONTINUE TO CHECKOUT
 						</Button>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<CreateAddress />
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<AddressForm />
 					</Grid>
 				</Grid>
 			) : (

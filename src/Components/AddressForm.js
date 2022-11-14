@@ -82,7 +82,7 @@ export default function AddressForm() {
 			<Button variant='contained' onClick={handleClickOpen}>
 				Choose an address to use for this order
 			</Button>
-			<Dialog open={open} onClose={handleClose} width='100vw'>
+			<Dialog open={open} onClose={handleClose}>
 				<DialogContent>
 					<FormControl onSubmit={saveAddress}>
 						<Grid container align='center' spacing={3}>
@@ -91,7 +91,7 @@ export default function AddressForm() {
 									Shipping Address
 								</Typography>
 							</Grid>
-							<Grid item xs={12} width='100vw'>
+							<Grid item xs={12}>
 								<FormControl>
 									<Select
 										value={address.id || ''}
