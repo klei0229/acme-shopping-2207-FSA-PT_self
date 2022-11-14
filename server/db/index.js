@@ -59,74 +59,74 @@ const syncAndSeed = async () => {
 		Bundle.create({
 			name: 'Korean Package',
 			imageUrl:
-				'https://i.etsystatic.com/27761931/r/il/1eec00/3451205856/il_fullxfull.3451205856_l9l0.jpg',
+				'https://img.freepik.com/premium-photo/south-korean-flag-white-background_532129-108.jpg?w=2000',
 			price: 35.0,
 			type: 'featured',
 		}),
 		Bundle.create({
 			name: 'French Package',
-			imageUrl: 'https://m.media-amazon.com/images/I/61GaJPDd5RL._SS400_.jpg',
+			imageUrl: 'https://img.freepik.com/premium-vector/waving-flag-france-country-isolated-french-tricolor-flag-white-background-vector-flat-illustration_502651-399.jpg?w=2000',
 			price: 50.0,
 			type: 'best',
 		}),
 		Bundle.create({
 			name: 'Canadian Package',
 			imageUrl:
-				'https://i.etsystatic.com/26971947/r/il/7b856a/3431395249/il_fullxfull.3431395249_43v9.jpg',
+				'https://img.freepik.com/premium-photo/canada-flag-white-background_532129-52.jpg?w=2000',
 			price: 40.0,
 			type: 'featured',
 		}),
 		Bundle.create({
 			name: 'Kitkat Package',
 			imageUrl:
-				'https://theawesomer.com/photos/2020/02/kit_kat_variety_pack_1.jpg',
+				'https://people.com/thmb/OV9M9FQjGOWKt7ybtiCXOrrlE4k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2)/kit-kat-mint-chocolate-3-2000-56cd5f85c1cf404998ca520c8e7f73de.jpg',
 			price: 30.0,
 			type: 'new',
 		}),
 		Bundle.create({
 			name: 'Oreo Package',
-			imageUrl: 'https://miro.medium.com/max/1200/1*-Q2u9C1n2hYnZsFlvbA6QQ.png',
+			imageUrl: 'https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/oreo-isolated-on-white-background-nenov-images.jpg',
 			price: 30.0,
 			type: 'best',
 		}),
 		Bundle.create({
 			name: 'Christmas Package',
 			imageUrl:
-				'https://images.snackmagic.com/spree/product_set_price_mappings/2834656/medium/pnh5i5r7hnxgoqyeyy6dpf2llpde.jpeg?1667217051',
+				'https://media.istockphoto.com/photos/santa-hat-picture-id471122543?k=20&m=471122543&s=612x612&w=0&h=xJPSjeeFqfsXS_Ah3-xYu9Nyg2a3aWuYA012gzrLWLI=',
 			price: 50.0,
 			type: 'featured',
 		}),
 		Bundle.create({
 			name: 'Spicy Package',
 			imageUrl:
-				'http://cdn.shopify.com/s/files/1/0017/4148/8194/products/Loteria-Candy-Co-Mexican-Candy-Box-1_9230bc14-bdd0-4a60-ba4e-cafcc4eb5769_1200x1200.jpg?v=1619551785',
+				'https://img.freepik.com/premium-photo/red-chili-peppers-isolated-white-background-top-view-flat_438009-1946.jpg?w=2000',
 			price: 35.0,
 			type: 'new',
 		}),
 		Bundle.create({
 			name: 'Chips Package',
 			imageUrl:
-				'https://i0.wp.com/www.courtneyinthemiddleseat.com/wp-content/uploads/2021/10/International-Snacks-2021-Blog-Post-Cover-.png?fit=1024%2C731&ssl=1',
+				'https://m.media-amazon.com/images/I/51ZZaghK+FL.jpg',
 			price: 30.0,
 			type: 'best',
 		}),
 		Bundle.create({
-			name: ' Chewing Gum Package',
+			name: ' Gum Package',
 			imageUrl:
-				'https://www.history.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTU3ODc4NjgwODIyMDk3MjI1/istock_000040358208large-2.jpg',
+				'https://img.freepik.com/premium-photo/chewing-gum-isolated-white-background_252173-136.jpg?w=2000',
 			price: 20.0,
 			type: 'new',
 		}),
 		Bundle.create({
 			name: 'Gluten Free Package',
-			imageUrl: 'https://m.media-amazon.com/images/I/81SWnlqtLvL.jpg',
+			imageUrl: 'https://img.freepik.com/premium-vector/gluten-free-hand-drawn-lettering-phrase-with-green-leaves-isolated-white-background_166089-1032.jpg?w=2000',
 			price: 45.0,
 			type: 'new',
 		}),
 		Bundle.create({
 			name: 'Vegan Package',
 			imageUrl:
-				'https://m.media-amazon.com/images/I/51BEso1LFPL._AC_SY580_.jpg',
+				'https://img.freepik.com/premium-photo/pistachio-white-background_263154-248.jpg?w=2000',
 			price: 45.0,
 			type: 'featured',
 		}),
