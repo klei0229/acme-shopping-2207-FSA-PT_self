@@ -287,6 +287,12 @@ const Cart = () => {
 							CONTINUE TO CHECKOUT
 						</Button>
 					</Grid>
+					<Grid item xs={12}>
+						<AddressForm />
+					</Grid>
+					<Grid item xs={12}>
+						<CreateAddress />
+					</Grid>
 					<Grid container xs={12} spacing={1}>
 						{!shipping.label ? (
 							<Typography variant='h4'>Add a shipping address</Typography>
@@ -311,13 +317,6 @@ const Cart = () => {
 								</CardContent>
 							</Card>
 						)}
-
-						<Grid item xs={12}>
-							<AddressForm />
-						</Grid>
-						<Grid item xs={12}>
-							<CreateAddress />
-						</Grid>
 					</Grid>
 				</Grid>
 			) : (
