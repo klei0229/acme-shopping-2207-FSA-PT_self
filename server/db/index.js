@@ -16,6 +16,8 @@ LineItem.belongsTo(Bundle);
 Product.belongsTo(Bundle);
 Bundle.hasMany(Product);
 Address.belongsTo(User);
+Address.hasMany(Order);
+Order.belongsTo(Address);
 User.hasMany(Address);
 
 const getImage = (path) => {
