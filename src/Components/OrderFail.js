@@ -10,7 +10,7 @@ const OrderFail = () => {
       <CssBaseline />
       <div>
         <br />
-        <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+        <Typography variant="h3" gutterBottom sx={{ mt: 2 }}>
           Your order did not go through
         </Typography>
         <br />
