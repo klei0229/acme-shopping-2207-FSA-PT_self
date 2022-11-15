@@ -161,7 +161,7 @@ const BundleDetail = () => {
 								>
 									Add To Cart
 								</Button>
-								<Button sx={{ mt: 4 }} variant='contained'>
+								<Button sx={{ mt: '10' }} variant='contained' fullWidth='true'>
 									<Link
 										to={'/bundles'}
 										style={{ textDecoration: 'none', color: 'white' }}
