@@ -291,38 +291,46 @@ const Cart = () => {
 							</Grid>
 						) : (
 							<Grid container direction='column' xs={12}>
-								<Grid item xs={12}>
-									<Typography>
-										<strong>Current Shipping Address:</strong>
-									</Typography>
-								</Grid>
-								<Grid item xs={12}>
-									<Typography>
-										<strong>{shipping.label}</strong>
-									</Typography>
-								</Grid>
-								<Grid item xs={12}>
-									<Typography>{shipping.street1}</Typography>
-								</Grid>
-								<Grid item xs={12}>
-									<Typography>{shipping.street2}</Typography>
-								</Grid>
-								<Grid item xs={12}>
-									<Typography>{shipping.city}</Typography>
-								</Grid>
-								<Grid item xs={12}>
-									<Typography>{shipping.state}</Typography>
-								</Grid>
-								<Grid item xs={12}>
-									<Typography>{shipping.zipcode}</Typography>
-								</Grid>
-								<Grid item xs={12}>
-									<Typography>{shipping.country}</Typography>
-								</Grid>
+								<Box sx={{ border: 1, padding: 1 }}>
+									<Grid item xs={12}>
+										<Typography>
+											<strong>Current Shipping Address:</strong>
+										</Typography>
+									</Grid>
+									<Grid item xs={12}>
+										<Typography>
+											<strong>{shipping.label}</strong>
+										</Typography>
+									</Grid>
+									<br />
+									<Grid item xs={12}>
+										<Typography>{shipping.street1}</Typography>
+									</Grid>
+									<Grid item xs={12}>
+										<Typography>{shipping.street2}</Typography>
+									</Grid>
+									<Grid item xs={12}>
+										<Typography>{shipping.city}</Typography>
+									</Grid>
+									<Grid item xs={12}>
+										<Typography>{shipping.state}</Typography>
+									</Grid>
+									<Grid item xs={12}>
+										<Typography>{shipping.zipcode}</Typography>
+									</Grid>
+									<Grid item xs={12}>
+										<Typography>{shipping.country}</Typography>
+									</Grid>
+								</Box>
 							</Grid>
 						)}
 						<br />
-						<Button variant='contained' fullWidth onClick={checkout}>
+						<Button
+							variant='contained'
+							fullWidth
+							onClick={checkout}
+							disabled={!shipping.label}
+						>
 							CONTINUE TO CHECKOUT
 						</Button>
 					</Grid>
