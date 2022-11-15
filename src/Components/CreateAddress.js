@@ -107,7 +107,7 @@ const CreateAddress = () => {
 											name='label'
 											label='New Address Label'
 											fullWidth
-											variant='standard'
+											variant='filled'
 											value={address.label}
 											onChange={onChange}
 										/>
@@ -118,7 +118,7 @@ const CreateAddress = () => {
 											name='street1'
 											label='Address line 1'
 											fullWidth
-											variant='standard'
+											variant='filled'
 											value={address.street1}
 											onChange={onChange}
 										/>
@@ -128,7 +128,7 @@ const CreateAddress = () => {
 											name='street2'
 											label='Address line 2'
 											fullWidth
-											variant='standard'
+											variant='filled'
 											value={address.street2}
 											onChange={onChange}
 										/>
@@ -139,7 +139,7 @@ const CreateAddress = () => {
 											name='city'
 											label='City'
 											fullWidth
-											variant='standard'
+											variant='filled'
 											value={address.city}
 											onChange={onChange}
 										/>
@@ -149,7 +149,7 @@ const CreateAddress = () => {
 											name='state'
 											label='State/Province/Region'
 											fullWidth
-											variant='standard'
+											variant='filled'
 											value={address.state}
 											onChange={onChange}
 										/>
@@ -160,7 +160,7 @@ const CreateAddress = () => {
 											name='zipcode'
 											label='Zipcode / Postal code'
 											fullWidth
-											variant='standard'
+											variant='filled'
 											value={address.zipcode}
 											onChange={onChange}
 										/>
@@ -171,7 +171,7 @@ const CreateAddress = () => {
 											name='country'
 											label='Country'
 											fullWidth
-											variant='standard'
+											variant='filled'
 											value={address.country}
 											onChange={onChange}
 										/>
