@@ -145,6 +145,7 @@ const Profile = () => {
 									minWidth: '100%',
 								}}
 								variant='contained'
+								onClick={saveUser}
 							>
 								Update Your Profile
 							</Button>
