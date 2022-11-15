@@ -226,8 +226,8 @@ const BundleDetail = () => {
 							frequency and size to start snacking!
 						</Typography>
 						<br />
-						<Container maxWidth='lg' align='center'>
-							<Grid container spacing={1}>
+						<Container sx={{mt: 4}} maxWidth='lg' align='center'>
+							<Grid container spacing={1} sx={{justifyContent: "center"}}>
 								{products.map((product) => {
 									return (
 										<Grid item md={3}>

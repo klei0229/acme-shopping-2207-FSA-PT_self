@@ -43,7 +43,7 @@ function Copyright() {
   
 
 
-const theme = createTheme();
+
 
 const Bundle = () => {
   const dispatch = useDispatch();
@@ -93,9 +93,7 @@ const Bundle = () => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-     
-      <CssBaseline />
+    <div>
       <main>
         {/* Hero unit */}
         <Box
@@ -132,16 +130,16 @@ const Bundle = () => {
               justifyContent="center"
             >
               <Link to="/bundles" style={{ textDecoration: 'none' }}>
-                <Button>All</Button>
+                <Button variant="contained">All</Button>
               </Link>
               <Link to="/bundles/featured" style={{ textDecoration: 'none' }}>
-                <Button>Featured</Button>
+                <Button variant="contained">Featured</Button>
               </Link>
               <Link to="/bundles/new" style={{ textDecoration: 'none' }}>
-                <Button>New</Button>
+                <Button variant="contained">New</Button>
               </Link>
               <Link to="/bundles/best" style={{ textDecoration: 'none' }}>
-                <Button>Best Sellers</Button>
+                <Button variant="contained">Best Sellers</Button>
               </Link>
             </Stack>
           </Container>
@@ -189,7 +187,7 @@ const Bundle = () => {
                     <Typography align = "center" gutterBottom variant="h5" component="h2">
                       {bundle.name}
                     </Typography>
-                    <Typography>{bundle.description}</Typography>
+                    <Typography></Typography>
                   </CardContent>
 
                   </Link>
@@ -264,7 +262,7 @@ const Bundle = () => {
                     <Typography align = "center" gutterBottom variant="h5" component="h2">
                       {bundle.name}
                     </Typography>
-                    <Typography>{bundle.description}</Typography>
+                    <Typography></Typography>
                   </CardContent>
 
                   </Link>
@@ -303,13 +301,13 @@ const Bundle = () => {
           color="text.secondary"
           component="p"
         >
-          Made with love
+          made with love
         </Typography>
         <Copyright />
       </Box>
       {/* End footer */}
-      
-    </ThemeProvider>
+      </div>
+    
   );
 };
 

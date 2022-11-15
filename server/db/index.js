@@ -190,7 +190,7 @@ const syncAndSeed = async () => {
     Bundle.create({
       name: 'Thanksgiving Package',
       imageUrl:
-        'https://www.shakentogetherlife.com/wp-content/uploads/2019/11/easy-Indian-corn-Thanksgiving-favors.jpg',
+        'https://media.istockphoto.com/vectors/cartoon-turkey-in-pilgrim-hat-thanksgiving-vector-illustration-vector-id618336598?k=20&m=618336598&s=170667a&w=0&h=2-7fFjoAuF3EVcyhoVCmQv3SdibQuqaiJSse5no_pH0=',
       price: 50.0,
       type: 'new',
       description: `There’s plenty of dessert to go around with this tasty bundle. Wrapped in an orange bow, these holiday delights make a thoughtful gift for your Thanksgiving dinner host or for any occasion this autumn`,

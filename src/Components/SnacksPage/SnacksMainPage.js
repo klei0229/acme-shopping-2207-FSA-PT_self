@@ -43,8 +43,8 @@ function LandingPage() {
       <br></br>
       <Container maxWidth="sm" sx={{ mt: 4 }}>
         <Typography
-          component="h1"
-          variant="h2"
+         component="h2"
+         variant="h3"
           align="center"
           color="text.primary"
           gutterBottom
@@ -52,16 +52,15 @@ function LandingPage() {
           Snacks
         </Typography>
         <Typography
-          variant="h5"
-          align="center"
-          color="text.secondary"
-          paragraph
+            variant="h7"
+            align="center"
+            color="text.secondary"
+            paragraph
         >
           These are all the potential snacks you can receive from one of our
           bundles. Have a look!
         </Typography>
-        <br></br>
-        <br></br>
+       <br/>
       </Container>
       <Container align='center'>
       <TextField  style={{width:"25%"}} id="outlined-basic" label="Search" variant="outlined" value={filter || '' } placeholder='What are you craving?' onChange={ev => navigate(`/snacks/${ev.target.value}`)} />

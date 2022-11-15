@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 function LandingPage() {
   const mainFeaturedPost = {
     title: "Snack Bundles for Everyone",
-    description: "Welcome to Snack Club!",
+    description: "Welcome to SNACKLUB!",
     image:
       'https://img.freepik.com/free-photo/closeup-shot-candy-canes-other-candies-green-background-perfcet-cool-wallpaper_181624-10003.jpg?w=1800&t=st=1667946946~exp=1667947546~hmac=333269566a28179218ace76b7b948dd3793d52f9f7d060c4bea26dff4a0ca960',
     imageText: 'main image description',

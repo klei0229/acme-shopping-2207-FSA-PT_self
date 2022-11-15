@@ -296,6 +296,7 @@ const Cart = () => {
 										<Typography>
 											<strong>Current Shipping Address:</strong>
 										</Typography>
+
 									</Grid>
 									<Grid item xs={12}>
 										<Typography>

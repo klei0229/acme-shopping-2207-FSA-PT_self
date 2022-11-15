@@ -69,6 +69,7 @@ const Login2 = () => {
               src="https://cdn-icons-png.flaticon.com/512/2553/2553691.png"
             ></Box>
             <br />
+            
             <Typography
               component="h1"
               variant="h4"
