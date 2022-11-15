@@ -124,7 +124,7 @@ const Bundle = () => {
               curated the best selection of snacks just for you! <br /> Enjoy!
             </Typography>
             <Stack
-              sx={{ pt: 1}}
+              sx={{ pt: 2}}
               direction="row"
               spacing={2}
               justifyContent="center"

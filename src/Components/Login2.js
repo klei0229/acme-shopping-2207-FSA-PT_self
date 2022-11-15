@@ -24,7 +24,7 @@ const Login2 = () => {
     password: '',
   });
 
-  const theme = createTheme();
+ 
 
   const onChange = (ev) => {
     setCredentials({ ...credentials, [ev.target.name]: ev.target.value });
@@ -36,9 +36,9 @@ const Login2 = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    
       <Grid container component="main" sx={{ height: '100vh' }}>
-        <CssBaseline />
+       
         <Grid
           item
           xs={false}
@@ -62,7 +62,7 @@ const Login2 = () => {
             }}
           >
             <Box
-              sx={{ }}
+              color="secondary"
               component="img"
               width="100px"
               height="100px"
@@ -87,7 +87,7 @@ const Login2 = () => {
             </Typography>
             <br />
             <br />
-            <Avatar sx={{ mr: 1, bgcolor: 'secondary.main' }}>
+            <Avatar sx={{ mr: 1, bgcolor: 'primary' }}>
               <LockOutlinedIcon />
             </Avatar>
             <br />
@@ -145,7 +145,7 @@ const Login2 = () => {
         </Grid>
         
       </Grid>
-    </ThemeProvider>
+    
   );
 };
 

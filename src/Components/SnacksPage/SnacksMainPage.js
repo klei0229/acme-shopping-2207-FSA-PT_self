@@ -52,11 +52,12 @@ function LandingPage() {
           Snacks
         </Typography>
         <Typography
-            variant="h7"
-            align="center"
-            color="text.secondary"
-            paragraph
-        >
+              variant="h5"
+              align="center"
+              color="text.secondary"
+              paragraph
+              
+            >
           These are all the potential snacks you can receive from one of our
           bundles. Have a look!
         </Typography>
