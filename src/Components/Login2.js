@@ -119,6 +119,7 @@ const Login2 = () => {
 							control={<Checkbox value='remember' color='primary' />}
 							label='Remember me'
 						/>
+							<Box sx={{ mt: 3, mb: 2 }}>
 						<Button
 							type='submit'
 							fullWidth
@@ -127,7 +128,6 @@ const Login2 = () => {
 						>
 							Sign In
 						</Button>
-						<Box sx={{ mt: 3, mb: 2 }}>
 							<CreateUser2 />
 						</Box>
 					</Box>
