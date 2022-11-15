@@ -208,7 +208,7 @@ const BundleDetail = () => {
 									>
 										<Link
 											to={'/bundles'}
-											style={{ textDecoration: 'none', color: 'white' }}
+											style={{ textDecoration: 'none', color: 'black' }}
 										>
 											Return to our other bundles
 										</Link>
