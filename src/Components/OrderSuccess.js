@@ -1,12 +1,30 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, Typography, CssBaseline } from '@mui/material';
 import { createOrder } from '../store';
+import {
+  Container,
+  Typography,
+  CssBaseline,
+  Divider,
+  Grid,
+} from '@mui/material';
+import NowTrendingCard from './LandingPage/NowTrendingCard';
 
 const OrderSuccess = () => {
-  const { cart } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const { cart } = useSelector((state) => state);
+  const { bundles } = useSelector((state) => state);
+  const [trendingBundles, setTrendingBundles] = React.useState([]);
+
+  React.useEffect(() => {
+    if (bundles.length) {
+      const featured = bundles.filter((bundle) => bundle.type === 'featured');
+      setTrendingBundles(featured);
+      console.log(featured);
+    }
+    console.log(trendingBundles);
+  }, [bundles]);
 
   const calcSubtotal = (lineItems) => {
     return parseFloat(
@@ -49,7 +67,6 @@ const OrderSuccess = () => {
           width={100}
           height={100}
         />
-        <br />
         <Link to={`/bundles`}>
           <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
             RETURN TO SHOP
@@ -61,6 +78,28 @@ const OrderSuccess = () => {
             REVIEW ORDERS
           </Typography>
         </Link>
+        <br />
+        <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+          Check out these trending bundles!
+        </Typography>
+        <br />
+        <Container maxWidth="xs">
+          <Divider variant="middle"></Divider>
+        </Container>
+        <br></br>
+        <Container maxWidth="xl">
+          {/* <QuiltedImageList></QuiltedImageList> */}
+          <Grid container align="center" spacing={8}>
+            {trendingBundles.map((bundle) => {
+              return (
+                <Grid item key={bundle.id} align="center" xs={3}>
+                  {/* <h1>1</h1> */}
+                  <NowTrendingCard card={bundle}></NowTrendingCard>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Container>
       </div>
     </Container>
   );
