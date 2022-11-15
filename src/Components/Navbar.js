@@ -257,7 +257,7 @@ function ResponsiveAppBar() {
           </Box>
 
           {/* Search Bar Component */}
-          <Search>
+          {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -265,7 +265,7 @@ function ResponsiveAppBar() {
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
-          </Search>
+          </Search> */}
 
           <Box sx={{ flexGrow: 0 }}>
             <IconButton href="#/cart" sx={{ p: 0, ml: 2, mr: 2 }}>
@@ -313,7 +313,7 @@ function ResponsiveAppBar() {
 
               <MenuItem
                 onClick={() => {
-                  console.log('logout');
+                  
                   dispatch(logout());
                 }}
               >

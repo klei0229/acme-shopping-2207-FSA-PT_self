@@ -34,7 +34,7 @@ function InfoCard(props) {
           mt: "10",
           mb: "30",
         }}
-        raised="true"
+        
       >
         <Typography variant="h5" component="div">
           {card.number}

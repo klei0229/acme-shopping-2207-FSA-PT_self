@@ -15,7 +15,7 @@ function NowTrending() {
   //   console.log(bundles);
   //   let trendingBundles = [];
 
-  console.log(bundles);
+  
   const [trendingBundles, setTrendingBundles] = React.useState([]);
 
   const card1 = {
@@ -28,9 +28,9 @@ function NowTrending() {
     if (bundles.length) {
       const featured = bundles.filter((bundle) => bundle.type === "featured");
       setTrendingBundles(featured);
-      console.log(featured);
+     
     }
-    console.log(trendingBundles);
+  
   }, [bundles]);
 
   return (
@@ -41,8 +41,7 @@ function NowTrending() {
       <Container maxWidth="xs">
         <Divider variant="middle"></Divider>
       </Container>
-      <br></br>
-      <Container maxWidth="xl">
+      <Container  maxWidth="xl">
         {/* <QuiltedImageList></QuiltedImageList> */}
         <Grid container align="center" spacing={8}>
           {trendingBundles.map((bundle) => {

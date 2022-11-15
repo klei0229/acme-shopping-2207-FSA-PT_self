@@ -100,6 +100,7 @@ const App = () => {
 								<Route path='/order-success' element={<OrderSuccess />} />
 								<Route path='/order-fail' element={<OrderFail />} />
 								<Route path='/orders' element={<Orders />} />
+								<Route path='/snacks/:filter' element={<SnacksMainPage />} />
 							</Routes>
 						</div>
 					)}

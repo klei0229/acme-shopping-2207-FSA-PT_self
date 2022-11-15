@@ -26,7 +26,7 @@ function NowTrendingCard(props) {
     <div>
       
       <Card
-        raised="true"
+        
         sx={{
           minWidth: "100px",
           minHeight: "100%",
@@ -75,7 +75,7 @@ NowTrendingCard.propTypes = {
   card: PropTypes.shape({
     imageUrl: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    URL: PropTypes.string.isRequired,
+    
   }).isRequired,
 };
 

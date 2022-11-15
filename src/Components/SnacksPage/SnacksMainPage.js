@@ -1,13 +1,19 @@
 import * as React from "react";
-import { Container, Paper } from "@mui/material";
+import { Container, Paper, TextField } from "@mui/material";
+import {useSelector} from 'react-redux'
+import { Link, useNavigate, useParams } from 'react-router-dom';
+
 // import MainFeaturedPost from "./LandingPage/MainFeaturedPost";
 // import SecondaryFeaturedPost from "./LandingPage/SecondaryFeaturedPost";
 import { Grid, Typography, CssBaseline } from "@mui/material";
 import SnackItemCard from "./SnackItemCard";
 
-import { useSelector } from "react-redux";
+
 import { useEffect, useState } from "react";
 function LandingPage() {
+  const navigate = useNavigate()
+  const {filter} = useParams();
+
   //gets bundles from store and extract items from each bundle
   const bundles = useSelector((state) => state.bundles);
 
@@ -23,13 +29,13 @@ function LandingPage() {
         productArray = productArray.concat(bundle.products);
         // console.log(products);
       });
-      // console.log(productArray);
+      
       setProducts(productArray);
     } catch (ex) {
       console.log(ex);
     }
   }, [bundles]);
-
+  const filtered = products.filter(product=> !filter || product.name.toLowerCase().includes(filter))
   return (
     <div>
       <CssBaseline />
@@ -57,13 +63,17 @@ function LandingPage() {
         <br></br>
         <br></br>
       </Container>
-      <Container maxWidth="lg" align="center">
-        <Grid container spacing={1}>
+      <Container align='center'>
+      <TextField  style={{width:"25%"}} id="outlined-basic" label="Search" variant="outlined" value={filter || '' } placeholder='What are you craving?' onChange={ev => navigate(`/snacks/${ev.target.value}`)} />
+      </Container>
+      <br/>
+      <Container sx={{mt: 5}} maxWidth="xl" align="center">
+        <Grid container spacing={4}>
           {/* {products.length} */}
-          {products.map((product) => {
+          {filtered.map((product) => {
             // console.log(product);
             return (
-              <Grid item md={3}>
+              <Grid item md={3} key={product.id}>
                 {/* <h1>1</h1> */}
                 <SnackItemCard card={product}></SnackItemCard>
               </Grid>
