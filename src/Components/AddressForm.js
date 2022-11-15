@@ -84,8 +84,14 @@ export default function AddressForm() {
 
 	return (
 		<Fragment>
-			<Button variant='contained' onClick={handleClickOpen}>
-				Choose an address to use for this order
+			<Button
+				variant='contained'
+				sx={{
+					minWidth: '100%',
+				}}
+				onClick={handleClickOpen}
+			>
+				Add address to order
 			</Button>
 			<Dialog open={open} onClose={handleClose}>
 				<DialogContent>
