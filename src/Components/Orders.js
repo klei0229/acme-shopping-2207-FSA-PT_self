@@ -100,9 +100,10 @@ const Orders = () => {
       <br />
       <br />
       <CssBaseline />
-      <Typography variant="h6" gutterBottom component="div">
+      <Typography variant="h3" gutterBottom component="div" align="center">
         Order History
       </Typography>
+      <br />
       <TableContainer component={Paper}>
         <Table aria-label="collapsible table">
           <TableHead>
