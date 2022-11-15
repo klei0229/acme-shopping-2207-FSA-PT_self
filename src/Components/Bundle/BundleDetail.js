@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import {
-	Card,
 	Grid,
 	Container,
-	CardContent,
 	CardMedia,
 	Typography,
 	Button,
@@ -23,26 +21,16 @@ import { addQtyCart, fetchCart } from '../../store';
 
 const theme = createTheme();
 
-// import ToggleButtons from "./BundleDetails/ToggleButtons";
-
 const BundleDetail = () => {
 	const { id } = useParams();
 	const dispatch = useDispatch();
 	const { bundles, cart } = useSelector((state) => state);
-
 	const [bundle, setBundle] = useState({});
 	const [products, setProducts] = useState([]);
-
 	const [subscription, setSubscription] = useState('Monthly');
 	const [size, setSize] = useState('Small');
-
-	console.log(parseInt(bundle.price));
-
-	// let basePrice = 0;
 	const [price, setPrice] = useState(`$ 0.00`);
 	const [basePrice, setBasePrice] = useState(0);
-
-	//   let price = "14.99"
 
 	const handleSubscription = (event, newSubscription) => {
 		console.log('clicked');
@@ -70,8 +58,6 @@ const BundleDetail = () => {
 	const handleSize = (event, newSize) => {
 		if (newSize !== null) {
 			setSize(newSize);
-			//   calculatePrice();
-
 			if (newSize == 'Large') {
 				if (subscription == 'Monthly') {
 					setPrice(`$${(basePrice * 1.75).toFixed(2)}`);
@@ -106,7 +92,6 @@ const BundleDetail = () => {
 		const item = cart.lineItems.find(
 			(lineItem) => lineItem.bundleId === bundle.id
 		);
-
 		if (item) {
 			dispatch(addQtyCart(item.bundle, 1, item.size, item.frequency));
 		} else {
@@ -140,14 +125,6 @@ const BundleDetail = () => {
 				</Fab>
 			</div>
 			<div>
-				<div>
-					{/* <h1>{bundle.name}</h1> */}
-					<Button sx={{ mt: 4 }}>
-						<Link to={'/bundles'} style={{ textDecoration: 'none' }}>
-							Return to our other bundles
-						</Link>
-					</Button>
-				</div>
 				<div>
 					<Container sx={{ py: 8 }} maxWidth='lg'>
 						<Grid container spacing={2}>
@@ -223,12 +200,32 @@ const BundleDetail = () => {
 									>
 										Add To Cart
 									</Button>
+									<Button
+										sx={{ mt: '10' }}
+										size='large'
+										fullWidth='true'
+										variant='contained'
+									>
+										<Link
+											to={'/bundles'}
+											style={{ textDecoration: 'none', color: 'white' }}
+										>
+											Return to our other bundles
+										</Link>
+									</Button>
 								</Container>
 							</Grid>
 						</Grid>
 						<br></br>
 						<br></br>
-						<Typography variant='h4'>Bundle May Include</Typography>
+						<Typography variant='h4'>This Bundle May Include...</Typography>
+						<br />
+						<Typography variant='h5'>
+							Every time you receive a delivery of this bundle, you'll get a
+							randomized selection of the snacks you see below. Just choose a
+							frequency and size to start snacking!
+						</Typography>
+						<br />
 						<Container maxWidth='lg' align='center'>
 							<Grid container spacing={1}>
 								{products.map((product) => {
