@@ -26,7 +26,7 @@ const EmptyCart = () => {
     <Container>
       <CssBaseline />
       <div>
-        <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+        <Typography variant="h4" gutterBottom sx={{ mt: 2 }}>
           YOUR CART IS EMPTY
         </Typography>
         <img
