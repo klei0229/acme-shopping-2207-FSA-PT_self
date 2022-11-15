@@ -139,17 +139,17 @@ const Profile = () => {
 								<input type='file' ref={(x) => setEl(x)} />
 							</Grid>
 						</Grid>
-						<Container sx={{ display: 'flex', justifyContent: 'center' }}>
-							<Button
-								sx={{
-									minWidth: '100%',
-								}}
-								variant='contained'
-								onClick={saveUser}
-							>
-								Update Your Profile
-							</Button>
-						</Container>
+						{/* <Container sx={{ display: 'flex', justifyContent: 'center' }}> */}
+						<Button
+							sx={{
+								minWidth: '100%',
+							}}
+							variant='contained'
+							onClick={saveUser}
+						>
+							Update Your Profile
+						</Button>
+						{/* </Container> */}
 					</form>
 					<img src={data} />
 				</Fragment>
