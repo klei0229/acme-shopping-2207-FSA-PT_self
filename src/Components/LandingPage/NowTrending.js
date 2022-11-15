@@ -1,14 +1,14 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
-import Box from "@mui/material/Box";
-import { Button, BasicCard, Card, Container, Divider } from "@mui/material";
-import InfoCard from "./InfoCard";
-import NowTrendingCard from "./NowTrendingCard";
-import { useSelector } from "react-redux";
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
+import Box from '@mui/material/Box';
+import { Button, BasicCard, Card, Container, Divider } from '@mui/material';
+import InfoCard from './InfoCard';
+import NowTrendingCard from './NowTrendingCard';
+import { useSelector } from 'react-redux';
 
 function NowTrending() {
   const { bundles } = useSelector((state) => state);
@@ -19,9 +19,9 @@ function NowTrending() {
   const [trendingBundles, setTrendingBundles] = React.useState([]);
 
   const card1 = {
-    image: "https://www.snackcrate.com/wp-content/uploads/2021/08/set2-box.svg",
-    title: "Choose A Bundle",
-    url: "https://www.snackcrate.com/wp-content/uploads/2021/08/set2-box.svg",
+    image: 'https://www.snackcrate.com/wp-content/uploads/2021/08/set2-box.svg',
+    title: 'Choose A Bundle',
+    url: 'https://www.snackcrate.com/wp-content/uploads/2021/08/set2-box.svg',
   };
 
   React.useEffect(() => {
@@ -44,7 +44,7 @@ function NowTrending() {
       <br></br>
       <Container maxWidth="xl">
         {/* <QuiltedImageList></QuiltedImageList> */}
-        <Grid container align="center" spacing={2}>
+        <Grid container align="center" spacing={8}>
           {trendingBundles.map((bundle) => {
             return (
                 <Grid item key={bundle.id} align="center" xs={3}>

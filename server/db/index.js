@@ -16,6 +16,8 @@ LineItem.belongsTo(Bundle);
 Product.belongsTo(Bundle);
 Bundle.hasMany(Product);
 Address.belongsTo(User);
+Address.hasMany(Order);
+Order.belongsTo(Address);
 User.hasMany(Address);
 
 const getImage = (path) => {
@@ -52,14 +54,39 @@ const syncAndSeed = async () => {
     halloween,
     thanksgiving,
   ] = await Promise.all([
-    User.create({ username: "moe", password: "123", avatar }),
-    User.create({ username: "lucy", password: "123" }),
-    User.create({ username: "larry", password: "123" }),
-    User.create({ username: "ethyl", password: "123" }),
+		User.create({
+			username: 'moe',
+			password: '123',
+			avatar,
+			firstName: 'Moe',
+			lastName: 'Stooge',
+			email: 'moe@gmail.com',
+		}),
+		User.create({
+			username: 'lucy',
+			password: '123',
+			firstName: 'Lucy',
+			lastName: 'Lawless',
+			email: 'xena@gmail.com',
+		}),
+		User.create({
+			username: 'larry',
+			password: '123',
+			firstName: 'Larry',
+			lastName: 'Stooge',
+			email: 'larry@gmail.com',
+		}),
+		User.create({
+			username: 'ethyl',
+			password: '123',
+			firstName: 'Ethyl',
+			lastName: 'Stooge',
+			email: 'ethyl@gmail.com',
+		}),
     Bundle.create({
       name: "Korean Package",
       imageUrl:
-        "https://i.etsystatic.com/27761931/r/il/1eec00/3451205856/il_fullxfull.3451205856_l9l0.jpg",
+      'https://img.freepik.com/premium-photo/south-korean-flag-white-background_532129-108.jpg?w=2000',
       price: 35.0,
       type: "featured",
       description:
@@ -67,7 +94,8 @@ const syncAndSeed = async () => {
     }),
     Bundle.create({
       name: "French Package",
-      imageUrl: "https://m.media-amazon.com/images/I/61GaJPDd5RL._SS400_.jpg",
+      imageUrl:
+      'https://img.freepik.com/premium-vector/waving-flag-france-country-isolated-french-tricolor-flag-white-background-vector-flat-illustration_502651-399.jpg?w=2000',
       price: 50.0,
       type: "best",
       description:
@@ -76,7 +104,7 @@ const syncAndSeed = async () => {
     Bundle.create({
       name: "Canadian Package",
       imageUrl:
-        "https://i.etsystatic.com/26971947/r/il/7b856a/3431395249/il_fullxfull.3431395249_43v9.jpg",
+      'https://img.freepik.com/premium-photo/canada-flag-white-background_532129-52.jpg?w=2000',
       price: 40.0,
       type: "featured",
       description: "Our delicious Canadian snack box includes an assortment of 45 single serve snacks that are perfect for anyone, anytime, and anywhere."
@@ -84,14 +112,15 @@ const syncAndSeed = async () => {
     Bundle.create({
       name: "Kitkat Package",
       imageUrl:
-        "https://theawesomer.com/photos/2020/02/kit_kat_variety_pack_1.jpg",
+      'https://people.com/thmb/OV9M9FQjGOWKt7ybtiCXOrrlE4k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2)/kit-kat-mint-chocolate-3-2000-56cd5f85c1cf404998ca520c8e7f73de.jpg',
       price: 30.0,
       type: "new",
       description:"The perfect balance of chocolate and wafer, there's a reason KitKat is enjoyed in more than 80 countries. The iconic brand is an international symbol for hitting the pause button on life - to enjoy a well-earned break."
     }),
     Bundle.create({
       name: "Oreo Package",
-      imageUrl: "https://miro.medium.com/max/1200/1*-Q2u9C1n2hYnZsFlvbA6QQ.png",
+      imageUrl:
+      'https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/oreo-isolated-on-white-background-nenov-images.jpg',
       price: 30.0,
       type: "best",
       description:`Super-sized and oh-so-soft to the touch. We\'ve brought your OREO dreams to life with our exclusive OREO Pillow! Just open the "sleeve" and you'll find five removable cookie plushes. A must-have for the OREO obsessed!`
@@ -99,7 +128,7 @@ const syncAndSeed = async () => {
     Bundle.create({
       name: "Christmas Package",
       imageUrl:
-        "https://images.snackmagic.com/spree/product_set_price_mappings/2834656/medium/pnh5i5r7hnxgoqyeyy6dpf2llpde.jpeg?1667217051",
+      'https://media.istockphoto.com/photos/santa-hat-picture-id471122543?k=20&m=471122543&s=612x612&w=0&h=xJPSjeeFqfsXS_Ah3-xYu9Nyg2a3aWuYA012gzrLWLI=',
       price: 50.0,
       type: "new",
       description: "This 45 count Christmas Care Package is filled with Candy, Snacks, and Toys - it is perfect to use for Stocking Stuffers! It's also the Perfect Gift for Anyone this Christmas!"
@@ -107,30 +136,30 @@ const syncAndSeed = async () => {
     Bundle.create({
       name: "Spicy Package",
       imageUrl:
-        "http://cdn.shopify.com/s/files/1/0017/4148/8194/products/Loteria-Candy-Co-Mexican-Candy-Box-1_9230bc14-bdd0-4a60-ba4e-cafcc4eb5769_1200x1200.jpg?v=1619551785",
+      'https://img.freepik.com/premium-photo/red-chili-peppers-isolated-white-background-top-view-flat_438009-1946.jpg?w=2000',
       price: 35.0,
       type: "new",
       description:"International Spicy Mystery Snack Box Perfect for gifting College Care Package and Birthday gifts. For Spicy lovers of all ages and people looking to try new things. Spicy snacks from all over the world."
     }),
     Bundle.create({
       name: "Chips Package",
-      imageUrl:
-        "https://i0.wp.com/www.courtneyinthemiddleseat.com/wp-content/uploads/2021/10/International-Snacks-2021-Blog-Post-Cover-.png?fit=1024%2C731&ssl=1",
+			imageUrl: 'https://m.media-amazon.com/images/I/51ZZaghK+FL.jpg',
       price: 30.0,
       type: "best",
       description:"Delight the taste buds of friends, family and co-workers with an assortment of chip flavors from around the world."
     }),
     Bundle.create({
-      name: " Chewing Gum Package",
+      name: "Gum Package",
       imageUrl:
-        "https://www.history.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTU3ODc4NjgwODIyMDk3MjI1/istock_000040358208large-2.jpg",
+      'https://img.freepik.com/premium-photo/chewing-gum-isolated-white-background_252173-136.jpg?w=2000',
       price: 20.0,
       type: "new",
       description:"Skip buying boxes of different snacks when you can enjoy a variety of different snacks from your favorite brands in just one box! With 160 packs, this purchase gives you plenty of treats to last a while."
     }),
     Bundle.create({
       name: "Gluten Free Package",
-      imageUrl: "https://m.media-amazon.com/images/I/81SWnlqtLvL.jpg",
+      imageUrl:
+      'https://img.freepik.com/premium-vector/gluten-free-hand-drawn-lettering-phrase-with-green-leaves-isolated-white-background_166089-1032.jpg?w=2000',
       price: 45.0,
       type: "new",
       description:`Every snack in this Premium Gift bag is curated for its quality, freshness and most importantly NO GLUTEN CONTAINING FOODS`
@@ -138,7 +167,7 @@ const syncAndSeed = async () => {
     Bundle.create({
       name: "Vegan Package",
       imageUrl:
-        "https://m.media-amazon.com/images/I/51BEso1LFPL._AC_SY580_.jpg",
+      'https://img.freepik.com/premium-photo/pistachio-white-background_263154-248.jpg?w=2000',
       price: 45.0,
       type: "featured",
       description:"From vegan mac and cheese and delicious vegan chocolate, to avocado chips, hummus crackers and superfood smoothies, the Vegancuts Snack Box is your monthly delivery of the best vegan snacks and meal items, and drinks on the market."
@@ -982,50 +1011,83 @@ const syncAndSeed = async () => {
     }),
   ]);
 
-  await Promise.all([
-    Address.create({
-      label: "Home",
-      street1: "123 Fake Street",
-      street2: "4E",
-      city: "New York",
-      state: "NY",
-      zipcode: "10001",
-      userId: moe.id,
-      country: "United States",
-    }),
-    Address.create({
-      label: "Work",
-      street1: "555 West Street",
-      street2: "",
-      city: "Hudson",
-      state: "NY",
-      zipcode: "10001",
-      userId: moe.id,
-      country: "United States",
-    }),
-  ]);
+	const [moehome, moework] = await Promise.all([
+		Address.create({
+			label: 'Home',
+			street1: '123 Fake Street',
+			street2: '4E',
+			city: 'New York',
+			state: 'NY',
+			zipcode: '10001',
+			userId: moe.id,
+			country: 'United States',
+		}),
+		Address.create({
+			label: 'Work',
+			street1: '555 West Street',
+			street2: '',
+			city: 'Hudson',
+			state: 'NY',
+			zipcode: '10001',
+			userId: moe.id,
+			country: 'United States',
+		}),
+	]);
 
-  return {
-    users: {
-      moe,
-      lucy,
-      larry,
-      ethyl,
-    },
-    bundle: {
-      korean,
-      french,
-      canadian,
-      kitkat,
-      oreo,
-      christmas,
-      spicy,
-      chips,
-      gum,
-      glutenfree,
-      vegan,
-    },
-  };
+	await Promise.all([
+		Address.create({
+			label: 'Home',
+			street1: '179 205th Street',
+			street2: '',
+			city: 'New York',
+			state: 'NY',
+			zipcode: '10001',
+			userId: ethyl.id,
+			country: 'United States',
+		}),
+		Address.create({
+			label: 'Country House',
+			street1: '4 Sunny Lane',
+			street2: '',
+			city: 'Beacon',
+			state: 'NY',
+			zipcode: '10001',
+			userId: larry.id,
+			country: 'United States',
+		}),
+		Address.create({
+			label: 'Home',
+			street1: '100 South Street',
+			street2: '',
+			city: 'Great Barrington',
+			state: 'MA',
+			zipcode: '55555',
+			userId: lucy.id,
+			country: 'United States',
+		}),
+	]);
+
+	return {
+		users: {
+			moe,
+			lucy,
+			larry,
+			ethyl,
+		},
+		bundle: {
+			korean,
+			french,
+			canadian,
+			kitkat,
+			oreo,
+			christmas,
+			spicy,
+			chips,
+			gum,
+			glutenfree,
+			vegan,
+		},
+	};
 };
 
 module.exports = {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Typography, TextField } from '@mui/material';
@@ -8,11 +8,12 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import { useSnackbar } from 'notistack';
 
 const CreateAddress = () => {
 	const { auth } = useSelector((state) => state);
 	const dispatch = useDispatch();
+	const { enqueueSnackbar } = useSnackbar();
 	const [address, setAddress] = useState({
 		label: '',
 		street1: '',
@@ -43,6 +44,18 @@ const CreateAddress = () => {
 		address.userId = auth.id;
 		try {
 			await axios.post('/api/addresses', address);
+			setAddress({
+				label: '',
+				street1: '',
+				street2: '',
+				city: '',
+				state: '',
+				zipcode: '',
+				country: '',
+			});
+			enqueueSnackbar('You created a new address!', {
+				variant: 'success',
+			});
 			await dispatch(loginWithToken());
 			handleClose();
 		} catch (ex) {
@@ -58,11 +71,10 @@ const CreateAddress = () => {
 	return (
 		<div>
 			<Fragment>
-				<Button variant='outlined' onClick={handleClickOpen}>
+				<Button variant='contained' onClick={handleClickOpen}>
 					Create a new address
 				</Button>
 				<Dialog open={open} onClose={handleClose}>
-					<DialogTitle>Create a New Address</DialogTitle>
 					<DialogContent>
 						<DialogContentText>
 							To start getting tasty bundles, create an address for your
@@ -164,7 +176,9 @@ const CreateAddress = () => {
 					</DialogContent>
 					<DialogActions>
 						<Button onClick={handleClose}>Cancel</Button>
-						<Button onClick={save}>Create new Address</Button>
+						<Button onClick={save} variant='contained'>
+							Create new Address
+						</Button>
 					</DialogActions>
 				</Dialog>
 			</Fragment>
