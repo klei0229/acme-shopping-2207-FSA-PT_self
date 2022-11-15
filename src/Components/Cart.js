@@ -291,43 +291,30 @@ const Cart = () => {
 							</Grid>
 						) : (
 							<Grid container direction='column' xs={12}>
-								<div style={{ border: '2px black' }}>
-									<Grid item xs={12}>
-										<Typography>Current Shipping Address:</Typography>
-									</Grid>
-									<Grid item xs={12}>
-										<Typography>{shipping.label}</Typography>
-									</Grid>
-								</div>
 								<Grid item xs={12}>
-									<Typography>Street 1:</Typography>
+									<Typography>
+										<strong>Current Shipping Address:</strong>
+									</Typography>
+								</Grid>
+								<Grid item xs={12}>
+									<Typography>
+										<strong>{shipping.label}</strong>
+									</Typography>
 								</Grid>
 								<Grid item xs={12}>
 									<Typography>{shipping.street1}</Typography>
 								</Grid>
 								<Grid item xs={12}>
-									<Typography>Street 2:</Typography>
-								</Grid>
-								<Grid item xs={12}>
 									<Typography>{shipping.street2}</Typography>
 								</Grid>
 								<Grid item xs={12}>
-									<Typography>City:</Typography>
-								</Grid>
-								<Grid item xs={12}>
 									<Typography>{shipping.city}</Typography>
-								</Grid>
-								<Grid item xs={12}>
-									<Typography>State:</Typography>
 								</Grid>
 								<Grid item xs={12}>
 									<Typography>{shipping.state}</Typography>
 								</Grid>
 								<Grid item xs={12}>
 									<Typography>{shipping.zipcode}</Typography>
-								</Grid>
-								<Grid item xs={12}>
-									<Typography>Country:</Typography>
 								</Grid>
 								<Grid item xs={12}>
 									<Typography>{shipping.country}</Typography>

@@ -73,7 +73,6 @@ const CreateAddress = () => {
 			<Fragment>
 				<Button
 					sx={{
-						// maxWidth: "800px",
 						minWidth: '100%',
 					}}
 					variant='contained'
