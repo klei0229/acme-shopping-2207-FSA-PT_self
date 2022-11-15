@@ -28,12 +28,14 @@ const pink = '#ffcfda';
 const copper = '#b16132';
 const martinque = '#42385d';
 const bouquet = '#b094ae';
+const watermelon= '#ff6780'
+const pwatermelon= '#f48498'
 
 export const Theme = createTheme({
 	palette: {
 		type: 'light',
 		primary: {
-		  main: "#010101",
+		  main: pwatermelon,
 		},
 		secondary: {
 		  main: '#ffffff',

@@ -182,7 +182,7 @@ const syncAndSeed = async () => {
     Bundle.create({
       name: 'Halloween Package',
       imageUrl:
-        'https://nypost.com/wp-content/uploads/sites/2/2022/07/haloween.jpg?quality=75&strip=all&w=744',
+        "https://www.history.com/.image/t_share/MTU3ODc4NTk5NzYxNDcwNzkz/hungy-halloween-candy-istock_000021704258large-2.jpg",
       price: 50.0,
       type: 'featured',
       description: `If you want your house to be the favorite stop on your neighborhood’s trick-or-treating route, look no further than our Halloween-themed candy.`,
@@ -274,309 +274,309 @@ const syncAndSeed = async () => {
 
   await Promise.all([
     Product.create({
-      name: 'Haitai French Pie – Apple (11g)',
+      name: "Haitai French Pie – Apple",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/08/Korea_FrenchPie_482x482_.png',
       bundleId: korean.id,
     }),
     Product.create({
-      name: 'Haitai Baked Sweet Potato Sticks (27g)',
+      name: "Haitai Baked Sweet Potato Sticks",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/08/Korea_PotatoSticks_482x482_.png',
       bundleId: korean.id,
     }),
     Product.create({
-      name: 'Crown Butter Waffle (25g)',
+      name: "Crown Butter Waffle",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/08/Korea_ButterCookie_482x482_.png',
       bundleId: korean.id,
     }),
     Product.create({
-      name: 'Lotte Choco Pie – Original (28g)',
+      name: "Lotte Choco Pie – Original",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/08/Korea_CouqueDasseCoffee_482x482_.png',
       bundleId: korean.id,
     }),
     Product.create({
-      name: 'Crown Couque D’asse – Coffee (8g)',
+      name: "Crown Couque D’asse – Coffee",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/09/USA_AbbaZabba_482x482_.png',
       bundleId: korean.id,
     }),
     Product.create({
-      name: 'Crown Couque D’asse – White (8g)',
+      name: "Crown Couque D’asse – White",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/08/Korea_CouqueDasseWhite_482x482_.png',
       bundleId: korean.id,
     }),
     Product.create({
-      name: 'Lotte Custard Cake (23g)',
+      name: "Lotte Custard Cake",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/08/Korea_CustardCake_482x482_.png',
       bundleId: korean.id,
     }),
     Product.create({
-      name: 'Jellico Dinosaur Gummies (90g)',
+      name: "Jellico Dinosaur Gummies",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/08/Korea_DinoGummies_482x482_.png',
       bundleId: korean.id,
     }),
     Product.create({
-      name: 'Nongshim Jjolbyeong Snack (82g)',
+      name: "Nongshim Jjolbyeong Snack",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/08/Korea_Jjolbyeong_482x482_.png',
       bundleId: korean.id,
     }),
     Product.create({
-      name: 'Haitai Grape Candy (130g)',
+      name: "Haitai Grape Candy",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/08/Korea_GrapeCandy_482x482_.png',
       bundleId: korean.id,
     }),
     Product.create({
-      name: 'Gavottes Crepes Chocolates (90g)',
+      name: "Gavottes Crepes Chocolates",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/11/France_Crepe_Dentelle_482x482_.png',
       bundleId: french.id,
     }),
     Product.create({
-      name: 'La Trinitaine Galette Pur Beurre (3.4g)',
+      name: "La Trinitaine Galette Pur Beurre",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/11/France_Galette_482x482_.png',
       bundleId: french.id,
     }),
     Product.create({
-      name: 'Lays Bolognaise (45g)',
+      name: "Lays Bolognaise",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/01/France_Saveur_Bolognaise_482x482_.png',
       bundleId: french.id,
     }),
     Product.create({
-      name: 'Lays Chips Poulet (45g)',
+      name: "Lays Chips Poulet",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/11/France_Saveur_Poulet_482x482_.png',
       bundleId: french.id,
     }),
     Product.create({
-      name: 'Sucettes Fer De Lance Caremel Recharge (13g)',
+      name: "Sucettes Fer De Lance Caremel Recharge",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/11/France_Caramel_Sucka_482x482_.png',
       bundleId: french.id,
     }),
     Product.create({
-      name: 'Orangina Drink (330mL)',
+      name: "Orangina Drink",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/11/France_Orangina_482x482_.png',
       bundleId: french.id,
     }),
     Product.create({
-      name: 'Lu Petit Ecolier Poche (50g)',
+      name: "Lu Petit Ecolier Poche",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/11/France_PetiteColier_Box_482x482_.png',
       bundleId: french.id,
     }),
     Product.create({
-      name: 'St. Michel Madelines (75g)',
+      name: "St. Michel Madelines",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/11/France_Madeleines_482x482_.png',
       bundleId: french.id,
     }),
     Product.create({
-      name: 'Sundy Bar (36g)',
+      name: "Sundy Bar",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/11/France_Sunday_482x482_.png',
       bundleId: french.id,
     }),
     Product.create({
-      name: 'Carambar Krema (2,000g)',
+      name: "Carambar Krema",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/11/France_Krema_Regalad_482x482_.png',
       bundleId: french.id,
     }),
     Product.create({
-      name: 'Thrills Chewing Gum (14g)',
+      name: "Thrills Chewing Gum",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Canada_Thrills_Gum_482x482_.png',
       bundleId: canadian.id,
     }),
     Product.create({
-      name: 'Aero Peppermint (41g)',
+      name: "Aero Peppermint",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/08/Canada_Aero_Peppermint_482x482_.png',
       bundleId: canadian.id,
     }),
     Product.create({
-      name: 'Humpty Dumpty Bacon Hickory Sticks (50g)',
+      name: "Humpty Dumpty Bacon Hickory Sticks",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Canada_Humpty_Dumpty_482x482_.png',
       bundleId: canadian.id,
     }),
     Product.create({
-      name: 'Bear Paws (40g)',
+      name: "Bear Paws",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/08/Canada_Banana_Bread_482x482_.png',
       bundleId: canadian.id,
     }),
     Product.create({
-      name: 'Bec Cola (275ml)',
+      name: "Bec Cola",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Canada_Bec_Cola_233x189_-1.png',
       bundleId: canadian.id,
     }),
     Product.create({
-      name: 'Cadbury Caramilk (50g)',
+      name: "Cadbury Caramilk",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Canada_Caramilk_482x482_.png',
       bundleId: canadian.id,
     }),
     Product.create({
-      name: 'Nestle Coffee Crisp (50g)',
+      name: "Nestle Coffee Crisp",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Canada_Coffee_Crisp_482x482_.png',
       bundleId: canadian.id,
     }),
     Product.create({
-      name: 'Covered Bridge Creamy Dill Pickle (36g)',
+      name: "Covered Bridge Creamy Dill Pickle",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Canada_Cover_Bridge_Chips_482x482_-1.png',
       bundleId: canadian.id,
     }),
     Product.create({
-      name: 'Cadbury Crispy Crunch (48g)',
+      name: "Cadbury Crispy Crunch",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Canada_Crispy_Crunch_482x482_.png',
       bundleId: canadian.id,
     }),
     Product.create({
-      name: 'Crush Cream Soda (275ml)',
+      name: "Crush Cream Soda",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Canada_Crush_482x482_.png',
       bundleId: canadian.id,
     }),
     Product.create({
-      name: 'Kit Kat Big Little Pouch Original (50g)',
+      name: "Kit Kat Big Little Pouch Original",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/KitKat_Big_482x482_082321.png',
       bundleId: kitkat.id,
     }),
     Product.create({
-      name: 'Kit Kat Big Little Pouch Strawberry (45g)',
+      name: "Kit Kat Big Little Pouch Strawberry",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/KitKat_Strawberry_Balls_482x482_082321.png',
       bundleId: kitkat.id,
     }),
     Product.create({
-      name: 'Kit Kat Chunky Aero Mint (45g)',
+      name: "Kit Kat Chunky Aero Mint",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/KitKat_Chunky_Aero_482x482_082321.png',
       bundleId: kitkat.id,
     }),
     Product.create({
-      name: 'Nestle Kit Kat Chunky Duo (64g)',
+      name: "Nestle Kit Kat Chunky Duo",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/KitKat_Chunky_Duo_482x482_082321.png',
       bundleId: kitkat.id,
     }),
     Product.create({
-      name: 'Nestle Kit Kat Chunky Peanut Butter (42g)',
+      name: "Nestle Kit Kat Chunky Peanut Butter",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/KitKat_Chunky_PeanutButter_482x482_082321.png',
       bundleId: kitkat.id,
     }),
     Product.create({
-      name: 'Nestle – Kit Kat Chunky Popcorn (48g)',
+      name: "Nestle – Kit Kat Chunky Popcorn",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/08/KitKat_Chunky_Popcorn_482x482_082321.png',
       bundleId: kitkat.id,
     }),
     Product.create({
-      name: 'Nestle Kit Kat Dark Mint Bag of 9 (20g)',
+      name: "Nestle Kit Kat Dark Mint",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/KitKat_Dark_Mint_482x482_082321.png',
       bundleId: kitkat.id,
     }),
     Product.create({
-      name: 'Nestle Kit Kat Gold (41g)',
+      name: "Nestle Kit Kat Gold",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/02/KitKatGold_482x482_.png',
       bundleId: kitkat.id,
     }),
     Product.create({
-      name: 'Nestle Kit Kat Hazelnut Spread Bag of 9 (20g)',
+      name: "Nestle Kit Kat Hazelnut Spread",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/KitKat_Hazelnut_482x482_082321.png',
       bundleId: kitkat.id,
     }),
     Product.create({
-      name: 'Nestle Kit Kat Honeycomb Bag of 9 (20g)',
+      name: "Nestle Kit Kat Honeycomb",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/KitKat_Honeycomb_482x482_082321.png',
       bundleId: kitkat.id,
     }),
 
     Product.create({
-      name: 'Goetze Oreo Cow Tale (54g)',
+      name: "Goetze Oreo Cow Tale",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Oreo_Cow_Tales_482x482_.png',
       bundleId: oreo.id,
     }),
     Product.create({
-      name: 'Nabisco Oreo – Red Velvet (100g)',
+      name: "Nabisco Oreo – Red Velvet",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/08/Korea_OreoRedVelvet_482x482_.png',
       bundleId: oreo.id,
     }),
     Product.create({
-      name: 'Cadbury Dairy Milk Oreo Eggs (72g)',
+      name: "Cadbury Dairy Milk Oreo Eggs",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Halloween_Oreo_Eggs_482x482_.png',
       bundleId: oreo.id,
     }),
     Product.create({
-      name: 'Excelo Eyoo Double Cream (52g)',
+      name: "Excelo Eyoo Double Cream",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Morocco_Eyoo_482x482_082321.png',
       bundleId: oreo.id,
     }),
     Product.create({
-      name: 'Bis Lacta Bis Oreo (100.8g)',
+      name: "Bis Lacta Bis Oreo",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Oreo_Bis_482x482_.png',
       bundleId: oreo.id,
     }),
     Product.create({
-      name: 'Cadbury Oreo Birthday Party (154g)',
+      name: "Cadbury Oreo Birthday Party",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Oreo_Birthday_482x482_.png',
       bundleId: oreo.id,
     }),
     Product.create({
-      name: 'Cadbury Oreo Bites (95g)',
+      name: "Cadbury Oreo Bites",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Oreo_Bites_482x482_.png',
       bundleId: oreo.id,
     }),
     Product.create({
-      name: 'Oreo Green Tea Ice Cream (97g)',
+      name: "Oreo Green Tea Ice Cream",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Oreo_Green_Tea_482x482_.png',
       bundleId: oreo.id,
     }),
     Product.create({
-      name: 'Oreo Ice Cream (137g)',
+      name: "Oreo Ice Cream",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Oreo_Ice_Cream_482x482_.png',
       bundleId: oreo.id,
     }),
     Product.create({
-      name: 'Oreo Thin Tiramisu (95g)',
+      name: "Oreo Thin Tiramisu",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Oreo_Tiramisu_482x482_.png',
       bundleId: oreo.id,
     }),
 
     Product.create({
-      name: 'Vidal Christmas Trees (127g)',
+      name: "Vidal Christmas Trees",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/11/Holiday_Christmas_Trees_482x482_.png',
       bundleId: christmas.id,
@@ -588,354 +588,354 @@ const syncAndSeed = async () => {
       bundleId: christmas.id,
     }),
     Product.create({
-      name: 'Haribo Perl-Kugeln (200g)',
+      name: "Haribo Perl-Kugeln",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/11/Holiday_Perl_Kuglen_482x482_.png',
       bundleId: christmas.id,
     }),
     Product.create({
-      name: 'Vidal Santa (127g)',
+      name: "Vidal Santa",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/11/Holiday_Santa_482x482_.png',
       bundleId: christmas.id,
     }),
     Product.create({
-      name: 'Ferrero Raffaello Candy Balls (100g)',
+      name: "Ferrero Raffaello Candy Balls",
       imageURL:
         'https://www.candywarehouse.com/item-images/127149-01_ferrero-raffaello-candy-balls-9-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: christmas.id,
     }),
     Product.create({
-      name: 'Kit Kat Duos Holiday (100g)',
+      name: "Kit Kat Duos Holiday",
       imageURL:
         'https://www.candywarehouse.com/item-images/161226-01_kit-kat-duos-holiday-mint-dark-chocolate-snack-size-candy-bars-8-8-ounce-bag.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: christmas.id,
     }),
     Product.create({
-      name: 'Christmas Snickers Minis (150g)',
+      name: "Christmas Snickers Minis",
       imageURL:
         'https://www.candywarehouse.com/item-images/127461-01_christmas-snickers-minis-assortment-50-piece-bag.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: christmas.id,
     }),
     Product.create({
-      name: 'Milky Way Simply Snowman (100g)',
+      name: "Milky Way Simply Snowman",
       imageURL:
         'https://www.candywarehouse.com/item-images/133770-01_milky-way-simply-caramel-snowman-christmas-candy-bars-24-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: christmas.id,
     }),
     Product.create({
-      name: "Hershey's Kisses Sugar Cookie (200g)",
+      name: "Hershey's Kisses Sugar Cookie",
       imageURL:
         'https://www.candywarehouse.com/item-images/161220-01_hersheys-kisses-sugar-cookie-candy-9-ounce-bag.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: christmas.id,
     }),
     Product.create({
-      name: 'Jolly Rancher Candy Cane (200g) ',
+      name: "Jolly Rancher Candy Cane",
       imageURL:
         'https://www.candywarehouse.com/item-images/131537-01_jolly-rancher-christmas-assortment-candy-cane.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: christmas.id,
     }),
 
     Product.create({
-      name: 'Indy Mini Dedos Spicy and Sour Candy: 50-Piece Bag',
+      name: "Indy Mini Dedos Spicy and Sour Candy",
       imageURL:
         'https://www.candywarehouse.com/item-images/160968-01_indy-mini-dedos-spicy-and-sour-mexican-candy-50-0.28oz-bags.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: spicy.id,
     }),
     Product.create({
-      name: 'Ulker Krispi Taco (48g)',
+      name: "Ulker Krispi Taco",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/06/Turkey_KrispiTaco_482x482_.png',
       bundleId: spicy.id,
     }),
     Product.create({
-      name: 'Vidal Spicy Mangoes (100g)',
+      name: "Vidal Spicy Mangoes",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/08/Spain_Spicy_Mangos_482x482_.png',
       bundleId: spicy.id,
     }),
     Product.create({
-      name: 'Lucas Skwinkles Rellenos Chili Candy Packs: 12-Piece Box',
+      name: "Lucas Skwinkles Rellenos Chili Candy Pack",
       imageURL:
         'https://www.candywarehouse.com/item-images/134433-01_lucas-skwinkles-chili-candy-packs-12-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: spicy.id,
     }),
     Product.create({
-      name: 'Vero Sandi Brochas Rellenas Lollipops: 40-Piece Bag',
+      name: "Vero Sandi Brochas Rellenas Lollipops",
       imageURL:
         'https://www.candywarehouse.com/item-images/161173-01_vero-sandi-brochas-rellenas-lollipops-40-piece-bag.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: spicy.id,
     }),
     Product.create({
-      name: 'Tao Kae Noi Big Roll Spicy (3g)',
+      name: "Tao Kae Noi Big Roll Spicy",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/08/Thailand_Seaweed_Red_Spicy_482x482_082421.png',
       bundleId: spicy.id,
     }),
     Product.create({
-      name: 'Walker’s Monster Munch Flaming Hot (22g)',
+      name: "Walker’s Monster Munch Flaming Hot",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Halloween_MM_Flaming_482x482_.png',
       bundleId: spicy.id,
     }),
     Product.create({
-      name: 'De La Rosa Mango Pulparindo Candy: 20-Piece Box',
+      name: "De La Rosa Mango Pulparindo Candy",
       imageURL:
         'https://www.candywarehouse.com/item-images/160970-01_de-la-rosa-mango-pulparindo-candy-20-piece-box.jpeg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: spicy.id,
     }),
     Product.create({
-      name: 'Oishi Spicy Seafood Curls (24g)',
+      name: "Oishi Spicy Seafood Curls",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/06/Phil_SeafoodCurls_482x482_.png',
       bundleId: spicy.id,
     }),
     Product.create({
-      name: 'Jolly Rancher Hotties Hard Candy: 13-Ounce Bag',
+      name: "Jolly Rancher Hotties Hard Candy",
       imageURL:
         'https://www.candywarehouse.com/item-images/129115-01_jolly-rancher-hotties-hard-candy-13-ounce-bag.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: spicy.id,
     }),
 
     Product.create({
-      name: 'Brets Chips Chevre Piment d’Espelette (25g)',
+      name: "Brets Chips Chevre Piment d’Espelette",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/11/France_Brets_482x482_.png',
       bundleId: chips.id,
     }),
     Product.create({
-      name: 'Egypt Foods Waves Chili and Lemon (28g)',
+      name: "Egypt Foods Waves Chili and Lemon",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/10/Egypt_Waves_Chili_Lemon_482x482_.png',
       bundleId: chips.id,
     }),
     Product.create({
-      name: 'Frito-Lay Doritos Bits BBQ (100g)',
+      name: "Frito-Lay Doritos Bits BBQ",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/03/Portugal_DoritosBBQ_482x482_.png',
       bundleId: chips.id,
     }),
     Product.create({
-      name: 'Ruffles All Dressed Chips (40g)',
+      name: "Ruffles All Dressed Chips",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Canada_Ruffles_All_Dressed_482x482_.png',
       bundleId: chips.id,
     }),
     Product.create({
-      name: 'Walker’s Frazzles (34g)',
+      name: "Walker’s Frazzles",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/11/UK_Frazzles_482x482_.png',
       bundleId: chips.id,
     }),
     Product.create({
-      name: 'Haitai Honey Butter Chips (30g)',
+      name: "Haitai Honey Butter Chips",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/08/Korea_HoneyButterChips_482x482_.png',
       bundleId: chips.id,
     }),
     Product.create({
-      name: 'Lays Bolognaise (45g)',
+      name: "Lays Bolognaise",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/01/France_Saveur_Bolognaise_482x482_.png',
       bundleId: chips.id,
     }),
     Product.create({
-      name: 'Lays Ketchup Chips (40g)',
+      name: "Lays Ketchup Chips",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Canada_Ketchup_Chips_482x482_.png',
       bundleId: chips.id,
     }),
     Product.create({
-      name: 'Cirque Lionel Shots Pizza (20g)',
+      name: "Cirque Lionel Shots Pizza",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Morocco_Lionel_Shot_482x482_082321.png',
       bundleId: chips.id,
     }),
     Product.create({
-      name: 'Frito-Lay Ruffles Presunto (45g)',
+      name: "Frito-Lay Ruffles Presunto",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/03/Portugal_RufflesPresunto_482x482_.png',
       bundleId: chips.id,
     }),
 
     Product.create({
-      name: 'Thrills Chewing Gum (14g)',
+      name: "Thrills Chewing Gum",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Canada_Thrills_Gum_482x482_.png',
       bundleId: gum.id,
     }),
     Product.create({
-      name: 'Puchao Bubbly Soda Gummy Candy:3.53-Ounce Bag',
+      name: "Puchao Bubbly Soda Gummy Candy",
       imageURL:
         'https://www.candywarehouse.com/item-images/134663-01_Puchao_Soda.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: gum.id,
     }),
     Product.create({
-      name: "Canel's Miniature Chewing Gum: 220-Piece Bag",
+      name: "Canel's Miniature Chewing Gum",
       imageURL:
         'https://www.candywarehouse.com/item-images/129344-01_canels-miniature-chewing-gum-220-piece-bag.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: gum.id,
     }),
     Product.create({
-      name: 'Flash Gum Watermelon (30g)',
+      name: "Flash Gum Watermelon",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Morocco_Flash_Watermelon_482x482_082321.png',
       bundleId: gum.id,
     }),
     Product.create({
-      name: 'Jila Sugar Free Peppermint Gum Packs: 12-Piece Box',
+      name: "Jila Sugar Free Peppermint Gum Packs",
       imageURL:
         'https://www.candywarehouse.com/item-images/127084-01_jila-sugar-free-peppermint-gum-packs-12-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: gum.id,
     }),
     Product.create({
-      name: 'Dubble Bubble 3-Ounce Big Bar Bubblegum: 24-Piece Box',
+      name: "Dubble Bubble Big Bar Bubblegum",
       imageURL:
         'https://www.candywarehouse.com/item-images/126439-01_dubble-bubble-3-ounce-bubblegum-big-bars-24-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: gum.id,
     }),
     Product.create({
-      name: 'Chiclets Chewing Gum Snack Packs: 200-Piece Box',
+      name: "Chiclets Chewing Gum Snack Packs",
       imageURL:
         'https://www.candywarehouse.com/item-images/132780-01_chiclets-chewing-gum-snack-packs-200-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: gum.id,
     }),
     Product.create({
-      name: 'Bazooka Original Bubblegum 10-Piece Packs: 12-Piece Box',
+      name: "Bazooka Original Bubblegum 10-Piece Packs",
       imageURL:
         'https://www.candywarehouse.com/item-images/128761-01_bazooka-original-bubblegum-10-piece-packs-12-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: gum.id,
     }),
     Product.create({
-      name: 'Gorilo Mixed Flavors (60g)',
+      name: "Gorilo Mixed Flavors",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/03/Portugal_GoriloBag_482x482_.png',
       bundleId: gum.id,
     }),
     Product.create({
-      name: 'Big League Chew Bubble Gum Packs - Original: 12-Piece Box',
+      name: "Big League Chew Bubble Gum Packs - Original",
       imageURL:
         'https://www.candywarehouse.com/item-images/125125-01_original-big-league-chew-bubble-gum-packs-12-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: gum.id,
     }),
 
     Product.create({
-      name: "Canel's Miniature Chewing Gum: 220-Piece Bag",
+      name: "Canel's Miniature Chewing Gum",
       imageURL:
         'https://www.candywarehouse.com/item-images/129344-01_canels-miniature-chewing-gum-220-piece-bag.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: glutenfree.id,
     }),
     Product.create({
-      name: 'Big League Chew Bubble Gum Packs - Original: 12-Piece Box',
+      name: "Big League Chew Bubble Gum Packs - Original",
       imageURL:
         'https://www.candywarehouse.com/item-images/125125-01_original-big-league-chew-bubble-gum-packs-12-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: glutenfree.id,
     }),
     Product.create({
-      name: 'Lucas Skwinkles Rellenos Chili Candy Packs: 12-Piece Box',
+      name: "Lucas Skwinkles Rellenos Chili Candy Packs",
       imageURL:
         'https://www.candywarehouse.com/item-images/134433-01_lucas-skwinkles-chili-candy-packs-12-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: glutenfree.id,
     }),
     Product.create({
-      name: 'Jellico Dinosaur Gummies (90g)',
+      name: "Jellico Dinosaur Gummies",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/08/Korea_DinoGummies_482x482_.png',
       bundleId: glutenfree.id,
     }),
     Product.create({
-      name: 'De La Rosa Mango Pulparindo Candy: 20-Piece Box',
+      name: "De La Rosa Mango Pulparindo Candy",
       imageURL:
         'https://www.candywarehouse.com/item-images/160970-01_de-la-rosa-mango-pulparindo-candy-20-piece-box.jpeg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: glutenfree.id,
     }),
     Product.create({
-      name: 'Haitai Grape Candy (130g)',
+      name: "Haitai Grape Candy",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/08/Korea_GrapeCandy_482x482_.png',
       bundleId: glutenfree.id,
     }),
     Product.create({
-      name: 'Ahoj-Brause Ahoj-Bonbons (2kg)',
+      name: "Ahoj-Brause Ahoj-Bonbons",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/04/Germany_BonBons_482x482_.png',
       bundleId: glutenfree.id,
     }),
     Product.create({
-      name: 'Aiguebelle Chocolate Au Lait (65g)',
+      name: "Aiguebelle Chocolate Au Lait",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Morocco_Delice_482x482_082321.png',
       bundleId: glutenfree.id,
     }),
     Product.create({
-      name: 'Kit Kat Big Little Pouch Original (50g)',
+      name: "Kit Kat Big Little Pouch Original",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/KitKat_Big_482x482_082321.png',
       bundleId: glutenfree.id,
     }),
     Product.create({
-      name: 'Fini Bananas (100g)',
+      name: "Fini Bananas",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/03/Portugal_JellyBananas_482x482_.png',
       bundleId: glutenfree.id,
     }),
 
     Product.create({
-      name: 'Fini Bananas (100g)',
+      name: "Fini Bananas",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/03/Portugal_JellyBananas_482x482_.png',
       bundleId: vegan.id,
     }),
     Product.create({
-      name: 'Lays Bolognaise (45g)',
+      name: "Lays Bolognaise",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/01/France_Saveur_Bolognaise_482x482_.png',
       bundleId: vegan.id,
     }),
     Product.create({
-      name: 'Lucas Skwinkles Rellenos Chili Candy Packs: 12-Piece Box',
+      name: "Lucas Skwinkles Rellenos Chili Candy Packs",
       imageURL:
         'https://www.candywarehouse.com/item-images/134433-01_lucas-skwinkles-chili-candy-packs-12-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: vegan.id,
     }),
     Product.create({
-      name: 'Jila Sugar Free Peppermint Gum Packs: 12-Piece Box',
+      name: "Jila Sugar Free Peppermint Gum Packs",
       imageURL:
         'https://www.candywarehouse.com/item-images/127084-01_jila-sugar-free-peppermint-gum-packs-12-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: vegan.id,
     }),
     Product.create({
-      name: 'De La Rosa Mango Pulparindo Candy: 20-Piece Box',
+      name: "De La Rosa Mango Pulparindo Candy",
       imageURL:
         'https://www.candywarehouse.com/item-images/160970-01_de-la-rosa-mango-pulparindo-candy-20-piece-box.jpeg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: vegan.id,
     }),
     Product.create({
-      name: 'Haitai Grape Candy (130g)',
+      name: "Haitai Grape Candy",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2022/08/Korea_GrapeCandy_482x482_.png',
       bundleId: vegan.id,
     }),
     Product.create({
-      name: 'Bear Paws (40g)',
+      name: "Bear Paws",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/08/Canada_Banana_Bread_482x482_.png',
       bundleId: vegan.id,
     }),
     Product.create({
-      name: 'De La Rosa Mango Pulparindo Candy: 20-Piece Box',
+      name: "De La Rosa Mango Pulparindo Candy",
       imageURL:
         'https://www.candywarehouse.com/item-images/160970-01_de-la-rosa-mango-pulparindo-candy-20-piece-box.jpeg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: vegan.id,
     }),
     Product.create({
-      name: 'Lays Ketchup Chips (40g)',
+      name: "Lays Ketchup Chips",
       imageURL:
         'https://candybar.snackcrate.com/wp-content/uploads/2021/09/Canada_Ketchup_Chips_482x482_.png',
       bundleId: vegan.id,
     }),
     Product.create({
-      name: 'Big League Chew Bubble Gum Packs - Original: 12-Piece Box',
+      name: "Big League Chew Bubble Gum Packs - Original",
       imageURL:
         'https://www.candywarehouse.com/item-images/125125-01_original-big-league-chew-bubble-gum-packs-12-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: vegan.id,
@@ -963,21 +963,21 @@ const syncAndSeed = async () => {
     }),
     ,
     Product.create({
-      name: "Brach's Autumn Mix Candy Corn: 40-Ounce Bag",
+      name: "Brach's Autumn Mix Candy Corn",
       imageURL:
         'https://www.candywarehouse.com/item-images/130053-01_brachs-autumn-mix-candy-corn-40-ounce-bag.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: thanksgiving.id,
     }),
     ,
     Product.create({
-      name: 'Turkey Lollipops: 24-Piece Box',
+      name: "Turkey Lollipops",
       imageURL:
         'https://www.candywarehouse.com/item-images/129500-01_turkey-lollipops-24-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: thanksgiving.id,
     }),
     ,
     Product.create({
-      name: "Creepy Cocoa Crisp M&M's Halloween Candy 8-Ounce Bag",
+      name: "Creepy Cocoa Crisp M&M's Halloween Candy",
       imageURL:
         'https://www.candywarehouse.com/item-images/129259-01_creepy-cocoa-crisp-mms-halloween-candy-8-ounce-bag.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: thanksgiving.id,
@@ -991,7 +991,7 @@ const syncAndSeed = async () => {
     }),
     ,
     Product.create({
-      name: 'Pumpkin Spice Hard Candy Sticks: 100-Piece Box',
+      name: "Pumpkin Spice Hard Candy Sticks",
       imageURL:
         'https://www.candywarehouse.com/item-images/127570-01_pumpkin-spice-hard-candy-sticks-100-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: thanksgiving.id,
@@ -1011,25 +1011,25 @@ const syncAndSeed = async () => {
       bundleId: halloween.id,
     }),
     Product.create({
-      name: 'Halloween Dove Pumpkins Foiled Dark Chocolates: 30-Piece Bag',
+      name: "Halloween Dove Pumpkins Foiled Dark Chocolates",
       imageURL:
         'https://www.candywarehouse.com/item-images/161068-01_halloween-dove-pumpkins-foiled-dark-chocolates-30-piece-bag.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: halloween.id,
     }),
     Product.create({
-      name: 'Bee International Bloody Bites Candy Fangs: 22-Piece Box',
+      name: "Bee International Bloody Bites Candy Fangs",
       imageURL:
         'https://www.candywarehouse.com/item-images/131354-01_bloody-bites-candy-fangs-24-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: halloween.id,
     }),
     Product.create({
-      name: 'Efrutti Gummy Pizza Candy Packs: 48-Piece Box',
+      name: "Efrutti Gummy Pizza Candy Packs",
       imageURL:
         'https://www.candywarehouse.com/item-images/125822-01_efrutti-gummy-pizza-candy-packs-48-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: halloween.id,
     }),
     Product.create({
-      name: 'WarHeads Sour Chewy Cubes Candy Snack Packs: 2LB Bag',
+      name: "WarHeads Sour Chewy Cubes Candy Snack Pack",
       imageURL:
         'https://www.candywarehouse.com/item-images/133352-01_warheads-sour-chewy-cubes-candy-snack-packs-2lb-bag.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: halloween.id,
@@ -1047,13 +1047,13 @@ const syncAndSeed = async () => {
       bundleId: halloween.id,
     }),
     Product.create({
-      name: 'Gummy Centipedes Candy: 1KG Bag',
+      name: "Gummy Centipedes Candy",
       imageURL:
         'https://www.candywarehouse.com/item-images/125857-01_haribo-gummi-centipedes-candy-5lb-bag.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: halloween.id,
     }),
     Product.create({
-      name: 'Bee International Skull Tins with Smarties: 12-Piece Box',
+      name: "Bee International Skull Tins with Smarties",
       imageURL:
         'https://www.candywarehouse.com/item-images/129473-01_bee-international-skull-tins-smarties-12-piece-box.jpg?resizeid=104&resizeh=1000&resizew=1000',
       bundleId: halloween.id,
