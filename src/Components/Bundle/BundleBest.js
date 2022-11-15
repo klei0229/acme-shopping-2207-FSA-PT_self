@@ -150,8 +150,9 @@ const BundleBest = () => {
                     <Typography align = "center" gutterBottom variant="h5" component="h2">
                       {bundle.name}
                     </Typography>
-                    <Typography></Typography>
-                  </CardContent>
+                    <Typography variant='body2'>
+                    Starting At ${bundle.price}
+                    </Typography>                  </CardContent>
 
                   </Link>
                   </div>
