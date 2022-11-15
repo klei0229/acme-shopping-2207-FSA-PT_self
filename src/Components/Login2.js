@@ -42,16 +42,16 @@ const Login2 = () => {
         <Grid
           item
           xs={false}
-          sm={5}
+          sm={7}
           sx={{
             backgroundImage:
-              'url(https://media.istockphoto.com/id/1330491451/vector/pre-packaged-snacks-color-doodle-illustration.jpg?s=1024x1024&w=is&k=20&c=kzlZlzvgFaOOcjjkjtZPBrQokkP3tWMngV9_0tpHDy8=)',
+              'url(https://cdn.dribbble.com/users/117018/screenshots/5891038/media/10b027f834b73ce11c0f142ffcb37bcf.jpg?compress=1&resize=1200x900&vertical=top)',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
-            backgroundPosition: 'right',
+            backgroundPosition: 'left',
           }}
         />
-        <Grid item xs={12} sm={7} component={Paper} square>
+        <Grid item xs={12} sm={5} component={Paper} square>
           <Box
             sx={{
               my: 8,
@@ -61,11 +61,35 @@ const Login2 = () => {
               alignItems: 'center',
             }}
           >
+            <Box
+              sx={{ mr: '12' }}
+              component="img"
+              width="100px"
+              height="100px"
+              src="https://cdn-icons-png.flaticon.com/512/2553/2553691.png"
+            ></Box>
+            <br />
+            <Typography
+              component="h1"
+              variant="h4"
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'black',
+                textDecoration: 'none',
+              }}
+            >
+              <b>SNACKLUB</b>
+            </Typography>
             <br />
             <br />
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
+            <br />
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
