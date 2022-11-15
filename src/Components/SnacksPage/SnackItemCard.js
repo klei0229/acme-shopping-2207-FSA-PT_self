@@ -54,7 +54,7 @@ function SnackInfoCard(props) {
         <CardContent>
           <Box sx={boxSX}></Box>
           <br></br>
-          <Typography variant="h6" component="div">
+          <Typography variant="h5" component="div">
             {card.name}
           </Typography>
 
