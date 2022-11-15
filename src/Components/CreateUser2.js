@@ -66,9 +66,9 @@ const CreateUser2 = () => {
   };
 
   const list = (anchor) => (
-    <ThemeProvider theme={theme}>
+    
       <Container component="main" maxWidth="sm">
-        <CssBaseline />
+        
         <Box
           sx={{
             marginTop: 8,
@@ -79,7 +79,7 @@ const CreateUser2 = () => {
         >
           <br/><br/>
           
-          <Avatar sx={{ m: 1, mr: 4, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, mr: 4, bgcolor: 'primary' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5" sx={{mr:3}}>
@@ -178,7 +178,7 @@ const CreateUser2 = () => {
           </Box>
         </Box>
       </Container>
-    </ThemeProvider>
+    
   );
 
   return (
