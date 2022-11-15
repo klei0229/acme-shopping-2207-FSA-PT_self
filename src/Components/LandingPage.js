@@ -54,7 +54,7 @@ function LandingPage() {
 
   React.useEffect(()=>{
 
-    console.log(bundles);
+   
     try{
       let link1 = `#/bundles/${bundles.find((bundle)=>{return bundle.name === "Christmas Package"}).id}`
       let link2 = `#/bundles/${bundles.find((bundle)=>{return bundle.name === "Thanksgiving Package"}).id}`
@@ -62,8 +62,7 @@ function LandingPage() {
       setChristmasLink(link1);
       setThanksgivingLink(link2);
 
-      console.log(link1);
-      console.log(link2);
+   
     }
     catch(ex){
       console.log(ex);
@@ -72,7 +71,7 @@ function LandingPage() {
 
   },[bundles])
   
-  console.log(bundles);
+
 
   const christmasFeaturedPost = {
     title: 'Christmas Bundle',

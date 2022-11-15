@@ -17,17 +17,16 @@ function SnackInfoCard(props) {
   const { card } = props;
   // console.log(card);
 
-  const cardSX = {
+  const cardSX = { 
     maxWidth: "250px",
     minHeight: "350px",
     maxHeight: "350px",
     pt: "40",
     mt: "10",
     mb: "30",
-
-    "&:hover": {
-      // backgroundColor: "grey",
-    },
+    transition: "transform 0.15s ease-in-out",
+    "&:hover": { transform: "scale3d(1.3, 1.3, 1)" },
+  
   };
 
   const boxSX = {
@@ -50,7 +49,7 @@ function SnackInfoCard(props) {
   return (
     <div>
       <CssBaseline />
-      <Card sx={cardSX}>
+      <Card sx={cardSX} style={{ border: "none", boxShadow: "none" }}>
         <CardContent>
           <Box sx={boxSX}></Box>
           <br></br>
