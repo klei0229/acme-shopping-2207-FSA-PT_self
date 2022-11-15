@@ -281,7 +281,7 @@ const Cart = () => {
 							<AddressForm />
 						</Grid>
 						<br />
-						<Grid item>
+						<Grid item sx={12}>
 							<CreateAddress />
 						</Grid>
 						<br />

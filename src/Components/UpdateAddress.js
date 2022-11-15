@@ -187,10 +187,10 @@ const UpdateAddress = () => {
         </div>
         <Grid item xs={12}>
 			<br></br>
-          <Container sx={{ display: "flex", justifyContent: "center" }}>
+
             <Button
               sx={{
-                minWidth: "600px",
+                minWidth: "100%",
                 //   minWidth: "100%",
               }}
               variant="contained"
@@ -198,7 +198,7 @@ const UpdateAddress = () => {
             >
               Update Address
             </Button>
-          </Container>
+ 
         </Grid>
       </form>
     </Fragment>

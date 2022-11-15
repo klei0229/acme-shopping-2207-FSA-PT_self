@@ -71,20 +71,16 @@ const CreateAddress = () => {
 	return (
 		<div>
 			<Fragment>
-				<Container sx={{ display: 'flex', justifyContent: 'center' }}>
-					<Button
-						sx={
-							{
-								// maxWidth: "800px",
-								// minWidth: "600px",
-							}
-						}
-						variant='contained'
-						onClick={handleClickOpen}
-					>
-						Create a new address
-					</Button>
-				</Container>
+				<Button
+					sx={{
+						// maxWidth: "800px",
+						minWidth: '100%',
+					}}
+					variant='contained'
+					onClick={handleClickOpen}
+				>
+					Create a new address
+				</Button>
 				<Dialog open={open} onClose={handleClose}>
 					<DialogContent>
 						<DialogContentText>
