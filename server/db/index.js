@@ -175,7 +175,7 @@ const syncAndSeed = async () => {
     Bundle.create({
       name: "Halloween Package",
       imageUrl:
-        "https://nypost.com/wp-content/uploads/sites/2/2022/07/haloween.jpg?quality=75&strip=all&w=744",
+        "https://www.history.com/.image/t_share/MTU3ODc4NTk5NzYxNDcwNzkz/hungy-halloween-candy-istock_000021704258large-2.jpg",
       price: 50.0,
       type: "featured",
       description:`If you want your house to be the favorite stop on your neighborhood’s trick-or-treating route, look no further than our Halloween-themed candy.`
