@@ -91,7 +91,8 @@ const syncAndSeed = async () => {
       type: 'featured',
       description:
         'Enjoy cookies, chips, and goodies in sweet, spicy, and salty flavors from South Korea.  We have created a unique selection of flavors so you can enjoy the ultimate snacking experience.',
-    }),
+        descriptionShort: 'Our all time favourite!'
+      }),
     Bundle.create({
       name: 'French Package',
       imageUrl:
@@ -100,7 +101,8 @@ const syncAndSeed = async () => {
       type: 'best',
       description:
         'Enjoy cookies, chips, and goodies in sweet, spicy, and salty flavors from France.  We have created a unique selection of flavors so you can enjoy the ultimate snacking experience.',
-    }),
+        descriptionShort: 'More than crepes and croissants'   
+      }),
     Bundle.create({
       name: 'Canadian Package',
       imageUrl:
@@ -109,7 +111,8 @@ const syncAndSeed = async () => {
       type: 'featured',
       description:
         'Our delicious Canadian snack box includes an assortment of 45 single serve snacks that are perfect for anyone, anytime, and anywhere.',
-    }),
+        descriptionShort: 'This bundle is a moost!'  
+      }),
     Bundle.create({
       name: 'Kitkat Package',
       imageUrl:
@@ -117,15 +120,17 @@ const syncAndSeed = async () => {
       price: 30.0,
       type: 'new',
       description:
-        "The perfect balance of chocolate and wafer, there's a reason KitKat is enjoyed in more than 80 countries. The iconic brand is an international symbol for hitting the pause button on life - to enjoy a well-earned break.",
-    }),
+        "There's a reason KitKat is enjoyed in more than 80 countries. The iconic brand is an international symbol for hitting the pause button on life - to enjoy a well-earned break.",
+        descriptionShort: 'A balance of chocolate and wafer'
+      }),
     Bundle.create({
       name: 'Oreo Package',
       imageUrl:
         'https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/oreo-isolated-on-white-background-nenov-images.jpg',
       price: 30.0,
       type: 'best',
-      description: `Super-sized and oh-so-soft to the touch. We\'ve brought your OREO dreams to life with our exclusive OREO Pillow! Just open the "sleeve" and you'll find five removable cookie plushes. A must-have for the OREO obsessed!`,
+      description: `'Super-sized and oh-so-soft to the touch'. We\'ve brought your OREO dreams to life with our exclusive OREO Pillow! Just open the "sleeve" and you'll find five removable cookie plushes.`,
+      descriptionShort: 'A must-have for the OREO obsessed'    
     }),
     Bundle.create({
       name: 'Christmas Package',
@@ -135,7 +140,8 @@ const syncAndSeed = async () => {
       type: 'new',
       description:
         "This 45 count Christmas Care Package is filled with Candy, Snacks, and Toys - it is perfect to use for Stocking Stuffers! It's also the Perfect Gift for Anyone this Christmas!",
-    }),
+        descriptionShort: "Santa's favourite bundle"   
+      }),
     Bundle.create({
       name: 'Spicy Package',
       imageUrl:
@@ -144,7 +150,8 @@ const syncAndSeed = async () => {
       type: 'new',
       description:
         'International Spicy Mystery Snack Box Perfect for gifting College Care Package and Birthday gifts. For Spicy lovers of all ages and people looking to try new things. Spicy snacks from all over the world.',
-    }),
+        descriptionShort: "For picante lovers" 
+      }),
     Bundle.create({
       name: 'Chips Package',
       imageUrl: 'https://m.media-amazon.com/images/I/51ZZaghK+FL.jpg',
@@ -152,7 +159,8 @@ const syncAndSeed = async () => {
       type: 'best',
       description:
         'Delight the taste buds of friends, family and co-workers with an assortment of chip flavors from around the world.',
-    }),
+        descriptionShort: 'Not just any chips'         
+      }),
     Bundle.create({
       name: 'Gum Package',
       imageUrl:
@@ -160,8 +168,9 @@ const syncAndSeed = async () => {
       price: 20.0,
       type: 'new',
       description:
-        'Skip buying boxes of different snacks when you can enjoy a variety of different snacks from your favorite brands in just one box! With 160 packs, this purchase gives you plenty of treats to last a while.',
-    }),
+        'Skip buying boxes of different gum when you can enjoy a variety of different gum from your favorite brands in just one box! With 160 packs, this purchase gives you plenty of treats to last a while.',
+        descriptionShort: 'A sweet refreshment for everyday'
+      }),
     Bundle.create({
       name: 'Gluten Free Package',
       imageUrl:
@@ -169,6 +178,7 @@ const syncAndSeed = async () => {
       price: 45.0,
       type: 'new',
       description: `Every snack in this Premium Gift bag is curated for its quality, freshness and most importantly NO GLUTEN CONTAINING FOODS`,
+      descriptionShort: 'Truly gluten free'
     }),
     Bundle.create({
       name: 'Vegan Package',
@@ -178,7 +188,8 @@ const syncAndSeed = async () => {
       type: 'featured',
       description:
         'From vegan mac and cheese and delicious vegan chocolate, to avocado chips, hummus crackers and superfood smoothies, the Vegancuts Snack Box is your monthly delivery of the best vegan snacks and meal items, and drinks on the market.',
-    }),
+        descriptionShort: 'Bundle powered by plants'
+      }),
     Bundle.create({
       name: 'Halloween Package',
       imageUrl:
@@ -186,6 +197,7 @@ const syncAndSeed = async () => {
       price: 50.0,
       type: 'featured',
       description: `If you want your house to be the favorite stop on your neighborhood’s trick-or-treating route, look no further than our Halloween-themed candy.`,
+      descriptionShort: 'Snack or treat, we got you on both'
     }),
     Bundle.create({
       name: 'Thanksgiving Package',
@@ -194,7 +206,7 @@ const syncAndSeed = async () => {
       price: 50.0,
       type: 'new',
       description: `There’s plenty of dessert to go around with this tasty bundle. Wrapped in an orange bow, these holiday delights make a thoughtful gift for your Thanksgiving dinner host or for any occasion this autumn`,
-    }),
+      descriptionShort: 'Curated with thankful vibes'}),
   ]);
 
   const cart = await ethyl.getCart();
