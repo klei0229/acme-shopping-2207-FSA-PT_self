@@ -225,7 +225,6 @@ const Cart = () => {
 							Summary
 						</Typography>
 						<hr />
-
 						<Grid container>
 							<Grid container>
 								<Grid item xs={12} sm={6}>
@@ -264,7 +263,6 @@ const Cart = () => {
 								</Typography>
 							</Grid>
 						</Grid>
-
 						<hr />
 						<Grid container>
 							<Grid item xs={12} sm={6}>
@@ -283,7 +281,7 @@ const Cart = () => {
 							<AddressForm />
 						</Grid>
 						<br />
-						<Grid item xs={12}>
+						<Grid item>
 							<CreateAddress />
 						</Grid>
 						<br />
@@ -293,12 +291,14 @@ const Cart = () => {
 							</Grid>
 						) : (
 							<Grid container direction='column' xs={12}>
-								<Grid item xs={12}>
-									<Typography>Current Shipping Address:</Typography>
-								</Grid>
-								<Grid item xs={12}>
-									<Typography>{shipping.label}</Typography>
-								</Grid>
+								<div style={{ border: '2px black' }}>
+									<Grid item xs={12}>
+										<Typography>Current Shipping Address:</Typography>
+									</Grid>
+									<Grid item xs={12}>
+										<Typography>{shipping.label}</Typography>
+									</Grid>
+								</div>
 								<Grid item xs={12}>
 									<Typography>Street 1:</Typography>
 								</Grid>
@@ -333,16 +333,6 @@ const Cart = () => {
 									<Typography>{shipping.country}</Typography>
 								</Grid>
 							</Grid>
-							// 							<Grid item xs={12}>
-							// 								<Typography variant='subtitle1'>
-							// 									Street 1: {shipping.street1}
-							// 									Street 2: {!shipping.street2 ? 'N/A' : shipping.street2}
-							// 									City: {shipping.city}
-							// 									State: {shipping.state}
-							// 									Postal Code: {shipping.zipcode}
-							// 									Country: {shipping.country}
-							// 								</Typography> */}
-							// 							</Grid>
 						)}
 						<br />
 						<Button variant='contained' fullWidth onClick={checkout}>

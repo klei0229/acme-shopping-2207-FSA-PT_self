@@ -19,8 +19,8 @@ function SnackInfoCard(props) {
 
   const cardSX = {
     maxWidth: "250px",
-    minHeight: "330px",
-    maxHeight: "330px",
+    minHeight: "350px",
+    maxHeight: "350px",
     pt: "40",
     mt: "10",
     mb: "30",
@@ -53,7 +53,7 @@ function SnackInfoCard(props) {
       <Card sx={cardSX}>
         <CardContent>
           <Box sx={boxSX}></Box>
-
+          <br></br>
           <Typography variant="h5" component="div">
             {card.name}
           </Typography>

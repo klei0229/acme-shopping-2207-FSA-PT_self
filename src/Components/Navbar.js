@@ -50,7 +50,7 @@ const pages = [
   { name: 'Snacks', url: '#/snacks' },
 ];
 
-const companyName = 'SNACKCLUB';
+const companyName = 'SNACKLUB';
 
 function ResponsiveAppBar() {
   const dispatch = useDispatch();
@@ -306,7 +306,7 @@ function ResponsiveAppBar() {
               {settings.map((setting) => (
                 <MenuItem key={setting.url}>
                   <Link underline="hover" href={setting.url}>
-                    <Typography textAlign="center">{setting.name}</Typography>
+                    <Typography sx={{color:"black"}}textAlign="center">{setting.name}</Typography>
                   </Link>
                 </MenuItem>
               ))}

@@ -8,8 +8,12 @@ module.exports = app;
 app.post('/checkout', async (req, res) => {
   console.log('Stripe API called');
   const session = await stripe.checkout.sessions.create({
-    success_url: `${req.protocol}://${req.hostname}:${process.env.PORT}/#/order-success`,
-    cancel_url: `${req.protocol}://${req.hostname}:${process.env.PORT}/#/order-fail`,
+    success_url: `${req.protocol}://${req.hostname}:${
+      process.env.PORT || 3000
+    }/#/order-success`,
+    cancel_url: `${req.protocol}://${req.hostname}:${
+      process.env.PORT || 3000
+    }/#/order-fail`,
     line_items: req.body.map((payment) => {
       return {
         price_data: {
