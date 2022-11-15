@@ -33,9 +33,10 @@ const Cart = () => {
 	const [shipping, setShipping] = useState({});
 
 	useEffect(() => {
-		if (!cart) {
-			dispatch(fetchCart());
-		}
+		dispatch(fetchCart());
+	}, []);
+
+	useEffect(() => {
 		if (cart.address) {
 			setShipping(cart.address);
 		}
