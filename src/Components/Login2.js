@@ -61,8 +61,6 @@ const Login2 = () => {
               alignItems: 'center',
             }}
           >
-            <br />
-            <br />
             <Box
               sx={{ mr: '12' }}
               component="img"
@@ -71,7 +69,19 @@ const Login2 = () => {
               src="https://cdn-icons-png.flaticon.com/512/2553/2553691.png"
             ></Box>
             <br />
-            <Typography component="h1" variant="h4">
+            <Typography
+              component="h1"
+              variant="h4"
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'black',
+                textDecoration: 'none',
+              }}
+            >
               <b>SNACKLUB</b>
             </Typography>
             <br />
