@@ -78,15 +78,17 @@ const CreateUser2 = () => {
           }}
         >
           <br/><br/>
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          
+          <Avatar sx={{ m: 1, mr: 4, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" sx={{mr:3}}>
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={create} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+          
+          <Box component="form" noValidate onSubmit={create} sx={{ mt: 3 }} style={{alignItems:"center"}}>
+            <Grid container spacing={2} sx={{width:"50%"}} >
+              <Grid item xs={12} sm={12}>
                 <TextField
                   autoComplete="user-name"
                   name="username"
@@ -99,7 +101,45 @@ const CreateUser2 = () => {
                   onChange={onChange}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+            
+              <Grid item xs={12} sm={12}>
+                <TextField
+                  autoComplete="given-name"
+                  name="firstName"
+                  required
+                  fullWidth
+                  id="firstName"
+                  label="First Name"
+                  
+                  value={user.firstName}
+                  onChange={onChange}
+                />
+              </Grid>
+              <Grid item xs={12} sm={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="lastName"
+                  label="Last Name"
+                  name="lastName"
+                  autoComplete="family-name"
+                  value={user.lastName}
+                  onChange={onChange}
+                />
+              </Grid>
+              <Grid item xs={12} sm={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  value={user.email}
+                  onChange={onChange}
+                />
+              </Grid>
+              <Grid item xs={12} sm={12}>
                 <TextField
                   required
                   fullWidth
@@ -112,51 +152,14 @@ const CreateUser2 = () => {
                   onChange={onChange}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                  value={user.firstName}
-                  onChange={onChange}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                  value={user.lastName}
-                  onChange={onChange}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  value={user.email}
-                  onChange={onChange}
-                />
-              </Grid>
             </Grid>
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 1, mr: 2, width:"45%" }}
             >
-              Sign Up
+              Create an Account
             </Button>
             <Grid container justifyContent="center">
               <Grid item>
@@ -165,7 +168,7 @@ const CreateUser2 = () => {
                     href="/"
                     variant="subtitle1"
                     gutterBottom
-                    sx={{ mt: 2 }}
+                    sx={{ mt: 1, mr: 2 }}
                   >
                     Have an account? Sign in!
                   </Link>
@@ -180,7 +183,7 @@ const CreateUser2 = () => {
 
   return (
     <div>
-      {['CREATE ACCOUNT'].map((anchor) => (
+      {['Sign up!'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
           <Drawer

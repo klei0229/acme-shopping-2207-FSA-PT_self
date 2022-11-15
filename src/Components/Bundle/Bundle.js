@@ -187,7 +187,8 @@ const Bundle = () => {
                     <Typography align = "center" gutterBottom variant="h5" component="h2">
                       {bundle.name}
                     </Typography>
-                    <Typography></Typography>
+                    <Typography style={{fontWeight:"lighter", fontSize:"smaller"}}>{bundle.descriptionShort}</Typography>
+                    <Typography sx={{mt:2}} style={{}}>Starting at ${bundle.price}.00</Typography>
                   </CardContent>
 
                   </Link>
@@ -262,7 +263,8 @@ const Bundle = () => {
                     <Typography align = "center" gutterBottom variant="h5" component="h2">
                       {bundle.name}
                     </Typography>
-                    <Typography></Typography>
+                    <Typography style={{fontWeight:"lighter", fontSize:"smaller"}}>{bundle.descriptionShort}</Typography>
+                    <Typography sx={{mt:2}} style={{}}>Starting at ${bundle.price}.00</Typography>
                   </CardContent>
 
                   </Link>

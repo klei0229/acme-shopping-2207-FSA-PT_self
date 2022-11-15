@@ -35,7 +35,7 @@ function LandingPage() {
       console.log(ex);
     }
   }, [bundles]);
-  const filtered = products.filter(product=> !filter || product.name.toLowerCase().includes(filter))
+  const filtered = products.filter(product=> !filter || product.name.toLowerCase().includes(filter.toLowerCase()))
   return (
     <div>
       <CssBaseline />

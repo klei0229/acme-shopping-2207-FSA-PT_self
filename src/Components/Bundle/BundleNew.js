@@ -32,7 +32,7 @@ function Copyright() {
 
 
 
-const theme = createTheme();
+
 
 const BundleNew = () => {
 	const  {enqueueSnackbar} = useSnackbar();
@@ -63,8 +63,7 @@ const BundleNew = () => {
 		enqueueSnackbar('Item added to your cart!', { variant: 'success' });
 	  }
 	return (
-		<ThemeProvider theme={theme}>
-			<CssBaseline />
+		<div>
 			<main>
 				{/* Hero unit */}
 				<Box
@@ -75,35 +74,43 @@ const BundleNew = () => {
 					}}
 				>
 					<Container maxWidth='sm' sx={{mt:4}}>
-						<Typography
-							component='h1'
-							variant='h2'
-							align='center'
-							color='text.primary'
-							gutterBottom
-						>
-							Bundles
-						</Typography>
-						<Typography
-							variant='h5'
-							align='center'
-							color='text.secondary'
-							paragraph
-						>
-							Check our selection of bundles made for every taste! No matter if
-							you choose based on region, season or cookies, be sure we have
-							curated the best selection of snacks just for you! <br /> Enjoy!
-						</Typography>
+					<Typography
+              component="h2"
+              variant="h3"
+              align="center"
+              color="text.primary"
+              gutterBottom
+            >
+              Bundles
+            </Typography>
+            <Typography
+              variant="h7"
+              align="center"
+              color="text.secondary"
+              paragraph
+            >
+              Check our selection of bundles made for every taste! No matter if
+              you choose based on region, season or cookies, be sure we have
+              curated the best selection of snacks just for you! <br /> Enjoy!
+            </Typography>
 						<Stack
-							sx={{ pt: 4 }}
+							sx={{ pt: 1 }}
 							direction='row'
 							spacing={2}
 							justifyContent='center'
 						>
-                            <Link to='/bundles' style={{textDecoration: "none"}}><Button>All</Button></Link>
-							<Link to='/bundles/featured' style={{textDecoration: "none"}}><Button>Featured</Button></Link>
-							<Link to='/bundles/new' style={{textDecoration: "none"}}><Button>New</Button></Link>
-							<Link to='/bundles/best' style={{textDecoration: "none"}}><Button>Best Sellers</Button></Link>
+                <Link to="/bundles" style={{ textDecoration: 'none' }}>
+                <Button variant="contained">All</Button>
+              </Link>
+              <Link to="/bundles/featured" style={{ textDecoration: 'none' }}>
+                <Button variant="contained">Featured</Button>
+              </Link>
+              <Link to="/bundles/new" style={{ textDecoration: 'none' }}>
+                <Button variant="contained">New</Button>
+              </Link>
+              <Link to="/bundles/best" style={{ textDecoration: 'none' }}>
+                <Button variant="contained">Best Sellers</Button>
+              </Link>
 						</Stack>
 					</Container>
 				</Box>
@@ -150,7 +157,8 @@ const BundleNew = () => {
                     <Typography align = "center" gutterBottom variant="h5" component="h2">
                       {bundle.name}
                     </Typography>
-                    <Typography></Typography>
+                    <Typography style={{fontWeight:"lighter", fontSize:"smaller"}}>{bundle.descriptionShort}</Typography>
+                    <Typography sx={{mt:2}} style={{}}>Starting at ${bundle.price}.00</Typography>
                   </CardContent>
 
                   </Link>
@@ -189,12 +197,12 @@ const BundleNew = () => {
 					color='text.secondary'
 					component='p'
 				>
-					Made with love
+					made with love
 				</Typography>
 				<Copyright />
 			</Box>
 			{/* End footer */}
-		</ThemeProvider>
+			</div>
 	);
 };
 

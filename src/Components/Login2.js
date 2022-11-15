@@ -62,7 +62,7 @@ const Login2 = () => {
             }}
           >
             <Box
-              sx={{ mr: '12' }}
+              sx={{ }}
               component="img"
               width="100px"
               height="100px"
@@ -74,7 +74,7 @@ const Login2 = () => {
               component="h1"
               variant="h4"
               sx={{
-                mr: 2,
+                
                 display: { xs: 'none', md: 'flex' },
                 fontFamily: 'monospace',
                 fontWeight: 700,
@@ -87,11 +87,11 @@ const Login2 = () => {
             </Typography>
             <br />
             <br />
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <Avatar sx={{ mr: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
             <br />
-            <Typography component="h1" variant="h5">
+            <Typography sx={{ mr: 1}}component="h1" variant="h5">
               Sign in
             </Typography>
             <Box component="form" noValidate onSubmit={login} sx={{ mt: 1 }}>
@@ -132,11 +132,18 @@ const Login2 = () => {
                 Sign In
               </Button>
             </Box>
-            <Box>
+            <Box style={{display:"flex", direction:"row", alignItems:"center"}}>
+              <Grid>
+              <Typography>Don't have an account yet?</Typography>
+              </Grid>
+              <Grid>
               <CreateUser2 />
+              </Grid>
             </Box>
           </Box>
+          
         </Grid>
+        
       </Grid>
     </ThemeProvider>
   );
