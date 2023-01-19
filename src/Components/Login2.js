@@ -20,8 +20,8 @@ const Login2 = () => {
   const dispatch = useDispatch();
 
   const [credentials, setCredentials] = useState({
-    username: '',
-    password: '',
+    username: 'ethyl',
+    password: '123',
   });
 
  
