@@ -2,9 +2,11 @@ const Sequelize = require("sequelize");
 const config = {
   dialect: "postgres",
   dialectOptions: {
-    ssl: true,
-	rejectUnauthorized: false	
-  },
+	"ssl": {
+	  "require": true,
+	  "rejectUnauthorized": false
+	}
+  }
 };
 
 if (process.env.QUIET) {
