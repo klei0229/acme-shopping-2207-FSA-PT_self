@@ -3,6 +3,7 @@ const config = {
   dialect: "postgres",
   dialectOptions: {
     ssl: true,
+	rejectUnauthorized: false	
   },
 };
 
