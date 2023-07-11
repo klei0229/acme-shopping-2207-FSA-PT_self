@@ -83,7 +83,7 @@ const Login2 = () => {
                 textDecoration: 'none',
               }}
             >
-              <b>SNACKLUB</b>
+              <b>SNACKCLUB</b>
             </Typography>
             <br />
             <br />

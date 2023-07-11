@@ -25,6 +25,7 @@
     "jsonwebtoken": "^8.5.1",
     "notistack": "^2.0.8",
     "pg": "^8.8.0",
+    "react-icons": "^4.10.1",
     "sequelize": "^6.25.3",
     "stripe": "^10.17.0"
   },

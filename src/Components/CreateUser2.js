@@ -159,7 +159,7 @@ const CreateUser2 = () => {
               variant="contained"
               sx={{ mt: 3, mb: 1, mr: 2, width:"45%" }}
             >
-              Create an Account
+              Create an Accountt
             </Button>
             <Grid container justifyContent="center">
               <Grid item>

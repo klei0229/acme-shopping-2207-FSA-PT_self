@@ -29,7 +29,7 @@ const copper = '#b16132';
 const martinque = '#42385d';
 const bouquet = '#b094ae';
 const watermelon= '#ff6780'
-const pwatermelon= '#f48498'
+const pwatermelon= '#EADED7'
 
 export const Theme = createTheme({
 	palette: {
