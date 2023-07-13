@@ -48,7 +48,14 @@ const Bundle = conn.define('bundle', {
     validate: {
       notEmpty: true,
     }
-  }
+  },
+  tag: {
+    type: STRING,
+    //allowNull: false,
+    validate: {
+      notEmpty: true,
+    }
+  },
 });
 
 module.exports = Bundle;

@@ -16,22 +16,15 @@ import { Item, Typography, Container, Box } from "@mui/material";
 import HeroSection from "../Components2/HeroSection";
 import LandingPageDetailSection from "../Components2/LandingPageDetailSection";
 import Footer from "../Components2/Footer";
-
-const Home = () => {
+import Bundle from "../Components/Bundle/Bundle";
+const Home = (props) => {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   return (
-    <div>
-      {/* <ResponsiveAppBar></ResponsiveAppBar> */}
+    <div className="home-container">
       <Navbar2></Navbar2>
-      <div className="main-container">
-        <HeroSection></HeroSection>
-        <FeaturedProducts></FeaturedProducts>
-        <LandingPageDetailSection></LandingPageDetailSection>
-        <Newsletter></Newsletter>
-        <Footer></Footer>
-      </div>
+
     </div>
   );
 };

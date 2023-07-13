@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const bundles = (state = { product: [] }, action) => {
+const bundles = (state = [], action) => {
 	if (action.type === 'SET_BUNDLES') {
 		return action.bundles;
 	}
