@@ -18,7 +18,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AddIcon from '@mui/icons-material/Add';
 import { useSnackbar } from 'notistack';
 import { addQtyCart, fetchCart } from '../../store';
-
+import ProductDetailPage from '../../Components2/ProductDetailPage';
 const theme = createTheme();
 
 const BundleDetail = () => {
@@ -102,6 +102,7 @@ const BundleDetail = () => {
 
 	return (
 		<ThemeProvider>
+			<ProductDetailPage></ProductDetailPage>
 			<CssBaseline />
 			<div>
 				<Fab
