@@ -22,7 +22,7 @@ import { loginWithToken, fetchCart, fetchBundles } from "../store";
 import { Routes, Route } from "react-router-dom";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-
+import ProductDetailPage from "../Components2/ProductDetailPage";
 import ProductsPage from "../Components2/ProductsPage";
 import Footer from "../Components2/Footer";
 import LandingPage2 from "../Components2/LandingPage2";
@@ -86,8 +86,7 @@ const App = () => {
     <ThemeProvider theme={Theme}>
       <SnackbarProvider maxSnack={3}>
         <div>
-          {auth.id ? <Home></Home> : <Login2 />}
-          {!!auth.id && (
+          {auth.id ? <Home>          {!!auth.id && (
             <div>
               <Routes>
                 <Route path="/" element={<LandingPage2 />} />
@@ -98,6 +97,7 @@ const App = () => {
                 <Route path="/bundles" element={<Bundle />} />
                 <Route path="/snacks" element={<SnacksMainPage />} />
                 <Route path="/bundles/:id" element={<BundleDetail />} />
+                <Route path="/products/:id" element={<ProductDetailPage />} />
                 <Route path="/bundles/featured" element={<BundleFeatured />} />
                 <Route path="/bundles/new" element={<BundleNew />} />
                 <Route path="/bundles/best" element={<BundleBest />} />
@@ -108,7 +108,8 @@ const App = () => {
                 <Route path="/products" element={<ProductsPage/>} />
               </Routes>
             </div>
-          )}
+          )}</Home> : <Login2 />}
+
         </div>
       </SnackbarProvider>
     </ThemeProvider>

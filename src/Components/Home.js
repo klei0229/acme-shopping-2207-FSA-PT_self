@@ -23,8 +23,9 @@ const Home = (props) => {
 
   return (
     <div className="home-container">
+      <Footer></Footer>
       <Navbar2></Navbar2>
-
+      {props.children}
     </div>
   );
 };

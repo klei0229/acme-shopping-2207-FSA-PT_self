@@ -15,7 +15,7 @@ const LandingPage2 = () => {
       <HeroSection></HeroSection>
       <FeaturedProducts></FeaturedProducts>
       <LandingPageDetailSection></LandingPageDetailSection>
-      <Newsletter></Newsletter>
+      <Newsletter></Newsletter>      
     </div>
   );
 };

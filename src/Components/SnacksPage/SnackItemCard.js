@@ -22,8 +22,7 @@ function SnackInfoCard(props) {
 	const boxSX = {
 		width: '10rem',
 		height: '10rem',
-		borderRadius: '50%',
-		backgroundSize: 'contain',
+		backgroundSize: 'cover',
 		backgroundImage: `url(${card.imageURL})`,
 		'&:hover': {
 			// transform: 'scale("150%")',
@@ -35,12 +34,11 @@ function SnackInfoCard(props) {
 
 	return (
 		<div>
-			<CssBaseline />
 			<Card sx={cardSX} style={{ border: 'none', boxShadow: 'none' }}>
 				<CardContent>
 					<Box sx={boxSX}></Box>
 					<br></br>
-					<Typography variant='h5' component='div'>
+					<Typography variant='h6' component='div'>
 						{card.name}
 					</Typography>
 				</CardContent>
