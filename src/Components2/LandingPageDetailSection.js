@@ -10,7 +10,7 @@ const LandingPageDetailSection = () => {
       <div className="detail-container">
         <div className="section-column">
           <div className="two-column-container">
-            <h2>Custom Furniture Built Only For You</h2>
+            <h2>Bundle Subscription: How It Works</h2>
             <p className="detail-container-p">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
               dolorum debitis consectetur reprehenderit non aliquam voluptates

@@ -5,7 +5,7 @@ const HeroSection = () => {
     <div className="hero-outer">
       <div className="hero-section">
         <div className="hero-container-1">
-          <h1 className="hero-header">Design Your Comfort Zone</h1>
+          <h1 className="hero-header">Snack Bundles For Everyone</h1>
           <p className="hero-text">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at
             sed omnis corporis doloremque possimus velit! Repudiandae nisi odit,

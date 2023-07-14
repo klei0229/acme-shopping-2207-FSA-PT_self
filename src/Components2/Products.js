@@ -183,6 +183,7 @@ const Products = (props) => {
       ) : (
         <GridProductView products={products}></GridProductView>
       )}
+
     </div>
   );
 };

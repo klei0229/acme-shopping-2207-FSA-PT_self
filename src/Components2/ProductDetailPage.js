@@ -102,7 +102,7 @@ const ProductDetailPage = () => {
   };
 
   return (
-    <div className="product-detail-page">
+    <div className="product-detail-container">
       <Banner text="Product"></Banner>
       <div className="product-detail-page">
         <CssBaseline />

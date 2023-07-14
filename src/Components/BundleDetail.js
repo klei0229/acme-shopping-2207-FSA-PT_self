@@ -147,6 +147,7 @@ const BundleDetail = () => {
 									fullWidth='true'
 									variant='contained'
 									onClick={addToCart}
+									
 								>
 									Add To Cart
 								</Button>

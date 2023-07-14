@@ -26,6 +26,7 @@ import ProductDetailPage from "../Components2/ProductDetailPage";
 import ProductsPage from "../Components2/ProductsPage";
 import Footer from "../Components2/Footer";
 import LandingPage2 from "../Components2/LandingPage2";
+import About from "../Components2/About"
 
 const black = "#010101";
 const pink = "#ffcfda";
@@ -106,6 +107,7 @@ const App = () => {
                 <Route path="/orders" element={<Orders />} />
                 <Route path="/snacks/:filter" element={<SnacksMainPage />} />
                 <Route path="/products" element={<ProductsPage/>} />
+                <Route path="/about" element={<About/>} />
               </Routes>
             </div>
           )}</Home> : <Login2 />}

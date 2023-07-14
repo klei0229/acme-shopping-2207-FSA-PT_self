@@ -1,7 +1,7 @@
 import React from "react";
 
 const ListProductCard = (props) => {
-  const { name, imageUrl, price, description } = props.product;
+  const { name, imageUrl, price, description,id } = props.product;
   return (
     <div className="list-product-card">
       <div className="list-image-container">
@@ -11,7 +11,7 @@ const ListProductCard = (props) => {
         <h4>{name}</h4>
         <span className="price-span font-size-large">${price}</span>
         <p>{description}</p>
-        <button>Details</button>
+        <button><a href={`#/products/${id}`}>Details</a></button>
       </div>
     </div>
   );
