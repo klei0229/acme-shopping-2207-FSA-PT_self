@@ -12,9 +12,8 @@ const LandingPageDetailSection = () => {
           <div className="two-column-container">
             <h2>Bundle Subscription: How It Works</h2>
             <p className="detail-container-p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-              dolorum debitis consectetur reprehenderit non aliquam voluptates
-              dolore aut vero consequuntur.
+              Simple as 1-2-3: Explore, Choose, Delight - Unwrap Your Perfect
+              Candy & Snack Bundles!
             </p>
           </div>
 

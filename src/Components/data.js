@@ -1,3 +1,6 @@
+import { CgProfile } from "react-icons/cg";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+
 export const data = { companyName: "SNACKCLUB" };
 export const navDataLinks = [
   { name: "home", url: "/" },
@@ -5,8 +8,8 @@ export const navDataLinks = [
   { name: "products", url: "#/products" },
 ];
 export const navButtons = [
-  { name: "cart", url: "/cart" },
-  { name: "settings", url: "/settings" },
+  { name: "cart", url: "#/cart", icon: AiOutlineShoppingCart },
+  // { name: "settings", url: "/settings", icon: CgProfile },
 ];
 
 export const categories = [
@@ -21,3 +24,12 @@ export const categories = [
   "kids",
   "miscellaneous",
 ];
+
+export const settings = [
+  { name: "Profile", url: "#/profile" },
+  { name: "Cart", url: "#/cart" },
+  { name: "Orders", url: "#/orders" },
+];
+
+
+

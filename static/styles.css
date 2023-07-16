@@ -8,7 +8,6 @@
   --color-blue-2: #8eacd0;
 
   --color-font: #617d98;
-
 }
 body {
   font-family: verdana;
@@ -671,7 +670,7 @@ hr {
 
 .product-detail-container {
   width: 100%;
-  padding-bottom:6rem;
+  padding-bottom: 6rem;
 }
 
 .inner-about {
@@ -707,11 +706,73 @@ hr {
   width: 200px;
 }
 
-.newsletter-container p{
+.newsletter-container p {
   letter-spacing: 2px;
 }
 
-.list-product-card a{
-  color:white;
+.list-product-card a {
+  color: white;
   text-decoration: none;
+}
+
+.navbar-icons {
+  font-size: 20px;
+  color: #324d71;
+}
+
+.nav-bar-button {
+  background-color: transparent;
+  padding:2px;
+}
+
+.settings-button {
+  background-color: transparent;
+}
+
+.settings {
+  position: absolute;
+  width: fit-content;
+  padding-left: 0;
+  right: 0;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background-color: white;
+  margin-top: .5rem;
+}
+
+.settings-close {
+  display: none;
+}
+
+.settings-closed {
+  display: none;
+}
+
+.settings li {
+  color: black;
+  padding: 0.75rem;
+}
+.new {
+  position: relative;
+}
+
+.navbar-buttons-container li {
+  /* background-color: pink; */
+  padding: 0.5rem;
+}
+
+.settings li {
+  /* background-color: blue; */
+  padding: 0.5rem;
+}
+
+#logout{
+  background-color: white;
+  padding:0;
+  font-size: 16px;
+  font-family: verdana;
+  text-transform: capitalize;
+}
+
+.logo-container h1{
+  color: #102A42;
 }

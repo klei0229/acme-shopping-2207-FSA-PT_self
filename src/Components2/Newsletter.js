@@ -7,12 +7,11 @@ const Newsletter = () => {
         <h2>Join our newsletter and get 20% off</h2>
         <div className="flex-row center-vertical">
           <p className="news-letter">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-            sint unde quaerat ratione soluta veniam provident adipisci cumque
-            eveniet tempore?
+            Stay Sweetly Updated - Subscribe to Our Newsletter for Exclusive
+            Deals and Tasty Treats!
           </p>
           <input placeholder="Enter Email"></input>
-          <button >Subscribe</button>
+          <button>Subscribe</button>
         </div>
       </div>
     </div>

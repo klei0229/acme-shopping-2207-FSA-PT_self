@@ -7,10 +7,8 @@ const HeroSection = () => {
         <div className="hero-container-1">
           <h1 className="hero-header">Snack Bundles For Everyone</h1>
           <p className="hero-text">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at
-            sed omnis corporis doloremque possimus velit! Repudiandae nisi odit,
-            aperiam odio ducimus, obcaecati libero et quia tempora excepturi
-            quis alias?
+            Discover a World of Sweet Delights - Indulge in the Finest Candy &
+            Snack Bundles!
           </p>
           <button>Shop Now</button>
         </div>
