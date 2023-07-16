@@ -1,12 +1,20 @@
-const Sequelize = require('sequelize');
-const config = {};
+const Sequelize = require("sequelize");
+const config = {
+  dialect: "postgres",
+  dialectOptions: {
+	"ssl": {
+	  "require": true,
+	  "rejectUnauthorized": false
+	}
+  }
+};
 
 if (process.env.QUIET) {
-	config.logging = false;
+  config.logging = false;
 }
 const conn = new Sequelize(
-	process.env.DATABASE_URL || 'postgres://localhost/acme_shopping_db',
-	config
+  process.env.DATABASE_URL || "postgres://localhost/acme_shopping_db",
+  config
 );
 
 module.exports = conn;
