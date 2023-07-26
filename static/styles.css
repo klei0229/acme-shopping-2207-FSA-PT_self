@@ -670,7 +670,7 @@ hr {
 
 .product-detail-container {
   width: 100%;
-  padding-bottom: 6rem;
+  padding-bottom: 10rem;
 }
 
 .inner-about {
@@ -775,4 +775,13 @@ hr {
 
 .logo-container h1{
   color: #102A42;
+}
+
+.about-page{
+  /* background-color: green; */
+  min-height:900px;
+}
+
+.product-detail-container{
+  min-height:900px;
 }
